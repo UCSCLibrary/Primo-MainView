@@ -1,0 +1,46 @@
+/*Uncomment the follwoing lines to move facets to the left*/
+
+/*
+prm-search > md-content.md-primoExplore-theme .main {
+    display: -webkit-flex; !* Safari *!
+    -webkit-flex-flow: row-reverse wrap; !* Safari 6.1+ *!
+    display: flex;
+    flex-flow: row-reverse wrap;
+
+}
+.screen-gt-sm .sidebar{
+    webkit-flex: 0 0 15%;
+    flex: 0 0 15%;
+}
+
+*/
+
+body {
+	font-family:Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+a {
+    color: #006aad;
+    font-weight:500;
+}
+/*set default link color to UCSC library link blue*/
+
+prm-topbar {
+    background-color:#01589d;
+}
+/*set top menu bar bg color to UCSC blue*/
+
+prm-topbar .top-nav-bar {
+    background-color:#01589d;
+}
+/*set top menu bar bg color to UCSC blue, set font color of links to white*/
+
+prm-search-bar {
+	background-color:#11779C;
+}
+/*set bg color on secondary top/search bar -- UCSC library light blue*/
+
+.bar.alert-bar {
+	background-color:#ffcc33;
+}
+/*set bg color of alert/"sign in" bar to UCSC yellow*/
