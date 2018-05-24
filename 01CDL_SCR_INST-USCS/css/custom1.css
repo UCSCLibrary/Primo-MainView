@@ -1,3 +1,5 @@
+
+
 /*Uncomment the follwoing lines to move facets to the left*/
 
 /*
@@ -25,17 +27,12 @@ a {
 }
 /*set default link color to UCSC library link blue*/
 
-prm-topbar {
-    background-color:#01589d;
+.prm-primary-bg.prm-hue1, prm-search-bar.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar {
+    background-color:#0C599B;
 }
 /*set top menu bar bg color to UCSC blue*/
 
-prm-topbar .top-nav-bar {
-    background-color:#01589d;
-}
-/*set top menu bar bg color to UCSC blue, set font color of links to white*/
-
-prm-search-bar {
+prm-search-bar, prm-journals-search-bar, prm-browse-search-bar, prm-tags-search-bar {
 	background-color:#11779C;
 }
 /*set bg color on secondary top/search bar -- UCSC library light blue*/
@@ -44,3 +41,43 @@ prm-search-bar {
 	background-color:#ffcc33;
 }
 /*set bg color of alert/"sign in" bar to UCSC yellow*/
+
+ md-content, md-content.md-primoExplore-theme {
+  	background-color: #eeeeee;border-color: #eeeeee;
+  }
+/*set body background Color to gray */
+
+prm-brief-result-container .list-item-primary-content::before {
+    background-color: #F5F8FA;
+}
+/*set hover over for selected search results to light blue*/
+
+prm-brief-result-container .list-item-primary-content {
+background-color:#FFFFFF;
+}
+/*set search result list background color to white*/
+
+prm-brief-result-container .md-nav-bar {
+  background-color: #FFFFFF;
+}
+/*set brief results 'send to' options row to white background*/
+
+span[translate="nui.suggestions.tooltip"] {
+     display: none;
+ }
+ /*Hides 'recommend items that are releated to the record' text for the bX recommendations*/
+
+ #s-la-widget-7993 {
+     right: 50px;
+    bottom: -2px;
+    height: 40px;
+    width: 50px;
+    position: fixed;
+    -webkit-transition-duration: 0.6s;
+    -moz-transition-duration: 0.6s;
+    -o-transition-duration: 0.6s;
+    transition-duration: 0.6s;
+    background-color: #EEEEEE;
+    z-index: 1000;
+    }
+/*Styles 'Feedback' button -- created via LibAnswers Primo Feedback form widget*/  

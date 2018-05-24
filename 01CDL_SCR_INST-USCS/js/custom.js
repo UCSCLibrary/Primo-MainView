@@ -14,6 +14,17 @@
     /****************************************************************************************************/
 
 
-})
 
-   
+// Adds the chat button
+(function() {
+  var s=document.createElement('script');
+  s.src='https://api2.libanswers.com/1.0/widgets/7993';
+  document.body.appendChild(s);
+  var d=document.createElement('div');
+  d.id='s-la-widget-7993';
+  document.body.appendChild(d);
+ })(); 
+
+}) ();
+
+
