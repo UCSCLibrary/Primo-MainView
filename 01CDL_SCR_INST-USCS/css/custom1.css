@@ -47,6 +47,16 @@ prm-search-bar, prm-journals-search-bar, prm-browse-search-bar, prm-tags-search-
   }
 /*set body background Color to gray */
 
+prm-login > form > md-dialog-content > md-tabs > md-tabs-content-wrapper > md-tab-content > div > md-content.md-primoExplore-theme {
+    background-color:transparent;
+}
+/*set background of Sign-In form to dark transparent*/
+
+prm-main-menu > div > div > md-content.md-primoExplore-theme {
+    background-color:transparent;
+}
+/*set background of main menu seen after opening elipses to dark transparent*/
+
 prm-brief-result-container .list-item-primary-content::before {
     background-color: #F5F8FA;
 }
@@ -81,3 +91,54 @@ span[translate="nui.suggestions.tooltip"] {
     z-index: 1000;
     }
 /*Styles 'Feedback' button -- created via LibAnswers Primo Feedback form widget*/  
+
+.full-view-inner-container {
+    padding-bottom: 10em;
+    display: flex;
+    flex-direction: column;
+}
+/*full record display -- styling provided by ExLibris*/
+
+ 
+
+/*RE-order the Center Sections of the full record display -- styling provided by ExLibris */
+
+#getit_link1_0 { order: 0; }
+
+#getit_link1_1 { order: 1; }
+
+#searchWithinJournal { order: 2; }
+
+#links { order: 3; }
+
+#details { order: 4; }
+
+#action_list{ order: 5; }
+
+#virtualBrowse { order: 6; }
+
+#citationTrails { order: 7; }
+
+
+
+  
+
+/*re-order the Left Navigation on the full record display -- styling provided by ExLibris */
+
+[aria-label="View Online"] { order: 0 !important; }
+
+[aria-label="Get It"] { order: 1 !important; }
+
+[aria-label="How to get it"] { order: 2 !important; }
+
+[aria-label="Search inside"] { order: 3 !important; }
+
+[aria-label="More Links"] { order: 4 !important; }
+
+[aria-label="Details"] { order: 5 !important; }
+
+[aria-label="Send to"] { order: 6 !important; }
+
+[aria-label="Virtual Browse"] { order: 7 !important; }
+
+[aria-label="Citations"] { order: 8 !important; }
