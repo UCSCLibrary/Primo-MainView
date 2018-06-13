@@ -142,9 +142,3 @@ span[translate="nui.suggestions.tooltip"] {
 [aria-label="Virtual Browse"] { order: 7 !important; }
 
 [aria-label="Citations"] { order: 8 !important; }
-
-
-/*Hide Browse from the Header links -- styling provided by ExLibris */
-a[aria-label="Browse"] {
-    display: none !important;
-}
