@@ -62,7 +62,7 @@ prm-brief-result-container .list-item-primary-content::before {
 }
 /*set hover over for selected search results to light blue*/
 
-prm-brief-result-container .list-item-primary-content {
+.list-item-wrapper {
 background-color:#FFFFFF;
 }
 /*set search result list background color to white*/
@@ -99,7 +99,6 @@ span[translate="nui.suggestions.tooltip"] {
 }
 /*full record display -- styling provided by ExLibris*/
 
- 
 
 /*RE-order the Center Sections of the full record display -- styling provided by ExLibris */
 
@@ -120,9 +119,6 @@ span[translate="nui.suggestions.tooltip"] {
 #citationTrails { order: 7; }
 
 
-
-  
-
 /*re-order the Left Navigation on the full record display -- styling provided by ExLibris */
 
 [aria-label="View Online"] { order: 0 !important; }
@@ -142,3 +138,15 @@ span[translate="nui.suggestions.tooltip"] {
 [aria-label="Virtual Browse"] { order: 7 !important; }
 
 [aria-label="Citations"] { order: 8 !important; }
+
+
+[icon-definition="earth"] {
+    display:none;
+}
+/*hides earth icon next to language selection*/
+
+prm-change-lang {display:none;}
+/*hides language selection*/
+
+div.settings-container > div > md-divider.vertical-divider  {display:none;}
+/*hides dividers between my account language and sign in*/
