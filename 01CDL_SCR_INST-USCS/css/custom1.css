@@ -150,3 +150,6 @@ prm-change-lang {display:none;}
 
 div.settings-container > div > md-divider.vertical-divider  {display:none;}
 /*hides dividers between my account language and sign in*/
+
+.summary-brief span {overflow: auto; text-overflow: initial;}
+/*displays horizontal scroll bar for summary holdings in record display*/
