@@ -153,3 +153,15 @@ div.settings-container > div > md-divider.vertical-divider  {display:none;}
 
 .summary-brief span {overflow: auto; text-overflow: initial;}
 /*displays horizontal scroll bar for summary holdings in record display*/
+
+.loan-counter-style {padding-left:50px;}
+/*style message above loans list - message html in nui.loans.counter field*/
+
+@media only screen and (max-width: 600px) {
+.hide-loan-counter-style-mobile {display:none;}
+}
+/*hide the item count and circulation desk portion of message above loans list*/
+
+.results-count {display:block !important;}
+/*force display of Go to ILL portion of message above loans list*/
+
