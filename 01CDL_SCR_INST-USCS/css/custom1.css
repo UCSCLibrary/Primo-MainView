@@ -90,7 +90,7 @@ span[translate="nui.suggestions.tooltip"] {
     background-color: #EEEEEE;
     z-index: 1000;
     }
-/*Styles 'Feedback' button -- created via LibAnswers Primo Feedback form widget*/  
+/*Styles 'Feedback' button -- created via LibAnswers Primo Feedback form widget*/
 
 .full-view-inner-container {
     padding-bottom: 10em;
@@ -165,3 +165,6 @@ div.settings-container > div > md-divider.vertical-divider  {display:none;}
 .results-count {display:block !important;}
 /*force display of Go to ILL portion of message above loans list*/
 
+/* class for hiding things */
+
+.hidden {display:none;}
