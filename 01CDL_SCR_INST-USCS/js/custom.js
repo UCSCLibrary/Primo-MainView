@@ -35,24 +35,24 @@ app.controller('HowovpAfterController', ['$scope', function($scope){
       var relatedLinks = document.evaluate("//span[text()='xyz1121']", document, null, XPathResult.ANY_TYPE, null );
       var ddaLink = relatedLinks.iterateNext();
       if (ddaLink) {
-        ddaLink.parentNode.parentNode.setAttribute("class", "hidden");;
+        ddaLink.parentNode.parentNode.setAttribute("class", "hidden");
       } else {
-        requestPurchase.parentNode.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "hidden");;
+        requestPurchase.parentNode.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "hidden");
       }
     }, 500)
 }]);
 
 app.component('almaHowovpAfter', {
     bindings: { parentCtrl: '<' },
-    controller: 'HowovpAfterController',
+    controller: 'HowovpAfterController'
 });
 //Auto generated code by primo app store DO NOT DELETE!!! -START-
 /*
     hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
     e.g: for hook prmSearchBarAfter (in html prm-search-bar-after) it should be given "SearchBarAfter"
  */
- 
- 
+
+
 app.controller('ServiceLinksAfterController', [function () {
     var vm = this;
 }]);
@@ -116,4 +116,3 @@ app.component('removeSpecificRequestForLocation', {
 
 //Auto generated code by primo app store DO NOT DELETE!!! -END-
 })();
-

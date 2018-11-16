@@ -168,3 +168,15 @@ div.settings-container > div > md-divider.vertical-divider  {display:none;}
 /* class for hiding things */
 
 .hidden {display:none;}
+
+/* change color of dda link to match standard link color */
+
+alma-howovp .md-button {
+   color: #006aad;
+}
+
+alma-howovp a:hover {
+   color: #000;
+   box-shadow: none;
+   background-color: transparent;
+}
