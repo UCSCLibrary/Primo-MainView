@@ -26,6 +26,7 @@ var app = angular.module('viewCustom', ['angularLoad']);
 })();
 
 // Remove Request Purchase button for non-dda items
+/* Commenting this out 1/24/2019 because the update has fixed this issue -- BK
 app.controller('HowovpAfterController', ['$scope', function($scope){
     var vm = this;
     var checkDdaInterval;
@@ -45,7 +46,7 @@ app.controller('HowovpAfterController', ['$scope', function($scope){
 app.component('almaHowovpAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'HowovpAfterController'
-});
+});*/
 //Auto generated code by primo app store DO NOT DELETE!!! -START-
 /*
     hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case
