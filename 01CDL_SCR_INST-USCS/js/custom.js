@@ -47,6 +47,27 @@ app.component('almaHowovpAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'HowovpAfterController'
 });*/
+
+// Add Haven't Found box
+app.controller('SearchResultListAfterController', ['$scope', function($scope){
+    var vm = this;
+    var checkResultsInterval;
+    checkResultsInterval = window.setInterval(function(){
+      var resultCount = angular.element( document.querySelector( '.results-count' ) )[0].innerHTML;
+      resultCount = resultCount.replace(/\D/g,'');
+      if (resultCount > 0){
+        document.getElementById("haventFoundBox").classList.remove('hidden');
+      }
+
+    }, 2000)
+}]);
+
+app.component('prmSearchResultListAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'SearchResultListAfterController',
+    template: '<md-card  id="haventFoundBox" class="hidden"><md-card-title><md-card-title-text><span class="md-headline">Haven\'t found what you\'re looking for?</span></md-card-title-text></md-card-title><md-card-content><md-list role="list" class="md-primoExplore-theme"><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Ask_30px.png"> <a href="https://guides.library.ucsc.edu/ask-a-librarian" target="_blank">Ask a Librarian</a> for expert research help</span></md-list-item><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Melvyl2_30px.png"> Continue your search in <a href="https://ucsc.worldcat.org/" target="_blank">Melvyl</a> to find and request items from other libraries</span></md-list-item><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Database_30px.png"> Try searching <a href="https://scholar.google.com/" target="_blank">Google Scholar</a> or one of the Library\'s <a href="https://guides.library.ucsc.edu/az.php?" target="_blank">research databases</a></span></md-list-item><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Start_30px.png"> Find tips for <a href="https://guides.library.ucsc.edu/writing" target="_blank">starting your research</a> or check out our subject <a href="https://guides.library.ucsc.edu/?b=s" target="_blank">Research Guides</a></span></md-list-item></md-list></md-card-content></md-card>'
+});
+
 //Auto generated code by primo app store DO NOT DELETE!!! -START-
 /*
     hookName is a place holder with should hold the hook name not including "prm" at the beginning and in upper camel case

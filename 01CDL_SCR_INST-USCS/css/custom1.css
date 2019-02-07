@@ -180,3 +180,18 @@ alma-howovp a:hover {
    box-shadow: none;
    background-color: transparent;
 }
+
+/* Styles for Haven't Found Box */
+
+#haventFoundBox {
+    background-color: #f3f3f3;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.03), 0 5px 5px -3px rgba(0,0,0,.07);
+    margin: 10px 0 100px 0;
+    box-sizing: border-box;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+#haventFoundBox img {
+	margin: 0px 8px -10px 0px;
+}
