@@ -18,10 +18,10 @@ var app = angular.module('viewCustom', ['angularLoad']);
 // Adds the chat button
 (function () {
     var s = document.createElement('script');
-    s.src = 'https://api2.libanswers.com/1.0/widgets/7993';
+    s.src = 'https://api2.libanswers.com/1.0/widgets/9392';
     document.body.appendChild(s);
     var d = document.createElement('div');
-    d.id = 's-la-widget-7993';
+    d.id = 's-la-widget-9392';
     document.body.appendChild(d);
 })();
 
@@ -85,7 +85,7 @@ app.controller('SearchResultListAfterController', ['$scope', function($scope){
 app.component('prmSearchResultListAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'SearchResultListAfterController',
-    template: '<md-card  id="haventFoundBox" class="hidden"><md-card-title><md-card-title-text><span class="md-headline">Haven\'t found what you\'re looking for</span></md-card-title-text></md-card-title><md-card-content><md-list role="list" class="md-primoExplore-theme"><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Ask_30px.png"> <a href="https://guides.library.ucsc.edu/ask-a-librarian" target="_blank">Ask a Librarian</a> for expert research help</span></md-list-item><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Melvyl2_30px.png"> <a href="https://melvyl.worldcat.org/search?qt=wc_org_melvyl&q={{$ctrl.getQuery()}}&scope=0&oldscope=&wcsbtn2w=Search" target="_blank">Continue your search in Melvyl</a> to find and request items from other libraries</span></md-list-item><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Database_30px.png"> Try searching <a href="https://scholar.google.com/" target="_blank">Google Scholar</a> or one of the Library\'s <a href="https://guides.library.ucsc.edu/az.php?" target="_blank">research databases</a></span></md-list-item><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Start_30px.png"> Find tips for <a href="https://guides.library.ucsc.edu/writing" target="_blank">starting your research</a> or check out our subject <a href="https://guides.library.ucsc.edu/?b=s" target="_blank">Research Guides</a></span></md-list-item></md-list></md-card-content></md-card>'
+    template: '<md-card  id="haventFoundBox" class="hidden"><md-card-title><md-card-title-text><span class="md-headline">Haven\'t found what you\'re looking for?</span></md-card-title-text></md-card-title><md-card-content><md-list role="list" class="md-primoExplore-theme"><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Ask_30px.png"> <a href="https://guides.library.ucsc.edu/ask-a-librarian" target="_blank">Ask a Librarian</a> for expert research help</span></md-list-item><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Melvyl2_30px.png"> <a href="https://melvyl.worldcat.org/search?qt=wc_org_melvyl&q={{$ctrl.getQuery()}}&scope=0&oldscope=&wcsbtn2w=Search" target="_blank">Continue your search in Melvyl</a> to find and request items from other libraries</span></md-list-item><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Database_30px.png"> Try searching <a href="https://scholar.google.com/" target="_blank">Google Scholar</a> or one of the Library\'s <a href="https://guides.library.ucsc.edu/az.php?" target="_blank">research databases</a></span></md-list-item><md-list-item role="listitem" class="_md-no-proxy _md"><span><img src="https://library.ucsc.edu/sites/default/files/external/images/HFbox_Start_30px.png"> Find tips for <a href="https://guides.library.ucsc.edu/writing" target="_blank">starting your research</a> or check out our subject <a href="https://guides.library.ucsc.edu/?b=s" target="_blank">Research Guides</a></span></md-list-item></md-list></md-card-content></md-card>'
 });
 
 //Auto generated code by primo app store DO NOT DELETE!!! -START-
