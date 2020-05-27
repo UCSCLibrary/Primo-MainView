@@ -77,19 +77,33 @@ span[translate="nui.suggestions.tooltip"] {
  }
  /*Hides 'recommend items that are releated to the record' text for the bX recommendations*/
 
- #s-la-widget-9392 {
-     right: 50px;
-    bottom: -2px;
-    height: 40px;
-    width: 50px;
-    position: fixed;
-    -webkit-transition-duration: 0.6s;
-    -moz-transition-duration: 0.6s;
-    -o-transition-duration: 0.6s;
-    transition-duration: 0.6s;
-    background-color: #EEEEEE;
-    z-index: 1000;
-    }
+#s-la-widget-9392,
+#libchat_d3813658438965a0df80a95fc6312cc4 {
+  right: 50px;
+  bottom: -2px;
+  height: 40px;
+  width: 50px;
+  position: fixed;
+  -webkit-transition-duration: 0.6s;
+  -moz-transition-duration: 0.6s;
+  -o-transition-duration: 0.6s;
+  transition-duration: 0.6s;
+  background-color: #EEEEEE;
+  z-index: 1000;
+}
+#libchat_d3813658438965a0df80a95fc6312cc4 {
+  height: 80px;
+  width: 80px;
+  bottom: 5px;
+  background-color: transparent;
+}
+#libchat_d3813658438965a0df80a95fc6312cc4:hover {
+  filter: saturate(3);
+}
+#libchat_d3813658438965a0df80a95fc6312cc4 a {
+  display: block;
+  border-radius: 10px;
+}
 /*Styles 'Feedback' button -- created via LibAnswers Primo Feedback form widget*/
 
 .full-view-inner-container {
@@ -99,49 +113,32 @@ span[translate="nui.suggestions.tooltip"] {
 }
 /*full record display -- styling provided by ExLibris*/
 
+/*RE-order the Center Sections of the full record display */
+#searchWithinJournal { order: 0; }
+#getit_link1_0 { order: 1; }
+#getit_link1_1 { order: 2; }
+#moreFromTheSameCourse { order: 3; }
+#links { order: 4; }
+#details { order: 5; }
+#action_list{ order: 6; }
+#virtualBrowse { order: 7; }
+#citationTrails { order: 8; }
 
-/*RE-order the Center Sections of the full record display -- styling provided by ExLibris */
-
-#getit_link1_0 { order: 0; }
-
-#getit_link1_1 { order: 1; }
-
-#searchWithinJournal { order: 2; }
-
-#links { order: 3; }
-
-#details { order: 4; }
-
-#action_list{ order: 5; }
-
-#virtualBrowse { order: 6; }
-
-#citationTrails { order: 7; }
-
-
-/*re-order the Left Navigation on the full record display -- styling provided by ExLibris */
-
-[aria-label="View Online"] { order: 0 !important; }
-
-[aria-label="Get It"] { order: 1 !important; }
-
-[aria-label="How to get it"] { order: 2 !important; }
-
-[aria-label="Search inside"] { order: 3 !important; }
-
-[aria-label="More Links"] { order: 4 !important; }
-
-[aria-label="Details"] { order: 5 !important; }
-
-[aria-label="Send to"] { order: 6 !important; }
-
-[aria-label="Virtual Browse"] { order: 7 !important; }
-
-[aria-label="Citations"] { order: 8 !important; }
-
+/*re-order the Left Navigation on the full record display */
+[aria-label="Search Inside"] { order: 0 !important; }
+[aria-label="View Online"] { order: 1 !important; }
+[aria-label="Get It"] { order: 2 !important; }
+[aria-label="How to get it"] { order: 3 !important; }
+[aria-label="Course"] { order: 4 !important; }
+[aria-label="More Links"] { order: 5 !important; }
+[aria-label="Related Links"] { order: 6 !important; }
+[aria-label="Details"] { order: 7 !important; }
+[aria-label="Send To"] { order: 8 !important; }
+[aria-label="Virtual Browse"] { order: 9 !important; }
+[aria-label="Citations"] { order: 10 !important; }
 
 [icon-definition="earth"] {
-    display:none;
+  display:none;
 }
 /*hides earth icon next to language selection*/
 
@@ -182,16 +179,96 @@ alma-howovp a:hover {
 }
 
 /* Styles for Haven't Found Box */
-
 #haventFoundBox {
-    background-color: #f3f3f3;
-    box-shadow: 0 1px 0 0 rgba(0,0,0,.03), 0 5px 5px -3px rgba(0,0,0,.07);
-    margin: 10px 0 100px 0;
-    box-sizing: border-box;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  background-color: #f3f3f3;
+  box-shadow: 0 1px 0 0 rgba(0,0,0,.03), 0 5px 5px -3px rgba(0,0,0,.07);
+  margin: 10px 0 100px 0;
+  box-sizing: border-box;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+#haventFoundBox img {
+  margin: 0px 8px -10px 0px;
+}
+#haventFoundBox .md-headline {
+  text-align: center;
+}
+#haventFoundBox .md-subheadline {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+#haventFoundBox md-card-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+#haventFoundBox md-card-content > div {
+  margin: 10px 20px;
 }
 
-#haventFoundBox img {
-	margin: 0px 8px -10px 0px;
+/* Hide the multi select feature in brief results */
+prm-search-result-tool-bar .toolbar-actions,
+prm-search-result-tool-bar .main-checkbox,
+prm-brief-result-container md-checkbox ._md-container  {
+  display: none;
+}
+prm-brief-result-container .list-item-primary-content.has-checkbox {
+  padding-left: 1.5em;
+}
+prm-brief-result-container .has-checkbox .list-item-count {
+  left: 0;
+}
+
+/* Style the non-DDA login link buttons */
+.non-dda-login-alert {
+  display: flex;
+  flex-wrap: wrap;
+}
+.non-dda-login-alert md-tabs {
+  flex: 0 0 100%;
+  order: 1;
+}
+.non-dda-login-alert prm-alert-bar,
+prm-opac.non-dda-login-alert .layout-column {
+  flex: 0 0 100%;
+  order: 2;
+  margin-top:10px;
+}
+.non-dda-login-alert .bar.alert-bar {
+  background-color: #eee;
+  border-color: #eee;
+}
+
+/* Highlight Available online facet 
+[aria-label="Include Available online selection"] + strong {
+  background-color: #ffc107;
+} */
+
+/* Available online scope help message */
+#scopeLimitationMessage {
+  position: relative;
+  top: 15px;
+  text-align: center;
+  color: #fff;
+}
+#scopeLimitationMessage a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media all and (max-width : 590px) {
+  #scopeLimitationMessage {
+    margin-bottom: 30px;
+  }
+}
+
+/* Increase size of scope selection dropdown menu to show SC&A */
+md-select-menu { 
+  max-height: 300px; 
+}
+md-select-menu md-content {
+  max-height: 300px;
 }
