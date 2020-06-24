@@ -67,20 +67,17 @@ app.controller('SearchResultListAfterController', ['$scope', function($scope){
   }, 2000)
 }]);
 
-
-
 app.component('prmSearchResultListAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'SearchResultListAfterController',
-    template: `<md-card  id="haventFoundBox" class="hidden">
+    template: `
+  <md-card id="haventFoundBox" class="hidden">
   <md-card-title>
     <md-card-title-text>
       <span class="md-headline">Haven\'t found what you\'re looking for?</span>
     </md-card-title-text>
   </md-card-title>
   <md-card-content>
-
-
       <div>
         <span class="md-subheadline">Chat with us for help</span>
         <div id="libchat_d01223b2d5b712cc1cf9015fef8fa534"></div>
@@ -215,7 +212,9 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
 
 }]);
 
-/* Online only message */
+/* Online only message
+ * Adds a clarifying message for the online search scope results page.
+ */
 app.component('prmSearchBarAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'SearchBarAfterController',
@@ -241,7 +240,18 @@ app.controller('SearchBarAfterController', ['$scope', function($scope){
   }
 }]);
 
-// Begin BrowZine - Primo Integration...
+/*
+ *  Overrides Primo's default behavior of not showing the public note on GES
+ *  when they appear as a 'service button' in the GetIt tab.
+ */
+app.component('prmServiceButtonAfter', {
+    bindings: { parentCtrl: '<' },
+    template: '<span class="italic-text weak-text public-note">{{$ctrl.parentCtrl["service"].publicNote}}</span>',
+});
+
+/*
+ *  Begin BrowZine - Primo Integration...
+ */
   window.browzine = {
     api: "https://public-api.thirdiron.com/public/v1/libraries/89",
     apiKey: "1fca6dbe-b86e-4128-b9a7-555bb66f4313",

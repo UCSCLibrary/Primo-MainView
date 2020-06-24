@@ -1,21 +1,19 @@
-
-
 /*Uncomment the follwoing lines to move facets to the left*/
-
 /*
 prm-search > md-content.md-primoExplore-theme .main {
     display: -webkit-flex; !* Safari *!
     -webkit-flex-flow: row-reverse wrap; !* Safari 6.1+ *!
     display: flex;
     flex-flow: row-reverse wrap;
-
 }
 .screen-gt-sm .sidebar{
     webkit-flex: 0 0 15%;
     flex: 0 0 15%;
 }
-
 */
+
+/* class for hiding things */
+.hidden {display:none;}
 
 body {
 	font-family:Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -25,58 +23,58 @@ a {
     color: #006aad;
     font-weight:500;
 }
-/*set default link color to UCSC library link blue*/
 
+/*set default link color to UCSC library link blue*/
 .prm-primary-bg.prm-hue1, prm-search-bar.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar {
     background-color:#0C599B;
 }
-/*set top menu bar bg color to UCSC blue*/
 
+/*set top menu bar bg color to UCSC blue*/
 prm-search-bar, prm-journals-search-bar, prm-browse-search-bar, prm-tags-search-bar {
 	background-color:#11779C;
 }
-/*set bg color on secondary top/search bar -- UCSC library light blue*/
 
+/*set bg color on secondary top/search bar -- UCSC library light blue*/
 .bar.alert-bar {
 	background-color:#ffcc33;
 }
-/*set bg color of alert/"sign in" bar to UCSC yellow*/
 
+/*set bg color of alert/"sign in" bar to UCSC yellow*/
  md-content, md-content.md-primoExplore-theme {
   	background-color: #eeeeee;border-color: #eeeeee;
   }
-/*set body background Color to gray */
 
+/*set body background Color to gray */
 prm-login > form > md-dialog-content > md-tabs > md-tabs-content-wrapper > md-tab-content > div > md-content.md-primoExplore-theme {
     background-color:transparent;
 }
-/*set background of Sign-In form to dark transparent*/
 
+/*set background of Sign-In form to dark transparent*/
 prm-main-menu > div > div > md-content.md-primoExplore-theme {
     background-color:transparent;
 }
-/*set background of main menu seen after opening elipses to dark transparent*/
 
+/*set background of main menu seen after opening elipses to dark transparent*/
 prm-brief-result-container .list-item-primary-content::before {
     background-color: #F5F8FA;
 }
-/*set hover over for selected search results to light blue*/
 
+/*set hover over for selected search results to light blue*/
 .list-item-wrapper {
 background-color:#FFFFFF;
 }
-/*set search result list background color to white*/
 
+/*set search result list background color to white*/
 prm-brief-result-container .md-nav-bar {
   background-color: #FFFFFF;
 }
-/*set brief results 'send to' options row to white background*/
 
+/*set brief results 'send to' options row to white background*/
 span[translate="nui.suggestions.tooltip"] {
      display: none;
  }
- /*Hides 'recommend items that are releated to the record' text for the bX recommendations*/
 
+ /*Hides 'recommend items that are releated to the record' text for the bX recommendations*/
 #s-la-widget-9392,
 #libchat_d3813658438965a0df80a95fc6312cc4 {
   right: 50px;
@@ -104,15 +102,15 @@ span[translate="nui.suggestions.tooltip"] {
   display: block;
   border-radius: 10px;
 }
-/*Styles 'Feedback' button -- created via LibAnswers Primo Feedback form widget*/
 
+/*Styles 'Feedback' button -- created via LibAnswers Primo Feedback form widget*/
 .full-view-inner-container {
     padding-bottom: 10em;
     display: flex;
     flex-direction: column;
 }
-/*full record display -- styling provided by ExLibris*/
 
+/*full record display -- styling provided by ExLibris*/
 /*RE-order the Center Sections of the full record display */
 #searchWithinJournal { order: 0; }
 #getit_link1_0 { order: 1; }
@@ -140,38 +138,33 @@ span[translate="nui.suggestions.tooltip"] {
 [icon-definition="earth"] {
   display:none;
 }
+
 /*hides earth icon next to language selection*/
-
 prm-change-lang {display:none;}
+
 /*hides language selection*/
-
 div.settings-container > div > md-divider.vertical-divider  {display:none;}
+
 /*hides dividers between my account language and sign in*/
-
 .summary-brief span {overflow: auto; text-overflow: initial;}
+
 /*displays horizontal scroll bar for summary holdings in record display*/
-
 .loan-counter-style {padding-left:50px;}
-/*style message above loans list - message html in nui.loans.counter field*/
 
+/*style message above loans list - message html in nui.loans.counter field*/
 @media only screen and (max-width: 600px) {
 .hide-loan-counter-style-mobile {display:none;}
 }
-/*hide the item count and circulation desk portion of message above loans list*/
 
+/*hide the item count and circulation desk portion of message above loans list*/
 .results-count {display:block !important;}
+
 /*force display of Go to ILL portion of message above loans list*/
 
-/* class for hiding things */
-
-.hidden {display:none;}
-
 /* change color of dda link to match standard link color */
-
 alma-howovp .md-button {
    color: #006aad;
 }
-
 alma-howovp a:hover {
    color: #000;
    box-shadow: none;
@@ -271,4 +264,16 @@ md-select-menu {
 }
 md-select-menu md-content {
   max-height: 300px;
+}
+
+/* Display public notes on GES in the GetIt tab */
+prm-service-button .public-note {
+  display: block;
+  padding: .3em .35em;
+  margin: 0 .25em;
+}
+
+/* Hide the "Tweak/Refine my Results" heading */
+#facets h2.sidebar-title {
+  display: none;
 }
