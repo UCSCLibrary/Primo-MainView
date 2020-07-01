@@ -114,6 +114,7 @@ angular.module('googleTagManager').run(function ($rootScope, $interval, tagOptio
 
         gtag('config', tagOptions.siteId, { 
           'allow_ad_personalization_signals': false,
+          'allow_google_signals': false,
           'alwaysSendReferrer': true,
           'anonymizeIp': true
         });
