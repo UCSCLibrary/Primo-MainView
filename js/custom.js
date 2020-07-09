@@ -67,20 +67,17 @@ app.controller('SearchResultListAfterController', ['$scope', function($scope){
   }, 2000)
 }]);
 
-
-
 app.component('prmSearchResultListAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'SearchResultListAfterController',
-    template: `<md-card  id="haventFoundBox" class="hidden">
+    template: `
+  <md-card id="haventFoundBox" class="hidden">
   <md-card-title>
     <md-card-title-text>
       <span class="md-headline">Haven\'t found what you\'re looking for?</span>
     </md-card-title-text>
   </md-card-title>
   <md-card-content>
-
-
       <div>
         <span class="md-subheadline">Chat with us for help</span>
         <div id="libchat_d01223b2d5b712cc1cf9015fef8fa534"></div>
@@ -216,7 +213,9 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
 
 }]);
 
-/* Online only message */
+/* Online only message
+ * Adds a clarifying message for the online search scope results page.
+ */
 app.component('prmSearchBarAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'SearchBarAfterController',
@@ -241,6 +240,67 @@ app.controller('SearchBarAfterController', ['$scope', function($scope){
     return vm.parentCtrl.$stateParams.query;
   }
 }]);
+
+/*
+ *  Overrides Primo's default behavior of not showing the public note on GES
+ *  when they appear as a 'service button' in the GetIt tab.
+ */ /*
+app.component('prmServiceButtonAfter', {
+    bindings: { parentCtrl: '<' },
+    template: '<span class="italic-text weak-text public-note">{{$ctrl.parentCtrl["service"].publicNote}}</span>',
+});
+
+/*
+ *  Begin BrowZine - Primo Integration...
+ */ /*
+  window.browzine = {
+    api: "https://public-api.thirdiron.com/public/v1/libraries/89",
+    apiKey: "1fca6dbe-b86e-4128-b9a7-555bb66f4313",
+ 
+    journalCoverImagesEnabled: true,
+ 
+    journalBrowZineWebLinkTextEnabled: true,
+    journalBrowZineWebLinkText: "View Journal Contents",
+ 
+    articleBrowZineWebLinkTextEnabled: true,
+    articleBrowZineWebLinkText: "View Issue Contents",
+ 
+    articlePDFDownloadLinkEnabled: true,
+    articlePDFDownloadLinkText: "Download PDF",
+ 
+    articleLinkEnabled: true,
+    articleLinkText: "Read Article",
+ 
+    printRecordsIntegrationEnabled: true,
+ 
+    unpaywallEmailAddressKey: "enter-your-email@your-institution-domain.edu",
+ 
+    articlePDFDownloadViaUnpaywallEnabled: true,
+    articlePDFDownloadViaUnpaywallText: "Download PDF (via Unpaywall)",
+ 
+    articleLinkViaUnpaywallEnabled: true,
+    articleLinkViaUnpaywallText: "Read Article (via Unpaywall)",
+ 
+    articleAcceptedManuscriptPDFViaUnpaywallEnabled: true,
+    articleAcceptedManuscriptPDFViaUnpaywallText: "Download PDF (Accepted Manuscript via Unpaywall)",
+ 
+    articleAcceptedManuscriptArticleLinkViaUnpaywallEnabled: true,
+    articleAcceptedManuscriptArticleLinkViaUnpaywallText: "Read Article (Accepted Manuscript via Unpaywall)",
+  };
+ 
+  browzine.script = document.createElement("script");
+  browzine.script.src = "https://s3.amazonaws.com/browzine-adapters/primo/browzine-primo-adapter.js";
+  document.head.appendChild(browzine.script);
+ 
+  app.controller('prmSearchResultAvailabilityLineAfterController', function($scope) {
+    window.browzine.primo.searchResult($scope);
+  });
+ 
+  app.component('prmSearchResultAvailabilityLineAfter', {
+    bindings: { parentCtrl: '<' },
+    controller: 'prmSearchResultAvailabilityLineAfterController'
+  });
+// ... End BrowZine - Primo Integration
 
 /* 
  * AEON code from ExL 
