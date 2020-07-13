@@ -285,7 +285,7 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
 
 /*
  *  Begin BrowZine - Primo Integration...
- */ /*
+ */
   window.browzine = {
     api: "https://public-api.thirdiron.com/public/v1/libraries/89",
     apiKey: "1fca6dbe-b86e-4128-b9a7-555bb66f4313",
