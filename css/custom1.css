@@ -277,3 +277,13 @@ prm-service-button .public-note {
 #facets h2.sidebar-title {
   display: none;
 }
+
+/* Hide Library Catalog and Articles scopes from basic search */
+md-option[value="LibraryCatalog"],
+md-option[value="CentralIndex"] {
+  display: none;
+}
+ul.md-autocomplete-suggestions li:nth-child(5),
+ul.md-autocomplete-suggestions li:nth-child(6) {
+  display: none;
+}
