@@ -273,9 +273,14 @@ prm-service-button .public-note {
   margin: 0 .25em;
 }
 
-/* Hide the "Tweak/Refine my Results" heading */
+/* Hide the "Tweak/Refine my Results" heading, but preserve for screenreaders */
 #facets h2.sidebar-title {
-  display: none;
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
 }
 
 /* Hide Library Catalog and Articles scopes from basic search */
