@@ -292,3 +292,33 @@ ul.md-autocomplete-suggestions li:nth-child(5),
 ul.md-autocomplete-suggestions li:nth-child(6) {
   display: none;
 }
+
+/* Request through Melvyl sidebar */
+#melvylRequestBox {
+  max-width: 210px;
+  background-color: #32579b;
+  color: #fff;
+  position: fixed;
+  top: 500px;
+}
+#melvylRequestBox a {
+  color: #fff;
+  font-weight: bold;
+}
+#melvylRequestBox button {
+  border: none;
+  padding: 0 2px;
+  background-color: #32579b;
+  color: #fff;
+  right: -10px;
+  position: relative;
+  top: -18px;
+}
+#melvylRequestBox button:hover {
+   filter: brightness(80%);
+}
+@media all and (max-width : 1599px) {
+  #melvylRequestBox {
+    display: none;
+  }
+}
