@@ -39,13 +39,7 @@
   browzine.script = document.createElement("script");
   browzine.script.src = "https://s3.amazonaws.com/browzine-adapters/primo/browzine-primo-adapter.js";
   document.head.appendChild(browzine.script);
- 
-  app.controller('prmSearchResultAvailabilityLineAfterController', function($scope) {
-    window.browzine.primo.searchResult($scope);
-  });
- 
-  app.component('prmSearchResultAvailabilityLineAfter', {
-    bindings: { parentCtrl: '<' },
-    controller: 'prmSearchResultAvailabilityLineAfterController'
-  });
+  // IMPORTANT: Upgrade conflict:
+  // Component and controller code moved to hathiTrustAvailability.js
+
 // ... End BrowZine - Primo Integration
