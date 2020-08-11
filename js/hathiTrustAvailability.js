@@ -193,8 +193,7 @@ angular
   app.component('prmSearchResultAvailabilityLineAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'prmSearchResultAvailabilityLineAfterController',
-    template: '<hathi-trust-availability ignore-copyright="true"></hathi-trust-availability>'
-    // entity-id="https://login.ucsc.edu/idp/shibboleth"
+    template: '<hathi-trust-availability ignore-copyright="true" entity-id="urn:mace:incommon:ucsc.edu"></hathi-trust-availability>'
   });
 
   app.controller('prmSearchResultAvailabilityLineAfterController', function($scope) {
