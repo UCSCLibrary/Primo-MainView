@@ -20,22 +20,18 @@ app.component('prmPageNavMenuAfter', {
     </button>
   </md-card-title>
   <md-card-content>
-    <p><a href="https://ucsc.on.worldcat.org/external-search?queryString={{$ctrl.getQuery()}}" target="_blank">Request through Melvyl</a> to borrow books chapters and articles electronically</p>
+    <p><a href="https://ucsc.on.worldcat.org/external-search?queryString={{$ctrl.queryString}}" target="_blank">Request through Melvyl</a> to borrow books chapters and articles electronically</p>
   </md-card-content>
 </md-card>`,
 });
 
 app.controller('PageNavMenuAfterController', ['$scope', '$rootScope', function($scope, $rootScope){
   var vm = this;
-  vm.getQuery = getQuery;
 
   this.$onInit = function() {
     $scope.card = angular.element(document.getElementById("melvylRequestBox"));
-  }
-
-  function getQuery() {
-    $rootScope.$emit("UcscGetQuery", {});
-    return $rootScope.ucscQuery;
+    $rootScope.$emit("UcscGetQuery", ['melvyl']);
+    vm.queryString = $rootScope.ucscQuery;
   }
 
   $scope.onClose = function() {
