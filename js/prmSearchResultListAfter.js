@@ -19,23 +19,22 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
   document.head.appendChild(libchat);
 
   // Returns the query as a string in a format ready to export
-  function getQuery(format = 'primo') {
-    //console.log(format);
-    var query = vm.parentCtrl.$stateParams.query;
-    // For advanced search, iterate through query array and format its elements.
-    if (typeof query === 'object') {
+  function getQuery(format = 'melvyl') {
+    // For advanced search query is an object, iterate through the array and format its elements.
+    if (typeof vm.parentCtrl.$stateParams.query === 'object') {
+      var query = vm.parentCtrl.$stateParams.query.slice();
       for (var i = 0; i < query.length; i++) {
-        console.log(query);
         query[i] = formatQuery(query[i], format, i);
         // Check the last element for the extraneous " AND"
         if (i == (query.length - 1)) {
-          query[i] = (query[i].endsWith(' AND')) ? query[i].trimRight(' AND') : query[i];
+          query[i] = (query[i].endsWith(' AND')) ? query[i].replace(' AND','') : query[i];
         }
       }
-      // Combine the query into a single string
-      query = (format == 'primo') ? query.join('&query=') : query.join(' ');
+      // Combine the query into a single string, no spaces in combined hathi queries
+      query = (format == 'hathi') ? query.join('') : query.join(' ');
     } else {
       // For basic search query is a string, so just format the one piece.
+      var query = vm.parentCtrl.$stateParams.query;
       query = formatQuery(query, format, 0);
       query = (query.endsWith(' AND')) ? query.trimRight(' AND') : query;
     }
@@ -47,9 +46,6 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
     var parts = query.split(',');
 
     switch(format) {
-
-      case 'primo':
-        break;
 
       case 'melvyl':
         var field = 'foo';
