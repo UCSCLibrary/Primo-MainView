@@ -281,11 +281,9 @@ prm-service-button .public-note {
   width:1px;
   height:1px;
   overflow:hidden;
-<<<<<<< HEAD:css/custom1.css
-=======
 }
 
-/* Hide Library Catalog and Articles scopes from basic search */
+/* Hide Library Catalog and Articles scopes from basic search 
 md-option[value="LibraryCatalog"],
 md-option[value="CentralIndex"] {
   display: none;
@@ -293,7 +291,7 @@ md-option[value="CentralIndex"] {
 ul.md-autocomplete-suggestions li:nth-child(5),
 ul.md-autocomplete-suggestions li:nth-child(6) {
   display: none;
-}
+} */
 
 /* Request through Melvyl sidebar */
 #melvylRequestBox {
@@ -323,5 +321,4 @@ ul.md-autocomplete-suggestions li:nth-child(6) {
   #melvylRequestBox {
     display: none;
   }
->>>>>>> sandbox:css/ucsc.css
 }
