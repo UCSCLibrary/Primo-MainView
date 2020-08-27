@@ -273,7 +273,7 @@ prm-service-button .public-note {
   margin: 0 .25em;
 }
 
-/* Hide the "Tweak/Refine my Results" heading */
+/* Hide the "Tweak/Refine my Results" heading, but preserve for screenreaders */
 #facets h2.sidebar-title {
   position:absolute;
   left:-10000px;
@@ -281,4 +281,47 @@ prm-service-button .public-note {
   width:1px;
   height:1px;
   overflow:hidden;
+<<<<<<< HEAD:css/custom1.css
+=======
+}
+
+/* Hide Library Catalog and Articles scopes from basic search */
+md-option[value="LibraryCatalog"],
+md-option[value="CentralIndex"] {
+  display: none;
+}
+ul.md-autocomplete-suggestions li:nth-child(5),
+ul.md-autocomplete-suggestions li:nth-child(6) {
+  display: none;
+}
+
+/* Request through Melvyl sidebar */
+#melvylRequestBox {
+  max-width: 210px;
+  background-color: #32579b;
+  color: #fff;
+  position: fixed;
+  top: 500px;
+}
+#melvylRequestBox a {
+  color: #fff;
+  font-weight: bold;
+}
+#melvylRequestBox button {
+  border: none;
+  padding: 0 2px;
+  background-color: #32579b;
+  color: #fff;
+  right: -10px;
+  position: relative;
+  top: -18px;
+}
+#melvylRequestBox button:hover {
+   filter: brightness(80%);
+}
+@media all and (max-width : 1599px) {
+  #melvylRequestBox {
+    display: none;
+  }
+>>>>>>> sandbox:css/ucsc.css
 }
