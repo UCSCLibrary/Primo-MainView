@@ -1,6 +1,7 @@
 /*
  *  Adds a Melyvl "didn't find it?" box on search results
  */
+ /*
 app.component('prmPageNavMenuAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'PageNavMenuAfterController',
@@ -38,3 +39,4 @@ app.controller('PageNavMenuAfterController', ['$scope', '$rootScope', function($
     $scope.card.addClass('hidden');
   }
 }]);
+*/
