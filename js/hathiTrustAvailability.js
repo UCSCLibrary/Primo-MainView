@@ -1,3 +1,4 @@
+/* Adapted from https://github.com/UMNLibraries/primo-explore-hathitrust-availability */
 angular
   .module('hathiTrustAvailability', [])
   .constant(
