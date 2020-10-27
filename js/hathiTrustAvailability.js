@@ -97,9 +97,26 @@ angular
           return;
         }
 
+        // prevent mismatched records from linking
+        if (isMismatched()) {
+          return;
+        }
+
         // look for full text at HathiTrust
         updateHathiTrustAvailability();
       };
+
+      // New function to suppress mismatched records
+      var isMismatched = function() {
+        if (typeof self.prmSearchResultAvailabilityLine.result.pnx.addata.isbn !== 'undefined') {
+          var isbn = self.prmSearchResultAvailabilityLine.result.pnx.addata.isbn[0];
+          // The wisdom of the outlaw : the boyhood deeds of Finn in Gaelic narrative tradition
+          if (isbn == '0520052846') {
+            return true;
+          }
+        }
+        return false;
+      }
 
       var isJournal = function () {
         var format =
