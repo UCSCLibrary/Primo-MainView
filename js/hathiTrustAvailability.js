@@ -98,9 +98,9 @@ angular
         }
 
         // prevent mismatched records from linking
-        if (isMismatched()) {
-          return;
-        }
+        //if (isMismatched()) {
+        //  return;
+        //}
 
         // look for full text at HathiTrust
         updateHathiTrustAvailability();
@@ -111,9 +111,7 @@ angular
         if (typeof self.prmSearchResultAvailabilityLine.result.pnx.display.mms[0] !== 'undefined') {
           var mmsid = self.prmSearchResultAvailabilityLine.result.pnx.display.mms[0];
           //  SPC scope: A midsummer night's dream video Shakespeare Santa Cruz 1991
-          if (mmsid == '991015985179704876') { return true; }
-          // The wisdom of the outlaw : the boyhood deeds of Finn in Gaelic narrative tradition
-          if (mmsid == '991009204669704876') { return true; }
+          //if (mmsid == '991015985179704876') { return true; }
         }
         return false;
       }
