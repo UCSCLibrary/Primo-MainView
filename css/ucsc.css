@@ -205,15 +205,16 @@ alma-howovp a:hover {
 /* Hide the multi select feature in brief results */
 prm-search-result-tool-bar .toolbar-actions,
 prm-search-result-tool-bar .main-checkbox,
-prm-brief-result-container md-checkbox ._md-container  {
+prm-brief-result-container md-checkbox,
+prm-brief-result-container .has-checkbox .list-item-count {
   display: none;
 }
 prm-brief-result-container .list-item-primary-content.has-checkbox {
   padding-left: 1.5em;
 }
-prm-brief-result-container .has-checkbox .list-item-count {
+/*prm-brief-result-container .has-checkbox .list-item-count {
   left: 0;
-}
+}*/
 
 /* Style the non-DDA login link buttons */
 .non-dda-login-alert {
