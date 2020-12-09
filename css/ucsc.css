@@ -322,3 +322,23 @@ ul.md-autocomplete-suggestions li:nth-child(6) {
     display: none;
   }
 }
+
+/* Identify trial databases */
+.trial-indicator { margin-top: 8px; }
+.trial-indicator img {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.trial-indicator span {
+  position: relative;
+  top: -5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Hide unnecessary 'Full Text Availiability' text in the ViewIt tab. */
+prm-alma-viewit-items h4 {
+  display: none;
+}

@@ -98,9 +98,9 @@ angular
         }
 
         // prevent mismatched records from linking
-        if (isMismatched()) {
-          return;
-        }
+        //if (isMismatched()) {
+        //  return;
+        //}
 
         // look for full text at HathiTrust
         updateHathiTrustAvailability();
@@ -108,12 +108,10 @@ angular
 
       // New function to suppress mismatched records
       var isMismatched = function() {
-        if (typeof self.prmSearchResultAvailabilityLine.result.pnx.addata.isbn !== 'undefined') {
-          var isbn = self.prmSearchResultAvailabilityLine.result.pnx.addata.isbn[0];
-          // The wisdom of the outlaw : the boyhood deeds of Finn in Gaelic narrative tradition
-          if (isbn == '0520052846') {
-            return true;
-          }
+        if (typeof self.prmSearchResultAvailabilityLine.result.pnx.display.mms[0] !== 'undefined') {
+          var mmsid = self.prmSearchResultAvailabilityLine.result.pnx.display.mms[0];
+          //  SPC scope: A midsummer night's dream video Shakespeare Santa Cruz 1991
+          //if (mmsid == '991015985179704876') { return true; }
         }
         return false;
       }
