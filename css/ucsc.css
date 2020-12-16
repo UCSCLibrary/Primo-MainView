@@ -1,17 +1,3 @@
-/*Uncomment the follwoing lines to move facets to the left*/
-/*
-prm-search > md-content.md-primoExplore-theme .main {
-    display: -webkit-flex; !* Safari *!
-    -webkit-flex-flow: row-reverse wrap; !* Safari 6.1+ *!
-    display: flex;
-    flex-flow: row-reverse wrap;
-}
-.screen-gt-sm .sidebar{
-    webkit-flex: 0 0 15%;
-    flex: 0 0 15%;
-}
-*/
-
 /* class for hiding things */
 .hidden {display:none;}
 
@@ -19,65 +5,66 @@ body {
 	font-family:Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+/*set default link color to UCSC library link blue*/
 a {
     color: #006aad;
     font-weight:500;
 }
 
-/*set default link color to UCSC library link blue*/
+/*set top menu bar bg color to UCSC blue*/
 .prm-primary-bg.prm-hue1, prm-search-bar.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar {
     background-color:#0C599B;
 }
 
-/*set top menu bar bg color to UCSC blue*/
+/*set bg color on secondary top/search bar -- UCSC library light blue*/
 prm-search-bar, prm-journals-search-bar, prm-browse-search-bar, prm-tags-search-bar {
 	background-color:#11779C;
 }
 
-/*set bg color on secondary top/search bar -- UCSC library light blue*/
+/*set bg color of alert/"sign in" bar to UCSC yellow*/
 .bar.alert-bar {
 	background-color:#ffcc33;
 }
 
-/*set bg color of alert/"sign in" bar to UCSC yellow*/
+/*set body background Color to gray */
  md-content, md-content.md-primoExplore-theme {
   	background-color: #eeeeee;border-color: #eeeeee;
   }
 
-/*set body background Color to gray */
+/*set background of Sign-In form to dark transparent*/
 prm-login > form > md-dialog-content > md-tabs > md-tabs-content-wrapper > md-tab-content > div > md-content.md-primoExplore-theme {
     background-color:transparent;
 }
 
-/*set background of Sign-In form to dark transparent*/
+/*set background of main menu seen after opening elipses to dark transparent*/
 prm-main-menu > div > div > md-content.md-primoExplore-theme {
     background-color:transparent;
 }
 
-/*set background of main menu seen after opening elipses to dark transparent*/
+/*set hover over for selected search results to light blue*/
 prm-brief-result-container .list-item-primary-content::before {
     background-color: #F5F8FA;
 }
 
-/*set hover over for selected search results to light blue*/
+/*set search result list background color to white*/
 .list-item-wrapper {
 background-color:#FFFFFF;
 }
 
-/*set search result list background color to white*/
+/*set brief results 'send to' options row to white background*/
 prm-brief-result-container .md-nav-bar {
   background-color: #FFFFFF;
 }
 
-/*set brief results 'send to' options row to white background*/
+ /*Hides 'recommend items that are releated to the record' text for the bX recommendations*/
 span[translate="nui.suggestions.tooltip"] {
      display: none;
  }
 
- /*Hides 'recommend items that are releated to the record' text for the bX recommendations*/
+/* Libchat Ask Us button */
 #s-la-widget-9392,
 #libchat_d3813658438965a0df80a95fc6312cc4 {
-  right: 50px;
+  right: 0;
   bottom: -2px;
   height: 40px;
   width: 50px;
@@ -102,15 +89,20 @@ span[translate="nui.suggestions.tooltip"] {
   display: block;
   border-radius: 10px;
 }
+@media all and (min-width: 600px) {
+  #s-la-widget-9392,
+  #libchat_d3813658438965a0df80a95fc6312cc4 {
+    right: 50px;
+  }
+}
 
-/*Styles 'Feedback' button -- created via LibAnswers Primo Feedback form widget*/
+/*full record display -- styling provided by ExLibris*/
 .full-view-inner-container {
     padding-bottom: 10em;
     display: flex;
     flex-direction: column;
 }
 
-/*full record display -- styling provided by ExLibris*/
 /*RE-order the Center Sections of the full record display */
 #searchWithinJournal { order: 0; }
 #getit_link1_0 { order: 1; }
@@ -135,31 +127,30 @@ span[translate="nui.suggestions.tooltip"] {
 [aria-label="Virtual Browse"] { order: 9 !important; }
 [aria-label="Citations"] { order: 10 !important; }
 
+/*hides earth icon next to language selection*/
 [icon-definition="earth"] {
   display:none;
 }
 
-/*hides earth icon next to language selection*/
+/*hides language selection*/
 prm-change-lang {display:none;}
 
-/*hides language selection*/
+/*hides dividers between my account language and sign in*/
 div.settings-container > div > md-divider.vertical-divider  {display:none;}
 
-/*hides dividers between my account language and sign in*/
+/*displays horizontal scroll bar for summary holdings in record display*/
 .summary-brief span {overflow: auto; text-overflow: initial;}
 
-/*displays horizontal scroll bar for summary holdings in record display*/
+/*style message above loans list - message html in nui.loans.counter field*/
 .loan-counter-style {padding-left:50px;}
 
-/*style message above loans list - message html in nui.loans.counter field*/
+/*hide the item count and circulation desk portion of message above loans list*/
 @media only screen and (max-width: 600px) {
 .hide-loan-counter-style-mobile {display:none;}
 }
 
-/*hide the item count and circulation desk portion of message above loans list*/
-.results-count {display:block !important;}
-
 /*force display of Go to ILL portion of message above loans list*/
+.results-count {display:block !important;}
 
 /* change color of dda link to match standard link color */
 alma-howovp .md-button {
@@ -180,9 +171,6 @@ alma-howovp a:hover {
   -ms-flex-direction: column;
   flex-direction: column;
 }
-#haventFoundBox img {
-  margin: 0px 8px -10px 0px;
-}
 #haventFoundBox .md-headline {
   text-align: center;
 }
@@ -197,9 +185,56 @@ alma-howovp a:hover {
   flex-flow: row wrap;
   justify-content: center;
   align-items: flex-start;
+  color: #555;
 }
 #haventFoundBox md-card-content > div {
   margin: 10px 20px;
+}
+#haventFoundBox md-list-item {
+  align-items: flex-start;
+  margin-bottom: 15px;
+  padding-left: 0;
+}
+#haventFoundBox md-list-item > div {
+  float: left;
+}
+#haventFoundBox md-list-item a { font-size: 17px; }
+#haventFoundBox md-list-item p { margin: 0 0 .2em; }
+#haventFoundBox img {
+  margin: 0px 8px -10px 0px;
+}
+@media all and (min-width: 600px) {
+  #haventFoundBox md-card-content {
+    flex-flow: row nowrap;
+  }
+}
+
+/* Didn't Find it? sidebar jump button */
+#findItButton {
+  position: fixed;
+  bottom: 50px;
+  left: -51px;
+  transform: rotate(90deg);
+  min-height: auto;
+  border-radius: 0px;
+  background-color: #32579b;
+  color: #fff;
+  font-weight: bold;
+  text-transform: none;
+  line-height: 26px;
+}
+#findItButton:hover {
+   background-color: #ddd;
+   color: #32579b;
+}
+@media all and (min-width: 600px) {
+  #findItButton {
+    bottom: auto;
+    top: 365px;
+  }
+}
+@media all and (min-width: 1280px) {
+  #findItButton { top: 600px; }
 }
 
 /* Hide the multi select feature in brief results */
@@ -209,10 +244,20 @@ prm-brief-result-container md-checkbox {
   display: none;
 }
 prm-brief-result-container .list-item-primary-content.has-checkbox {
-  padding-left: 1.5em;
+  padding-left: 2em;
 }
 prm-brief-result-container .has-checkbox .list-item-count {
   left: 0;
+}
+@media all and (min-width: 600px) {
+  prm-brief-result-container .list-item-primary-content.has-checkbox {
+    padding-left: 1.5em;
+  }
+}
+
+/* Give results text some padding on mobile */
+.__xs prm-brief-result-container .result-item-text {
+  padding-left: 0.5em;
 }
 
 /* Style the non-DDA login link buttons */
@@ -293,36 +338,6 @@ ul.md-autocomplete-suggestions li:nth-child(6) {
   display: none;
 }
 
-/* Request through Melvyl sidebar */
-#melvylRequestBox {
-  max-width: 210px;
-  background-color: #32579b;
-  color: #fff;
-  position: fixed;
-  top: 500px;
-}
-#melvylRequestBox a {
-  color: #fff;
-  font-weight: bold;
-}
-#melvylRequestBox button {
-  border: none;
-  padding: 0 2px;
-  background-color: #32579b;
-  color: #fff;
-  right: -10px;
-  position: relative;
-  top: -18px;
-}
-#melvylRequestBox button:hover {
-   filter: brightness(80%);
-}
-@media all and (max-width : 1599px) {
-  #melvylRequestBox {
-    display: none;
-  }
-}
-
 /* Identify trial databases */
 .trial-indicator { margin-top: 8px; }
 .trial-indicator img {
@@ -342,3 +357,17 @@ ul.md-autocomplete-suggestions li:nth-child(6) {
 prm-alma-viewit-items h4 {
   display: none;
 }
+
+/*Uncomment the follwoing lines to move facets to the left*/
+/*
+prm-search > md-content.md-primoExplore-theme .main {
+    display: -webkit-flex; !* Safari *!
+    -webkit-flex-flow: row-reverse wrap; !* Safari 6.1+ *!
+    display: flex;
+    flex-flow: row-reverse wrap;
+}
+.screen-gt-sm .sidebar{
+    webkit-flex: 0 0 15%;
+    flex: 0 0 15%;
+}
+*/
