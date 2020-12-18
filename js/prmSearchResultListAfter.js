@@ -84,7 +84,7 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
   checkResultsInterval = window.setInterval(function(){
     var resultCount = angular.element( document.querySelector( 'prm-no-search-result' ) );
     if (Object.keys(resultCount).length === 0) {
-      document.getElementById("haventFoundBox").classList.remove('hidden');
+      document.getElementById("findItBox").classList.remove('hidden');
     }
   }, 2000)
 }]);
@@ -93,11 +93,12 @@ app.component('prmSearchResultListAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'SearchResultListAfterController',
     template: `
-  <a name="haventFoundBox"></a>
-  <md-card id="haventFoundBox" class="hidden">
+  <md-button id='findItButton' class='md-raised' onclick="document.getElementById('findItBox').scrollIntoView({behavior: 'smooth'});">Didn't Find It ?</md-button>
+  <a name="findItBox"></a>
+  <md-card id="findItBox" class="hidden">
   <md-card-title>
     <md-card-title-text>
-      <span class="md-headline">Haven\'t found what you\'re looking for?</span>
+      <span class="md-headline">Didn\'t find it?</span>
     </md-card-title-text>
   </md-card-title>
   <md-card-content>

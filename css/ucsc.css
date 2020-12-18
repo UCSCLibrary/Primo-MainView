@@ -2,22 +2,27 @@
 .hidden {display:none;}
 
 body {
-	font-family:Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 /*set default link color to UCSC library link blue*/
 a {
-    color: #006aad;
-    font-weight:500;
+  color: #006aad;
+  font-weight:500;
 }
 
 /*set top menu bar bg color to UCSC blue*/
-.prm-primary-bg.prm-hue1, prm-search-bar.prm-hue1, prm-spinner.prm-hue1.overlay-cover.light-on-dark:after, prm-topbar .top-nav-bar {
-    background-color:#0C599B;
+.prm-primary-bg.prm-hue1, prm-search-bar.prm-hue1,
+prm-spinner.prm-hue1.overlay-cover.light-on-dark:after,
+prm-topbar .top-nav-bar {
+  background-color:#0C599B;
 }
 
 /*set bg color on secondary top/search bar -- UCSC library light blue*/
-prm-search-bar, prm-journals-search-bar, prm-browse-search-bar, prm-tags-search-bar {
+prm-search-bar,
+prm-journals-search-bar,
+prm-browse-search-bar,
+prm-tags-search-bar {
 	background-color:#11779C;
 }
 
@@ -27,33 +32,35 @@ prm-search-bar, prm-journals-search-bar, prm-browse-search-bar, prm-tags-search-
 }
 
 /*set body background Color to gray */
- md-content, md-content.md-primoExplore-theme {
-  	background-color: #eeeeee;border-color: #eeeeee;
-  }
+md-content,
+md-content.md-primoExplore-theme {
+  background-color: #eee;
+  border-color: #eee;
+}
 
 /*set background of Sign-In form to dark transparent*/
 prm-login > form > md-dialog-content > md-tabs > md-tabs-content-wrapper > md-tab-content > div > md-content.md-primoExplore-theme {
-    background-color:transparent;
+  background-color:transparent;
 }
 
 /*set background of main menu seen after opening elipses to dark transparent*/
 prm-main-menu > div > div > md-content.md-primoExplore-theme {
-    background-color:transparent;
+  background-color:transparent;
 }
 
 /*set hover over for selected search results to light blue*/
 prm-brief-result-container .list-item-primary-content::before {
-    background-color: #F5F8FA;
+  background-color: #F5F8FA;
 }
 
 /*set search result list background color to white*/
 .list-item-wrapper {
-background-color:#FFFFFF;
+  background-color: #fff;
 }
 
 /*set brief results 'send to' options row to white background*/
 prm-brief-result-container .md-nav-bar {
-  background-color: #FFFFFF;
+  background-color: #fff;
 }
 
  /*Hides 'recommend items that are releated to the record' text for the bX recommendations*/
@@ -98,9 +105,9 @@ span[translate="nui.suggestions.tooltip"] {
 
 /*full record display -- styling provided by ExLibris*/
 .full-view-inner-container {
-    padding-bottom: 10em;
-    display: flex;
-    flex-direction: column;
+  padding-bottom: 10em;
+  display: flex;
+  flex-direction: column;
 }
 
 /*RE-order the Center Sections of the full record display */
@@ -130,12 +137,10 @@ span[translate="nui.suggestions.tooltip"] {
 [aria-label="Citations"] { order: 11 !important; }
 
 /*hides earth icon next to language selection*/
-[icon-definition="earth"] {
-  display:none;
-}
+[icon-definition="earth"] { display:none; }
 
 /*hides language selection*/
-prm-change-lang {display:none;}
+prm-change-lang { display:none; }
 
 /*hides dividers between my account language and sign in*/
 div.settings-container > div > md-divider.vertical-divider  {display:none;}
@@ -156,16 +161,16 @@ div.settings-container > div > md-divider.vertical-divider  {display:none;}
 
 /* change color of dda link to match standard link color */
 alma-howovp .md-button {
-   color: #006aad;
+  color: #006aad;
 }
 alma-howovp a:hover {
-   color: #000;
-   box-shadow: none;
-   background-color: transparent;
+  color: #000;
+  box-shadow: none;
+  background-color: transparent;
 }
 
 /* Styles for Haven't Found Box */
-#haventFoundBox {
+#findItBox {
   background-color: #f3f3f3;
   box-shadow: 0 1px 0 0 rgba(0,0,0,.03), 0 5px 5px -3px rgba(0,0,0,.07);
   margin: 10px 0 100px 0;
@@ -173,40 +178,40 @@ alma-howovp a:hover {
   -ms-flex-direction: column;
   flex-direction: column;
 }
-#haventFoundBox .md-headline {
+#findItBox .md-headline {
   text-align: center;
 }
-#haventFoundBox .md-subheadline {
+#findItBox .md-subheadline {
   display: inline-block;
   font-size: 20px;
   font-weight: 300;
   margin-bottom: 15px;
 }
-#haventFoundBox md-card-content {
+#findItBox md-card-content {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: flex-start;
   color: #555;
 }
-#haventFoundBox md-card-content > div {
+#findItBox md-card-content > div {
   margin: 10px 20px;
 }
-#haventFoundBox md-list-item {
+#findItBox md-list-item {
   align-items: flex-start;
   margin-bottom: 15px;
   padding-left: 0;
 }
-#haventFoundBox md-list-item > div {
+#findItBox md-list-item > div {
   float: left;
 }
-#haventFoundBox md-list-item a { font-size: 17px; }
-#haventFoundBox md-list-item p { margin: 0 0 .2em; }
-#haventFoundBox img {
+#findItBox md-list-item a { font-size: 17px; }
+#findItBox md-list-item p { margin: 0 0 .2em; }
+#findItBox img {
   margin: 0px 8px -10px 0px;
 }
 @media all and (min-width: 600px) {
-  #haventFoundBox md-card-content {
+  #findItBox md-card-content {
     flex-flow: row nowrap;
   }
 }
@@ -234,9 +239,6 @@ alma-howovp a:hover {
     bottom: auto;
     top: 365px;
   }
-}
-@media all and (min-width: 1280px) {
-  #findItButton { top: 600px; }
 }
 
 /* Hide the multi select feature in brief results */
