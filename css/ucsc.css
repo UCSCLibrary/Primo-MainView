@@ -358,8 +358,11 @@ ul.md-autocomplete-suggestions li:nth-child(6) {
 }
 
 /* Hide unnecessary 'Full Text Availiability' text in the ViewIt tab. */
-prm-alma-viewit-items h4 {
+prm-alma-viewit-items .in-element-dialog-context h4.bold-text {
   display: none;
+}
+prm-alma-viewit-items h4.ng-scope {
+  display: inherit;
 }
 
 /*Uncomment the follwoing lines to move facets to the left*/
