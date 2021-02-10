@@ -119,6 +119,7 @@ app.component('prmSearchResultListAfter', {
             <p>Request book chapters and articles from other libraries</p>
           </div>
         </md-list-item>
+        <!--
         <md-list-item role="listitem" class="_md-no-proxy _md">
           <div>
             <a href="https://babel.hathitrust.org/cgi/ls?{{$ctrl.queryStringHathi}}a=srchls;lmt=ft&signon=swle:urn:mace:incommon:ucsc.edu" target="_blank"><img src="https://library.ucsc.edu/sites/default/files/HathiTrust_icon.png" width="35" height="35" alt="HathiTrust Logo" /></a>
@@ -127,7 +128,7 @@ app.component('prmSearchResultListAfter', {
             <p><a href="https://babel.hathitrust.org/cgi/ls?{{$ctrl.queryStringHathi}}a=srchls;lmt=ft&signon=swle:urn:mace:incommon:ucsc.edu" target="_blank">HathiTrust</a></p>
             <p>Digitized books and journals from the UC's physical collections</p>
           </div>
-        </md-list-item>
+        </md-list-item> -->
 
         <span class="md-subheadline" style="margin-top:15px;">Tell us what you need</span>
         <md-list-item role="listitem" class="_md-no-proxy _md">
