@@ -3,7 +3,7 @@
  */
   window.browzine = {
     api: "https://public-api.thirdiron.com/public/v1/libraries/89",
-    apiKey: "1fca6dbe-b86e-4128-b9a7-555bb66f4313",
+    apiKey: "19142e7e-026a-4466-8a20-05a3f1735152",
  
     journalCoverImagesEnabled: true,
  
