@@ -332,13 +332,13 @@ prm-service-button .public-note {
   overflow:hidden;
 }
 
-/* Hide Library Catalog and Articles scopes from basic search */
+/* Hide Library Catalog and Articles scopes from basic search
+   In test, the 6th child is worldcat, enable this */
 md-option[value="LibraryCatalog"],
 md-option[value="CentralIndex"] {
   display: none;
 }
-ul.md-autocomplete-suggestions li:nth-child(5),
-ul.md-autocomplete-suggestions li:nth-child(6) {
+ul.md-autocomplete-suggestions li:nth-child(5) {
   display: none;
 }
 
