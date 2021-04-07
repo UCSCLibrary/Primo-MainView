@@ -1,13 +1,17 @@
-/* Online only message
+/* UC Library Search logo
+ * Code adapted from CSU Central Package by David Walker
+ * https://github.com/dswalker/csu-central-package/
+ *
+ * Online only message
  * Adds a clarifying message for the online search scope results page.
  */
 app.component('prmSearchBarAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'SearchBarAfterController',
-    template: '<div id="scopeLimitationMessage" class="hidden"><p>Only showing items available online. <a href="/discovery/search?query={{$ctrl.queryString}}&tab=Everything&search_scope=MyInst_and_CI&vid=01CDL_SCR_INST:USCS&offset=0">Click to include print and other physical items.</a></p></div>',
+    templateUrl: 'custom/01CDL_SCR_INST-USCS/html/prmSearchBarAfter.html',
 });
 
-app.controller('SearchBarAfterController', ['$scope', '$rootScope', function($scope, $rootScope){
+app.controller('SearchBarAfterController', ['$scope', '$rootScope', '$location', '$window', function($scope, $rootScope, $location, $window){
   var vm = this;
 
   // Only present this information on the Available Online scope.
@@ -26,4 +30,21 @@ app.controller('SearchBarAfterController', ['$scope', '$rootScope', function($sc
       vm.queryString = vm.parentCtrl.$stateParams.query;
     }
   }, 1000);
+
+  this.navigateToHomePage = function () {
+    var params = $location.search();
+    console.log(params);
+    var vid = params.vid;
+    var lang = params.lang || "en_US";
+    var split = $location.absUrl().split('/discovery/');
+
+    if (split.length === 1) {
+      console.log(split[0] + ' : Could not detect the view name!');
+      return false;
+    }
+
+    var baseUrl = split[0];
+    $window.location.href = baseUrl + '/discovery/search?vid=' + vid + '&lang=' + lang;
+    return true;
+  };
 }]);
