@@ -33,7 +33,6 @@ app.controller('SearchBarAfterController', ['$scope', '$rootScope', '$location',
 
   this.navigateToHomePage = function () {
     var params = $location.search();
-    console.log(params);
     var vid = params.vid;
     var lang = params.lang || "en_US";
     var split = $location.absUrl().split('/discovery/');

@@ -405,6 +405,15 @@ prm-alma-viewit-items h4.ng-scope {
   }
 }
 
+/* External search worldcat logo */
+#external-search img {
+  float: left;
+  margin-right: 8px;
+}
+#external-search a {
+  font-weight: bold;
+}
+
 /*Uncomment the follwoing lines to move facets to the left*/
 /*
 prm-search > md-content.md-primoExplore-theme .main {
