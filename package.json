@@ -1,23 +1,16 @@
 {
   "name": "01CDL_SCR_INST-USCS",
   "version": "1.0.0",
-  "description": "The development package allows you to configure :",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/UCSCLibrary/Primo-MainView.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/UCSCLibrary/Primo-MainView/issues"
-  },
-  "homepage": "https://github.com/UCSCLibrary/Primo-MainView#readme",
+  "dependencies": {},
   "devDependencies": {
-    "primo-explore-external-search": "file:primo-explore-external-search"
+    "primo-explore-external-search": "^1.1.5"
   }
 }
