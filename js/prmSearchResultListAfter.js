@@ -109,28 +109,7 @@ app.component('prmSearchResultListAfter', {
       </div>
 
       <div role="list" class="md-primoExplore-theme">
-        <span class="md-subheadline">Try your search again</span>
-        <md-list-item role="listitem" class="_md-no-proxy _md">
-          <div>
-            <a href="https://ucsc.on.worldcat.org/external-search?queryString={{$ctrl.queryStringMelvyl}}" target="_blank"><img src="https://library.ucsc.edu/sites/default/files/Melvyl_logo_0.png" width="35" height="35" alt="Melvyl Logo" /></a>
-          </div>
-          <div>
-            <p><a href="https://ucsc.on.worldcat.org/external-search?queryString={{$ctrl.queryStringMelvyl}}" target="_blank">Melvyl</a></p>
-            <p>Request book chapters and articles from other libraries</p>
-          </div>
-        </md-list-item>
-        <!--
-        <md-list-item role="listitem" class="_md-no-proxy _md">
-          <div>
-            <a href="https://babel.hathitrust.org/cgi/ls?{{$ctrl.queryStringHathi}}a=srchls;lmt=ft&signon=swle:urn:mace:incommon:ucsc.edu" target="_blank"><img src="https://library.ucsc.edu/sites/default/files/HathiTrust_icon.png" width="35" height="35" alt="HathiTrust Logo" /></a>
-          </div>
-          <div>
-            <p><a href="https://babel.hathitrust.org/cgi/ls?{{$ctrl.queryStringHathi}}a=srchls;lmt=ft&signon=swle:urn:mace:incommon:ucsc.edu" target="_blank">HathiTrust</a></p>
-            <p>Digitized books and journals from the UC's physical collections</p>
-          </div>
-        </md-list-item> -->
-
-        <span class="md-subheadline" style="margin-top:15px;">Tell us what you need</span>
+        <span class="md-subheadline">Tell us what you need</span>
         <md-list-item role="listitem" class="_md-no-proxy _md">
           <div>
             <a href="https://guides.library.ucsc.edu/item-request"><img src="https://library.ucsc.edu/sites/default/files/request-icon.png" width="35" height="35" /></a>
