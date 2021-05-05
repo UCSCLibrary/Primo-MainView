@@ -12,6 +12,6 @@ app.controller('ServiceButtonAfterController', ['$scope', '$rootScope', function
   var vm = this;
   console.log(vm.parentCtrl.service);
   if (vm.parentCtrl.service.type == "Request through Interlibrary Loan") {
-  	vm.publicNote = "Free service, request single book chapters during closure of in-person services due to COVID-19";
+  	vm.publicNote = "Request single book chapters during closure of in-person services due to COVID-19";
   }
 }]);
