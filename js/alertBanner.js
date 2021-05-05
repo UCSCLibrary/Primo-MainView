@@ -6,7 +6,7 @@ let alertBanner = window.setInterval(function(){
     let date = new Date();
 
     /* different date conditions may be added to control when the banner appears */
-    if((date.getFullYear() == 2021 && date.getMonth() < 6)){
+    if((date.getFullYear() == 2021) && (date.getMonth() == 5) && (date.getDate() > 14) && (date.getDate() < 30)){
         let prmAlertBar = document.getElementsByClassName('topbar-wrapper');
         let alertBarDiv = document.createElement('div');
         alertBarDiv.setAttribute('id', 'customAlertBar');
