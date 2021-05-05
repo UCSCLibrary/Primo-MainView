@@ -365,6 +365,11 @@ prm-alma-viewit-items h4.ng-scope {
   display: inherit;
 }
 
+/* View Main Menu on the services page / openURL page */
+prm-main-menu.isServicePage {
+  display: block !important;
+}
+
 /* UC Library Search Logo */
 /* hide the logo on x-small screens */
 .uc-library-search-logo {
