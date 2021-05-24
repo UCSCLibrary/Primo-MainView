@@ -71,7 +71,7 @@ span[translate="nui.suggestions.tooltip"] {
 /* Libchat Ask Us button */
 #s-la-widget-9392,
 #libchat_d3813658438965a0df80a95fc6312cc4 {
-  right: 0;
+  right: 40px;
   bottom: -2px;
   height: 40px;
   width: 50px;
@@ -99,9 +99,14 @@ span[translate="nui.suggestions.tooltip"] {
 @media all and (min-width: 600px) {
   #s-la-widget-9392,
   #libchat_d3813658438965a0df80a95fc6312cc4 {
-    right: 50px;
+    right: 80px;
+  }
+  /* Adjust pager on small screens */
+  prm-page-nav-menu #speedDialWidget {
+    bottom: 1em;
   }
 }
+
 
 /*full record display -- styling provided by ExLibris*/
 .full-view-inner-container {
@@ -220,7 +225,7 @@ alma-howovp a:hover {
 #findItButton {
   position: fixed;
   bottom: 50px;
-  left: -51px;
+  right: -51px;
   transform: rotate(90deg);
   min-height: auto;
   border-radius: 0px;
@@ -229,6 +234,7 @@ alma-howovp a:hover {
   font-weight: bold;
   text-transform: none;
   line-height: 26px;
+  z-index: 1000;
 }
 #findItButton:hover {
    background-color: #ddd;
@@ -236,8 +242,8 @@ alma-howovp a:hover {
 }
 @media all and (min-width: 600px) {
   #findItButton {
-    bottom: auto;
-    top: 365px;
+    right: -35px;
+    bottom: 165px;
   }
 }
 
