@@ -13,6 +13,7 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     var signInLabel = null;
     var signInText = null;
     var alertNode = null;
+    var purchaseButton = null;
 
     // Watch for the details to load, after they do isDdaItem will have a value
     this.$onInit = function () {
@@ -35,12 +36,27 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
         signInLabel = document.evaluate("//span[text()='Please sign in to check if there are any request options.']", document, null, XPathResult.ANY_TYPE, null );
         signInLabel = signInLabel.iterateNext();
       }
+      if (purchaseButton == null) {
+        purchaseButton = document.evaluate("//span[text()='Request Library Purchase']", document, null, XPathResult.ANY_TYPE, null);
+        if (purchaseButton !== null) {
+          purchaseButton = purchaseButton.iterateNext();
+          if (purchaseButton !== null) {
+            purchaseButton = purchaseButton.parentNode.parentNode.parentNode.parentNode.parentNode;
+          }
+        }
+      }
       // If we have both, update the alert and exit the interval.
       if (signInLabel !== null && isDdaItem !== null) {
         //signInLabel.setAttribute("class", "hidden");
         alertNode = signInLabel.parentNode.parentNode;
         clearInterval(checkAlertInterval);
         updateLoginAlert(isDdaItem, alertNode);
+      }
+      // If we find a purchase button hide it unless its a DDA item
+      // This also means the user is already logged in and we can exit the interval
+      if (purchaseButton !== null  && isDdaItem === false) {
+        purchaseButton.setAttribute("class", "hidden");
+        clearInterval(checkAlertInterval);
       }
     }, 100)
 
