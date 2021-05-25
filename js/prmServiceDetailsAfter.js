@@ -18,12 +18,13 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     // Watch for the details to load, after they do isDdaItem will have a value
     this.$onInit = function () {
         isDdaItem = false;
-        vm._details.forEach(function (itemDetail) {
+        let display = vm.item.pnx.display;
+        for (const detail in display) {
           // lds26 in the item details means this is a DDA title
-          if (itemDetail.label == 'lds07') {
+          if (detail == 'lds07') {
             isDdaItem = true;
           }
-        });
+        }
     }; 
 
     // Keep checking until we have signInLabel & isDdaItem values
@@ -38,9 +39,11 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
       }
       if (purchaseButton == null) {
         purchaseButton = document.evaluate("//span[text()='Request Library Purchase']", document, null, XPathResult.ANY_TYPE, null);
-        if(purchaseButton) {
+        if (purchaseButton !== null) {
           purchaseButton = purchaseButton.iterateNext();
-          purchaseButton = purchaseButton.parentNode.parentNode.parentNode.parentNode.parentNode;
+          if (purchaseButton !== null) {
+            purchaseButton = purchaseButton.parentNode.parentNode.parentNode.parentNode.parentNode;
+          }
         }
       }
       // If we have both, update the alert and exit the interval.
@@ -52,7 +55,7 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
       }
       // If we find a purchase button hide it unless its a DDA item
       // This also means the user is already logged in and we can exit the interval
-      if (purchaseButton !== null  && isDdaItem == false) {
+      if (purchaseButton !== null  && isDdaItem === false) {
         purchaseButton.setAttribute("class", "hidden");
         clearInterval(checkAlertInterval);
       }
