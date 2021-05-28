@@ -1,7 +1,7 @@
 app.value('searchTargets', [{
     "name": "Search in Worldcat",
     "desc": "for advanced filtering options",
-    "url": "https://110105.on.worldcat.org/v2/search?",
+    "url": "https://110110.on.worldcat.org/v2/search?",
     "img": "custom/01CDL_SCR_INST-USCS/img/worldcat.png",
     mapping: function (queries, filters) {
       const query_mappings = {
