@@ -116,9 +116,9 @@ span[translate="nui.suggestions.tooltip"] {
 #getit_link1_1 { order: 2; }
 #moreFromTheSameCourse { order: 3; }
 #moreFromTheSameCollection { order: 4; }
-#links { order: 5; }
+#action_list{ order: 5; }
 #details { order: 6; }
-#action_list{ order: 7; }
+#links { order: 7; }
 #virtualBrowse { order: 8; }
 #citationTrails { order: 9; }
 
@@ -129,10 +129,10 @@ span[translate="nui.suggestions.tooltip"] {
 [aria-label="How to get it"] { order: 3 !important; }
 [aria-label="Course"] { order: 4 !important; }
 [aria-label="Collection"] { order: 5 !important; }
-[aria-label="More Links"] { order: 6 !important; }
-[aria-label="Related Links"] { order: 7 !important; }
-[aria-label="Details"] { order: 8 !important; }
-[aria-label="Send To"] { order: 9 !important; }
+[aria-label="Send To"] { order: 6 !important; }
+[aria-label="Details"] { order: 7 !important; }
+[aria-label="More Links"] { order: 8 !important; }
+[aria-label="Related Links"] { order: 9 !important; }
 [aria-label="Virtual Browse"] { order: 10 !important; }
 [aria-label="Citations"] { order: 11 !important; }
 
