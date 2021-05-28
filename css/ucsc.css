@@ -224,7 +224,7 @@ alma-howovp a:hover {
 /* Didn't Find it? sidebar jump button */
 #findItButton {
   position: fixed;
-  bottom: 50px;
+  bottom: 250px;
   right: -51px;
   transform: rotate(90deg);
   min-height: auto;
@@ -243,7 +243,6 @@ alma-howovp a:hover {
 @media all and (min-width: 600px) {
   #findItButton {
     right: -35px;
-    bottom: 165px;
   }
 }
 
