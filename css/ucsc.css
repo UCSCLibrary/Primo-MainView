@@ -434,3 +434,10 @@ prm-account-overview {
   display:  flex;
   flex-direction: column-reverse;
 }
+
+/* Hide Insitutions dropdown and list by default, js will show institutions w activity */
+prm-account-overview .institutions-list div:first-child,
+prm-account-overview .institutions-list md-list-item,
+prm-account-overview .institutions-list prm-icon {
+  display: none;
+}
