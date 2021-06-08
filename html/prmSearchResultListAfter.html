@@ -14,7 +14,7 @@
       </div>
 
       <div role="list" class="md-primoExplore-theme">
-        <div ngIf="{{$ctrl.showWorldcat}}">
+        <div ng-if="$ctrl.notWorldCat()">
           <span class="md-subheadline">Try your search again</span>
           <md-list-item role="listitem" class="_md-no-proxy _md">
             <div>

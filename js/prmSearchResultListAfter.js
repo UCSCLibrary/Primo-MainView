@@ -13,11 +13,6 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
       vm.queryString = vm.parentCtrl.$stateParams.query;
     }
 
-  vm.showWorldcat = false;
-  if (vm.parentCtrl.$stateParams.search_scope == "Worldcat") {
-    vm.showWorldcat = true;
-  }
-
   // Create a listener for other components trying to get the query.
   $rootScope.$on("UcscGetQuery", function(event, format){
     $rootScope.ucscQuery = getQuery(format[0]);
@@ -28,6 +23,11 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
   var libchat = document.createElement("script");
   libchat.src = "https://v2.libanswers.com/load_chat.php?hash=d01223b2d5b712cc1cf9015fef8fa534";
   document.head.appendChild(libchat);
+
+  // To tell the template whether or not it's on Worldcat scope.
+  this.notWorldCat = function() {
+    return (vm.parentCtrl.$stateParams.search_scope == "Worldcat") ? false : true;
+  }
 
   // Returns the query as a string in a format ready to export
   function getQuery(format = 'melvyl') {
