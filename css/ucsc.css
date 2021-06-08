@@ -438,7 +438,7 @@ prm-account-overview {
 /* Link in the my account alert bar should look like other button/links */
 prm-account-overview .alert-bar .md-button {
   min-width: auto;
-  text-transform:  none;
+  text-transform: none;
 }
 prm-account-overview .alert-bar .md-button:hover { background-color: #53738c; }
 prm-account-overview .alert-bar .md-button:hover a { color: #fff; }
