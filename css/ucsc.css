@@ -435,6 +435,14 @@ prm-account-overview {
   flex-direction: column-reverse;
 }
 
+/* Link in the my account alert bar should look like other button/links */
+prm-account-overview .alert-bar .md-button {
+  min-width: auto;
+  text-transform:  none;
+}
+prm-account-overview .alert-bar .md-button:hover { background-color: #53738c; }
+prm-account-overview .alert-bar .md-button:hover a { color: #fff; }
+
 /* Hide Insitutions dropdown and list by default, js will show institutions w activity */
 prm-account-overview .institutions-list div:first-child,
 prm-account-overview .institutions-list md-list-item,
