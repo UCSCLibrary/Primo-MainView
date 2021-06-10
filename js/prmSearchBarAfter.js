@@ -1,9 +1,6 @@
 /* UC Library Search logo
  * Code adapted from CSU Central Package by David Walker
  * https://github.com/dswalker/csu-central-package/
- *
- * Online only message
- * Adds a clarifying message for the online search scope results page.
  */
 app.component('prmSearchBarAfter', {
     bindings: { parentCtrl: '<' },

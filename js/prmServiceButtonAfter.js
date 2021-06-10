@@ -1,7 +1,10 @@
 /*
  *  Overrides Primo's default behavior of not showing the public note on GES
  *  when they appear as a 'service button' in the GetIt tab.
- */
+
+ * Commenting out completely: ILL will no longer use a GetIt GES, but instead appear
+ * in the HowToGetIt section as the Alma default resource sharing request.
+ 
 app.component('prmServiceButtonAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'ServiceButtonAfterController',
@@ -15,3 +18,4 @@ app.controller('ServiceButtonAfterController', ['$scope', '$rootScope', function
   	vm.publicNote = "Request single book chapters during closure of in-person services due to COVID-19";
   }
 }]);
+*/
