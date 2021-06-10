@@ -431,14 +431,23 @@ div[data-facet-group="External Search"] h3 { display: none; }
 
 /* Info banner in prm-account-overview-after should appear above the account overview */
 prm-account-overview {
-  display:  flex;
+  display: flex;
   flex-direction: column-reverse;
+}
+/* Adjust banner to show all content without extra margin */
+prm-account-overview .bar {
+  height: auto;
+}
+prm-account-overview .bar ul {
+  margin: 0;
 }
 
 /* Link in the my account alert bar should look like other button/links */
 prm-account-overview .alert-bar .md-button {
   min-width: auto;
   text-transform: none;
+  min-height: auto;
+  line-height: normal;
 }
 prm-account-overview .alert-bar .md-button:hover { background-color: #53738c; }
 prm-account-overview .alert-bar .md-button:hover a { color: #fff; }
@@ -447,5 +456,10 @@ prm-account-overview .alert-bar .md-button:hover a { color: #fff; }
 prm-account-overview .institutions-list div:first-child,
 prm-account-overview .institutions-list md-list-item,
 prm-account-overview .institutions-list prm-icon {
+  display: none;
+}
+
+/* Hide the extra ILL link in the Loans display */
+prm-account #loansCheckboxId span p:nth-child(2) {
   display: none;
 }
