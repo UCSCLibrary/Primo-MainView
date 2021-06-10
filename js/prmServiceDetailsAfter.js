@@ -39,12 +39,9 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
         signInLabel = document.evaluate("//span[text()='Sign In to request this item']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
       }
       if (purchaseButton == null) {
-        purchaseButton = document.evaluate("//span[text()='Request Library Purchase']", document, null, XPathResult.ANY_TYPE, null);
+        purchaseButton = document.evaluate("//span[text()='Request Library Purchase']", document, null, XPathResult.ANY_TYPE, null).iterateNext();
         if (purchaseButton !== null) {
-          purchaseButton = purchaseButton.iterateNext();
-          if (purchaseButton !== null) {
-            purchaseButton = purchaseButton.parentNode.parentNode.parentNode.parentNode.parentNode;
-          }
+          purchaseButton = purchaseButton.parentNode.parentNode.parentNode.parentNode.parentNode;
         }
       }
       // If we have both a label and an answer to isDDA, update the alert and exit the interval.
@@ -62,13 +59,11 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     }, 100)
 
     function updateLoginAlert(isDdaItem, alertNode) {
-      signInText = document.evaluate("//span[text()='Sign in']", alertNode, null, XPathResult.ANY_TYPE, null );
-      signInText = signInText.iterateNext();
+      signInText = document.evaluate("//span[text()='Sign in']", alertNode, null, XPathResult.ANY_TYPE, null ).iterateNext();
       if (isDdaItem == true) {
         signInLabel.innerHTML = "Sign in to Request Library Purchase.";
       } else {
-        // If there is a how to get it, we leave the existing banner as-is (prominent yellow)
-        // Otherwise, de-emphasize it.
+        // If there is a how to get it, leave the banner as-is (prominent yellow). Otherwise, de-emphasize it.
         let howOvpService = document.evaluate("//h4[text()='How to Get It']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
         if (howOvpService == null) {
           signInLabel.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
@@ -77,5 +72,4 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
         }
       }
     }
-
 }]);
