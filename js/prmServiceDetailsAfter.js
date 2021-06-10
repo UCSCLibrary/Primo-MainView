@@ -20,7 +20,7 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
         isDdaItem = false;
         let display = vm.item.pnx.display;
         for (const detail in display) {
-          // lds26 in the item details means this is a DDA title
+          // lds07 in the item details means this is a DDA title
           if (detail == 'lds07') {
             isDdaItem = true;
           }
@@ -30,12 +30,13 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     // Keep checking until we have signInLabel & isDdaItem values
     var checkAlertInterval = window.setInterval(function(){
       if (signInLabel == null) {
-        signInLabel = document.evaluate("//span[text()='Please sign in to check if there are additional request options.']", document, null, XPathResult.ANY_TYPE, null );
-        signInLabel = signInLabel.iterateNext();
+        signInLabel = document.evaluate("//span[text()='Please sign in to check if there are additional request options.']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
       }
       if (signInLabel == null) {
-        signInLabel = document.evaluate("//span[text()='Please sign in to check if there are any request options.']", document, null, XPathResult.ANY_TYPE, null );
-        signInLabel = signInLabel.iterateNext();
+        signInLabel = document.evaluate("//span[text()='Please sign in to check if there are any request options.']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
+      }
+      if (signInLabel == null) {
+        signInLabel = document.evaluate("//span[text()='Sign In to request this item']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
       }
       if (purchaseButton == null) {
         purchaseButton = document.evaluate("//span[text()='Request Library Purchase']", document, null, XPathResult.ANY_TYPE, null);
@@ -46,9 +47,8 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
           }
         }
       }
-      // If we have both, update the alert and exit the interval.
+      // If we have both a label and an answer to isDDA, update the alert and exit the interval.
       if (signInLabel !== null && isDdaItem !== null) {
-        //signInLabel.setAttribute("class", "hidden");
         alertNode = signInLabel.parentNode.parentNode;
         clearInterval(checkAlertInterval);
         updateLoginAlert(isDdaItem, alertNode);
@@ -67,9 +67,14 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
       if (isDdaItem == true) {
         signInLabel.innerHTML = "Sign in to Request Library Purchase.";
       } else {
-        signInLabel.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
-        signInLabel.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
-        signInLabel.innerHTML = "Sign in for more options.";
+        // If there is a how to get it, we leave the existing banner as-is (prominent yellow)
+        // Otherwise, de-emphasize it.
+        let howOvpService = document.evaluate("//h4[text()='How to Get It']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
+        if (howOvpService == null) {
+          signInLabel.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
+          signInLabel.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
+          signInLabel.innerHTML = "Sign in for more options.";
+        }
       }
     }
 
