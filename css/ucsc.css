@@ -239,11 +239,6 @@ alma-howovp a:hover {
    background-color: #ddd;
    color: #32579b;
 }
-@media all and (min-width: 600px) {
-  #findItButton {
-    right: -35px;
-  }
-}
 
 /* Hide the multi select feature in brief results */
 prm-search-result-tool-bar .toolbar-actions,
