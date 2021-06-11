@@ -107,7 +107,6 @@ span[translate="nui.suggestions.tooltip"] {
   }
 }
 
-
 /*full record display -- styling provided by ExLibris*/
 .full-view-inner-container {
   padding-bottom: 10em;
@@ -224,7 +223,7 @@ alma-howovp a:hover {
 /* Didn't Find it? sidebar jump button */
 #findItButton {
   position: fixed;
-  bottom: 250px;
+  top: 50vh;
   right: -51px;
   transform: rotate(90deg);
   min-height: auto;
@@ -287,29 +286,6 @@ prm-opac.non-dda-login-alert .layout-column {
 .non-dda-login-alert .bar.alert-bar {
   background-color: #eee;
   border-color: #eee;
-}
-
-/* Highlight Available online facet 
-[aria-label="Include Available online selection"] + strong {
-  background-color: #ffc107;
-} */
-
-/* Available online scope help message */
-#scopeLimitationMessage {
-  position: relative;
-  top: 15px;
-  text-align: center;
-  color: #fff;
-}
-#scopeLimitationMessage a {
-  color: #fff;
-  text-decoration: underline;
-}
-
-@media all and (max-width : 590px) {
-  #scopeLimitationMessage {
-    margin-bottom: 30px;
-  }
 }
 
 /* Increase size of scope selection dropdown menu to show SC&A */
