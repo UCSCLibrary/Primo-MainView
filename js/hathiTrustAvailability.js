@@ -213,4 +213,22 @@ angular
 
   app.controller('prmSearchResultAvailabilityLineAfterController', function($scope) {
     window.browzine.primo.searchResult($scope);
+
+    // The code below removes the availability line for HT ETAS items in S&E
+    // and replaces it with a No Physical Access message.
+    // This works for the brief results. Full result page on prmLocationItemsAfter.js
+    var vm = this.parentCtrl;
+    angular.element(document).ready(function() {
+      // Brief result
+      if (vm.result) {
+        if (vm.result.delivery.bestlocation) {
+          if (vm.result.delivery.bestlocation.subLocationCode == 'setas') {
+            var span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0');
+            if (span) {
+              span.textContent = "No physical access";
+            }
+          }
+        }
+      }
+    });
   });
