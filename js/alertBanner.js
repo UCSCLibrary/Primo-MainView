@@ -8,7 +8,7 @@ let alertBanner = window.setInterval(function(){
     /* Different date conditions may be added to control when the banner appears
      * Tip: getMonth() returns 0-11.
      */
-    if((date.getMonth() == 5) && (date.getDate() > 20) && (date.getDate() < 27)){
+    if((date.getMonth() == 6) && (date.getDate() < 27)){
     //if (false) {
         let prmAlertBar = document.getElementsByClassName('topbar-wrapper');
         if (prmAlertBar) {
@@ -20,7 +20,7 @@ let alertBanner = window.setInterval(function(){
             alertBarInnerDiv.setAttribute('style', 'text-align: center;background-color: #fcd02f;padding: 3px 0;font-size: 20px;');
 
             /*alert banner message to customize */
-            alertBarInnerDiv.innerHTML = 'Proquest Ebook Central will be unavailable on Saturday, June 26 from 7AM - 3PM; this will impact some of our ebooks. <a href="https://library.ucsc.edu/news/some-ebooks-unavailable-saturday-june-26-from-7am-3pm">More information</a>';
+            alertBarInnerDiv.innerHTML = '<p>July 9 - 26: My Account links will not be available. July 27: UC Library Search will replace UCSC Library Search and Melvyl.<br /> <a href="https://guides.library.ucsc.edu/summer2021" target="_blank">See our FAQ</a> for more details.</p>';
             alertBarDiv.appendChild(alertBarInnerDiv);
             prmAlertBar[0].prepend(alertBarDiv);
         }
