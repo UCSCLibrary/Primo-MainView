@@ -9,12 +9,20 @@ app.component('prmLocationItemsAfter', {
 app.controller('LocationItemsAfterController', ['$scope', function($scope){
     var vm = this.parentCtrl;
     var statement = null;
+    var count = 0;
 
     this.$onInit = function () {
       // Keep checking until the availability statement loads
       var availabilityInterval = window.setInterval(function(){
+        // Bail if it takes more than 30seconds
+        if (count > 300) {
+          clearInterval(availabilityInterval);
+        }
         if (statement == null) {
-          statement = vm.loc.location.availabilityStatement;
+          if (vm.loc) {
+            statement = vm.loc.location.availabilityStatement;
+          }
+          count++;
         }
         else {
           // Stop the interval and check if statement needs updating
