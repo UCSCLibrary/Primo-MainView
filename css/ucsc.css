@@ -314,7 +314,7 @@ md-option[value="LibraryCatalog"],
 md-option[value="CentralIndex"] {
   display: none;
 }
-ul.md-autocomplete-suggestions li:nth-child(5) {
+ul.md-autocomplete-suggestions li:nth-child(4) {
   display: none;
 }
 
