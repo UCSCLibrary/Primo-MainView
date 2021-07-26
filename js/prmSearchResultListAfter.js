@@ -4,8 +4,14 @@
  */
 app.controller('SearchResultListAfterController', ['$scope', '$rootScope', function($scope, $rootScope){
   var vm = this;
-  vm.queryStringMelvyl = getQuery('melvyl');
-  vm.queryStringHathi = getQuery('hathi');
+  //vm.queryStringMelvyl = getQuery('melvyl');
+  //vm.queryStringHathi = getQuery('hathi');
+
+  if (typeof vm.parentCtrl.$stateParams.query === 'object') {
+      vm.queryString = vm.parentCtrl.$stateParams.query.join('&query=');
+    } else {
+      vm.queryString = vm.parentCtrl.$stateParams.query;
+    }
 
   // Create a listener for other components trying to get the query.
   $rootScope.$on("UcscGetQuery", function(event, format){
@@ -17,6 +23,11 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
   var libchat = document.createElement("script");
   libchat.src = "https://v2.libanswers.com/load_chat.php?hash=d01223b2d5b712cc1cf9015fef8fa534";
   document.head.appendChild(libchat);
+
+  // To tell the template whether or not it's on Worldcat scope.
+  this.notWorldCat = function() {
+    return (vm.parentCtrl.$stateParams.search_scope == "Worldcat") ? false : true;
+  }
 
   // Returns the query as a string in a format ready to export
   function getQuery(format = 'melvyl') {
@@ -92,55 +103,5 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
 app.component('prmSearchResultListAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'SearchResultListAfterController',
-    template: `
-  <md-button id='findItButton' class='md-raised' onclick="document.getElementById('findItBox').scrollIntoView({behavior: 'smooth'});">Didn't Find It ?</md-button>
-  <a name="findItBox"></a>
-  <md-card id="findItBox" class="hidden">
-  <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">Didn\'t find it?</span>
-    </md-card-title-text>
-  </md-card-title>
-  <md-card-content>
-      <div>
-        <span class="md-subheadline">Chat with us for help</span>
-        <p>We can help you find resources, start your research, cite your sources, and more!</p>
-        <div id="libchat_d01223b2d5b712cc1cf9015fef8fa534"></div>
-      </div>
-
-      <div role="list" class="md-primoExplore-theme">
-        <span class="md-subheadline">Try your search again</span>
-        <md-list-item role="listitem" class="_md-no-proxy _md">
-          <div>
-            <a href="https://ucsc.on.worldcat.org/external-search?queryString={{$ctrl.queryStringMelvyl}}" target="_blank"><img src="https://library.ucsc.edu/sites/default/files/Melvyl_logo_0.png" width="35" height="35" alt="Melvyl Logo" /></a>
-          </div>
-          <div>
-            <p><a href="https://ucsc.on.worldcat.org/external-search?queryString={{$ctrl.queryStringMelvyl}}" target="_blank">Melvyl</a></p>
-            <p>Request book chapters and articles from other libraries</p>
-          </div>
-        </md-list-item>
-        <!--
-        <md-list-item role="listitem" class="_md-no-proxy _md">
-          <div>
-            <a href="https://babel.hathitrust.org/cgi/ls?{{$ctrl.queryStringHathi}}a=srchls;lmt=ft&signon=swle:urn:mace:incommon:ucsc.edu" target="_blank"><img src="https://library.ucsc.edu/sites/default/files/HathiTrust_icon.png" width="35" height="35" alt="HathiTrust Logo" /></a>
-          </div>
-          <div>
-            <p><a href="https://babel.hathitrust.org/cgi/ls?{{$ctrl.queryStringHathi}}a=srchls;lmt=ft&signon=swle:urn:mace:incommon:ucsc.edu" target="_blank">HathiTrust</a></p>
-            <p>Digitized books and journals from the UC's physical collections</p>
-          </div>
-        </md-list-item> -->
-
-        <span class="md-subheadline" style="margin-top:15px;">Tell us what you need</span>
-        <md-list-item role="listitem" class="_md-no-proxy _md">
-          <div>
-            <a href="https://guides.library.ucsc.edu/item-request"><img src="https://library.ucsc.edu/sites/default/files/request-icon.png" width="35" height="35" /></a>
-          </div>
-          <div>
-            <p><a href="https://guides.library.ucsc.edu/item-request">Request an Item</a></p>
-          </div>
-        </md-list-item>
-      </div>
-
-  </md-card-content>
-</md-card>`
+    templateUrl: 'custom/01CDL_SCR_INST-USCS/html/prmSearchResultListAfter.html',
 });

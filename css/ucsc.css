@@ -71,7 +71,7 @@ span[translate="nui.suggestions.tooltip"] {
 /* Libchat Ask Us button */
 #s-la-widget-9392,
 #libchat_d3813658438965a0df80a95fc6312cc4 {
-  right: 0;
+  right: 40px;
   bottom: -2px;
   height: 40px;
   width: 50px;
@@ -99,7 +99,11 @@ span[translate="nui.suggestions.tooltip"] {
 @media all and (min-width: 600px) {
   #s-la-widget-9392,
   #libchat_d3813658438965a0df80a95fc6312cc4 {
-    right: 50px;
+    right: 80px;
+  }
+  /* Adjust pager on small screens */
+  prm-page-nav-menu #speedDialWidget {
+    bottom: 1em;
   }
 }
 
@@ -219,8 +223,8 @@ alma-howovp a:hover {
 /* Didn't Find it? sidebar jump button */
 #findItButton {
   position: fixed;
-  bottom: 50px;
-  left: -51px;
+  top: 50vh;
+  right: -51px;
   transform: rotate(90deg);
   min-height: auto;
   border-radius: 0px;
@@ -229,16 +233,11 @@ alma-howovp a:hover {
   font-weight: bold;
   text-transform: none;
   line-height: 26px;
+  z-index: 1000;
 }
 #findItButton:hover {
    background-color: #ddd;
    color: #32579b;
-}
-@media all and (min-width: 600px) {
-  #findItButton {
-    bottom: auto;
-    top: 365px;
-  }
 }
 
 /* Hide the multi select feature in brief results */
@@ -284,29 +283,6 @@ prm-opac.non-dda-login-alert .layout-column {
   border-color: #eee;
 }
 
-/* Highlight Available online facet 
-[aria-label="Include Available online selection"] + strong {
-  background-color: #ffc107;
-} */
-
-/* Available online scope help message */
-#scopeLimitationMessage {
-  position: relative;
-  top: 15px;
-  text-align: center;
-  color: #fff;
-}
-#scopeLimitationMessage a {
-  color: #fff;
-  text-decoration: underline;
-}
-
-@media all and (max-width : 590px) {
-  #scopeLimitationMessage {
-    margin-bottom: 30px;
-  }
-}
-
 /* Increase size of scope selection dropdown menu to show SC&A */
 md-select-menu { 
   max-height: 300px; 
@@ -332,13 +308,13 @@ prm-service-button .public-note {
   overflow:hidden;
 }
 
-/* Hide Library Catalog and Articles scopes from basic search */
+/* Hide Library Catalog and Articles scopes from basic search
+   In test, the 6th child is worldcat, enable this */
 md-option[value="LibraryCatalog"],
 md-option[value="CentralIndex"] {
   display: none;
 }
-ul.md-autocomplete-suggestions li:nth-child(5),
-ul.md-autocomplete-suggestions li:nth-child(6) {
+ul.md-autocomplete-suggestions li:nth-child(5) {
   display: none;
 }
 
@@ -370,6 +346,103 @@ prm-main-menu.isServicePage {
   display: block !important;
 }
 
+/* UC Library Search Logo */
+/* hide the logo on x-small screens */
+.uc-library-search-logo {
+  display: none;
+}
+/* no hover effect */
+.uc-library-search-logo button {
+  background: transparent!important;
+}
+@media (min-width: 970px) {
+  .search-wrapper {
+    margin-left: 20%;
+  }
+  .search-wrapper .flex-lg-10 {
+    display: none;
+  }
+  .search-wrapper .flex-lg-65 {
+    max-width: 80%;
+  }
+  .uc-library-search-logo {
+    display: block;
+    width: 20%;
+    text-align: center;
+    top: 30px;
+    position: absolute;
+  }
+  .uc-library-search-logo button {
+    margin-top: 0;
+  }
+  .uc-library-search-logo img {
+    width: 70%;
+    max-width: 300px;
+  }
+}
+@media (min-width: 1300px) {
+  .uc-library-search-logo {
+    top: 1.5em;
+  }
+}
+
+/* External search: worldcat */
+div[data-facet-group="External Search"] h3 { display: none; }
+#external-search img {
+  float: left;
+  margin-right: 8px;
+}
+#external-search a {
+  font-weight: bold;
+}
+#external-search span {
+  display: block;
+  color: #3a3a3a;
+}
+
+/* Info banner in prm-account-overview-after should appear above the account overview */
+prm-account-overview {
+  display: flex;
+  flex-direction: column-reverse;
+}
+/* Adjust banner to show all content without extra margin */
+prm-account-overview .bar {
+  height: auto;
+}
+prm-account-overview .bar ul {
+  margin: 0;
+}
+
+/* Link in the my account alert bar should look like other button/links */
+prm-account-overview .alert-bar .md-button {
+  min-width: auto;
+  text-transform: none;
+  min-height: auto;
+  line-height: normal;
+}
+prm-account-overview .alert-bar .md-button:hover { background-color: #53738c; }
+prm-account-overview .alert-bar .md-button:hover a { color: #fff; }
+
+/* Hide Insitutions dropdown and list by default, js will show institutions w activity */
+prm-account-overview .institutions-list div:first-child,
+prm-account-overview .institutions-list md-list-item,
+prm-account-overview .institutions-list prm-icon {
+  display: none;
+}
+
+/* Hide the extra ILL link in the Loans display */
+prm-account #loansCheckboxId span p:nth-child(2) {
+  display: none;
+}
+
+/* Center the homepage */
+@media (min-width: 1280px) and (max-width: 1919px) {
+  prm-static[section="homepage"] + div {
+    max-width:  10% !important;
+  }
+}
+
 /* Hide sign-in options during cut-over to SILS */
 prm-user-area-expandable,
 prm-alert-bar { display: none !important; }
+}
