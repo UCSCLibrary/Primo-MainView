@@ -13,7 +13,7 @@ app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($s
   var IllNoteText, IllServiceSpan;
 
   if (vm.parentCtrl.item.pnx.addata.format[0] == 'book') {
-    IllNoteText = "Request single book chapters during closure of in-person services due to COVID-19";
+    //IllNoteText = "Request single book chapters during closure of in-person services due to COVID-19";
   } else {
     IllNoteText = "Articles are generally delivered electronically within 1-2 days";
   }
