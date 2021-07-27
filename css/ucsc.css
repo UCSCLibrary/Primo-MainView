@@ -441,8 +441,3 @@ prm-account #loansCheckboxId span p:nth-child(2) {
     max-width:  10% !important;
   }
 }
-
-/* Hide sign-in options during cut-over to SILS */
-prm-user-area-expandable,
-prm-alert-bar { display: none !important; }
-}

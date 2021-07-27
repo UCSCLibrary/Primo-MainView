@@ -92,10 +92,20 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
   }
 
   var checkResultsInterval;
+  var noResultCounter = 0;
   checkResultsInterval = window.setInterval(function(){
+    // No endless loops
+    if (noResultCounter > 100) {
+      clearInterval(checkResultsInterval);
+    }
     var resultCount = angular.element( document.querySelector( 'prm-no-search-result' ) );
     if (Object.keys(resultCount).length === 0) {
-      document.getElementById("findItBox").classList.remove('hidden');
+      let box = document.getElementById("findItBox");
+      if (box) {
+        box.classList.remove('hidden');
+        clearInterval(checkResultsInterval);
+      }
+    noResultCounter++;
     }
   }, 2000)
 }]);
