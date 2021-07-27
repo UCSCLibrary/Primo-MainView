@@ -29,7 +29,7 @@ app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($s
   }, 100);
 
   function updateServiceNote(IllServiceSpan) {
-    if (IllServiceSpan != null) {
+    if ((IllServiceSpan != null) && (IllNoteText != null)) {
       let IllNoteSpan = document.createElement('span');
       IllNoteSpan.innerHTML = IllNoteText;
       IllServiceSpan.parentNode.insertBefore(IllNoteSpan, IllServiceSpan.nextSibling);
