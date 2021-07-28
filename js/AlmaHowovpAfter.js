@@ -10,11 +10,12 @@ app.component('almaHowovpAfter', {
 
 app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($scope, $rootScope){
   var vm = this;
-  var IllNoteText, IllServiceSpan;
+  var IllNoteText = null;
+  var IllServiceSpan = null;
 
-  if (vm.parentCtrl.item.pnx.addata.format[0] == 'book') {
+  if ((vm.parentCtrl.item.pnx.addata.format[0] == 'article') || (vm.parentCtrl.item.pnx.addata.format[0] == 'journal')) {
     //IllNoteText = "Request single book chapters during closure of in-person services due to COVID-19";
-  } else {
+  //} else {
     IllNoteText = "Articles are generally delivered electronically within 1-2 days";
   }
 
@@ -23,12 +24,12 @@ app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($s
     IllServiceSpan = document.evaluate("//span[text()='Request through Interlibrary Loan']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
     serviceIntervalCount++;
     if ((IllServiceSpan != null) || (serviceIntervalCount>100)) {
-      updateServiceNote(IllServiceSpan);
+      updateServiceNote(IllServiceSpan, IllNoteText);
       clearInterval(checkServiceInterval);
     }
   }, 100);
 
-  function updateServiceNote(IllServiceSpan) {
+  function updateServiceNote(IllServiceSpan, IllNoteText) {
     if ((IllServiceSpan != null) && (IllNoteText != null)) {
       let IllNoteSpan = document.createElement('span');
       IllNoteSpan.innerHTML = IllNoteText;
