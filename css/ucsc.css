@@ -233,7 +233,7 @@ alma-howovp a:hover {
   font-weight: bold;
   text-transform: none;
   line-height: 26px;
-  z-index: 1000;
+  z-index: 70;
 }
 #findItButton:hover {
    background-color: #ddd;
