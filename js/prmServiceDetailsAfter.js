@@ -1,6 +1,7 @@
 /*  
  *  Customize the sign-in button on DDA full record display 
  *  Watches the details section for the DDA identifier, then changes the sign in text and classes
+ *  Removes hidden class from Purchase Request button for DDA items
  */
 app.component('prmServiceDetailsAfter', {
     bindings: { parentCtrl: '<' },
@@ -50,10 +51,15 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
         clearInterval(checkAlertInterval);
         updateLoginAlert(isDdaItem, alertNode);
       }
-      // If we find a purchase button hide it unless its a DDA item
-      // This also means the user is already logged in and we can exit the interval
-      if (purchaseButton !== null  && isDdaItem === false) {
-        purchaseButton.setAttribute("class", "hidden");
+      // If we find a purchase button
+      if (purchaseButton !== null) {
+        // If it's a DDA item, ensure hidden is not in the class list and flag it as processed 
+        // to prevent AlmaHowovp controller from re-hiding the service.
+        if (isDdaItem == true) {
+          purchaseButton.setAttribute("class", "processed");
+          purchaseButton.classList.remove("hidden");
+        }
+        // This also means the user is already logged in and we can exit the interval
         clearInterval(checkAlertInterval);
       }
     }, 100)
