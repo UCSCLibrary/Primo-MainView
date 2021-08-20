@@ -7,19 +7,16 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
   //vm.queryStringMelvyl = getQuery('melvyl');
   //vm.queryStringHathi = getQuery('hathi');
 
+  // Advanced search queries are objects. Get the query in a string
   if (typeof vm.parentCtrl.$stateParams.query === 'object') {
-      vm.queryString = vm.parentCtrl.$stateParams.query.join('&query=');
-    } else {
-      vm.queryString = vm.parentCtrl.$stateParams.query;
-    }
+    vm.queryString = vm.parentCtrl.$stateParams.query.join('&query=');
+    // Advanced searches now need to be called out in the URL
+    vm.queryString = vm.queryString + '&mode=advanced';
+  } else {
+    vm.queryString = vm.parentCtrl.$stateParams.query;
+  }
 
-  // Create a listener for other components trying to get the query.
-  $rootScope.$on("UcscGetQuery", function(event, format){
-    $rootScope.ucscQuery = getQuery(format[0]);
-    event.stopPropagation();
-  });
-
-  // Libchat script
+  // Add Libchat script to the document header.
   var libchat = document.createElement("script");
   libchat.src = "https://v2.libanswers.com/load_chat.php?hash=d01223b2d5b712cc1cf9015fef8fa534";
   document.head.appendChild(libchat);
@@ -29,7 +26,17 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
     return (vm.parentCtrl.$stateParams.search_scope == "Worldcat") ? false : true;
   }
 
+  // Create a listener for other components trying to get the query.
+  /* No longer used.
+  $rootScope.$on("UcscGetQuery", function(event, format){
+    $rootScope.ucscQuery = getQuery(format[0]);
+    event.stopPropagation();
+  }); */
+
   // Returns the query as a string in a format ready to export
+  /* No longer used
+   * See external-search.js for worldcat link code.
+   * Not currently linking searches to Hathi.
   function getQuery(format = 'melvyl') {
     // For advanced search query is an object, iterate through the array and format its elements.
     if (typeof vm.parentCtrl.$stateParams.query === 'object') {
@@ -89,8 +96,14 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
     }
 
     return query;
-  }
+  } */
 
+  /*
+   * checkResultsInterval() checks every 2s and shows the didn't find it box if no results
+   * Currently broken: shows the box but doesn't hide it again once results show up.
+   * Commenting out: library wants to show this box on all results for now
+   */
+  /*
   var checkResultsInterval;
   var noResultCounter = 0;
   checkResultsInterval = window.setInterval(function(){
@@ -107,7 +120,7 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
       }
     noResultCounter++;
     }
-  }, 2000)
+  }, 2000) */
 }]);
 
 app.component('prmSearchResultListAfter', {

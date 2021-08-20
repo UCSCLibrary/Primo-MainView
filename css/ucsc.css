@@ -441,3 +441,8 @@ prm-account #loansCheckboxId span p:nth-child(2) {
     max-width:  10% !important;
   }
 }
+
+/* Hide the Didn't find it box on the My Favorites page */
+prm-favorites prm-search-result-list-after {
+  display: none;
+}
