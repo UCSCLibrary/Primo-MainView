@@ -446,3 +446,19 @@ prm-account #loansCheckboxId span p:nth-child(2) {
 prm-favorites prm-search-result-list-after {
   display: none;
 }
+
+/* Manually alphabetize the UC's in the institution facets */
+div[data-facet-group="institution"] .md-chips-wrap {
+  display: flex;
+  flex-flow: column;
+}
+div[data-facet-value="institution-6532"] { order: 1; margin-top: 0; } /* berkeley */
+div[data-facet-value="institution-3126"] { order: 2; } /* davis */
+div[data-facet-value="institution-4701"] { order: 3; } /* irvine */
+div[data-facet-value="institution-6533"] { order: 4; } /* los angeles */
+div[data-facet-value="institution-6534"] { order: 5; margin-top: .5em; } /* merced */
+div[data-facet-value="institution-4706"] { order: 6; } /* riverside */
+div[data-facet-value="institution-6535"] { order: 7; } /* san diego */
+div[data-facet-value="institution-6536"] { order: 8; } /* san francisco */
+div[data-facet-value="institution-3776"] { order: 9; } /* santa barbara */
+div[data-facet-value="institution-4876"] { order: 10; } /* santa cruz */
