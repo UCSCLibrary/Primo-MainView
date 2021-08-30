@@ -1,4 +1,4 @@
-angular
+/*angular
   .module('hathiTrustAvailability', [])
   .constant(
     'hathiTrustBaseUrl',
@@ -203,12 +203,12 @@ angular
                   <prm-icon external-link="" icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>\
                 </a>\
               </span>',
-  });
+  }); */
 
   app.component('prmSearchResultAvailabilityLineAfter', {
     bindings: { parentCtrl: '<' },
     controller: 'prmSearchResultAvailabilityLineAfterController',
-    template: '<hathi-trust-availability ignore-copyright="true" entity-id="urn:mace:incommon:ucsc.edu"></hathi-trust-availability>'
+    //template: '<hathi-trust-availability ignore-copyright="true" entity-id="urn:mace:incommon:ucsc.edu"></hathi-trust-availability>'
   });
 
   app.controller('prmSearchResultAvailabilityLineAfterController', function($scope) {

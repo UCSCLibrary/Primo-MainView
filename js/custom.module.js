@@ -1,5 +1,5 @@
 
-var app = angular.module('viewCustom', ['angularLoad','googleTagManager','hathiTrustAvailability','externalSearch']);
+var app = angular.module('viewCustom', ['angularLoad','googleTagManager','externalSearch']);
 
 /****************************************************************************************************/
 
