@@ -22,7 +22,7 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
         let display = vm.item.pnx.display;
         for (const detail in display) {
           // lds07 in the item details means this is a DDA title
-          if (detail == 'lds07') {
+          if (detail == 'lds33') {
             isDdaItem = true;
           }
         }
