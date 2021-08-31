@@ -22,10 +22,6 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
   document.head.appendChild(libchat);
 
   // To tell the template whether or not it's on Worldcat scope.
-  // TODO: in an advanced search, clicking the Worldcat link in the didn't find it box
-  // leads users to the worldcat scope, but the wrong scope radio button is selected
-  // in the advanced search window. $scope.$digest() doesn't seem to fix it, and all the
-  // data is correct in both $scope and $ctrl. Fix this?
   this.notWorldCat = function() {
     return (vm.parentCtrl.$stateParams.search_scope == "Worldcat") ? false : true;
   }
