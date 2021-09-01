@@ -8,34 +8,18 @@ app.component('prmLocationItemsAfter', {
 
 app.controller('LocationItemsAfterController', ['$scope', function($scope){
     var vm = this.parentCtrl;
-    var statement = null;
-    var count = 0;
+    var location = this.parentCtrl.loc.location;
 
-    this.$onInit = function () {
-      // Keep checking until the availability statement loads
-      var availabilityInterval = window.setInterval(function(){
-        // Bail if it takes more than 30seconds
-        if (count > 300) {
-          clearInterval(availabilityInterval);
-        }
-        if (statement == null) {
-          if (vm.loc) {
-            statement = vm.loc.location.availabilityStatement;
-          }
-          count++;
-        }
-        else {
-          // Stop the interval and check if statement needs updating
-          clearInterval(availabilityInterval);
-          if (statement.includes(", 0 holds")) {
-            statement = statement.replace(", 0 holds", "");
-            // Find the p element and replace the text.
-            var paragraph = document.evaluate("//p[@ng-if='$ctrl.currLoc.location.availabilityStatement']", document, null, XPathResult.ANY_TYPE, null );
-            paragraph = paragraph.iterateNext();
-            paragraph.innerHTML = statement;
+    this.$onInit = ()=> {
+      // Watch for the availability statement to update
+      $scope.$watch(s => location.availabilityStatement, ()=> {
+        if (location.availabilityStatement) {
+          // If ',0 holds' is in the statement remove it
+          if (location.availabilityStatement.includes(", 0 holds")) {
+            location.availabilityStatement = location.availabilityStatement.replace(", 0 holds", "");
           }
         }
-      }, 100);
+      });
     };
 
     // If its an S&E HT item, when the page loads change the availability statement.
