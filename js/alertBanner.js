@@ -8,7 +8,7 @@
  */
 let bannerDate = new Date();
 //if((bannerDate.getMonth() <= 7) && (bannerDate.getDate() < 27)){
-if (true) {
+if (false) {
   // Use an interval to give a 5000ms delay before alert appears
   let alertBanner = window.setInterval(function(){
     let prmAlertBar = document.getElementsByClassName('topbar-wrapper');
