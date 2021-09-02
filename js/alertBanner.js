@@ -11,7 +11,7 @@ let alertBanner = window.setInterval(function(){
     //if((date.getMonth() <= 7) && (date.getDate() < 27)){
     if (true) {
         let prmAlertBar = document.getElementsByClassName('topbar-wrapper');
-        if (prmAlertBar) {
+        if (prmAlertBar[0]) {
             let alertBarDiv = document.createElement('div');
             alertBarDiv.setAttribute('id', 'customAlertBar');
             alertBarDiv.setAttribute('style', 'align-content: center;align-items: center;');
