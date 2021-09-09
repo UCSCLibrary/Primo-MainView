@@ -5,6 +5,7 @@
 app.controller('prmBriefResultContainerAfterCtrl',['$location','$scope',function ($location,$scope) {
     var vm = this;
     vm.cssClass = 'finding-aid-brief';
+    vm.linkText = 'Collection Guide';
     vm.findingAid = {'displayLabel':'','linkURL':'','newLinkURL':''};
     vm.$onInit = () => {
         // get links data from primo parent-ctrl binding data
@@ -14,7 +15,7 @@ app.controller('prmBriefResultContainerAfterCtrl',['$location','$scope',function
                 for(var i=0; i < vm.parentCtrl.links.length; i++) {
                     var linkItem=vm.parentCtrl.links[i];
                     var falink = '';
-                    if(linkItem.displayLabel === 'Thumbnail image') {
+                    if((linkItem.displayLabel === 'Collection guide') || (linkItem.displayLabel === 'Thumbnail image'))  {
                         vm.findingAid = linkItem;
                         if(linkItem.linkURL){
 							                falink = linkItem.linkURL;
