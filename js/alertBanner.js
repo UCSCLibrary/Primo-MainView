@@ -6,9 +6,9 @@
 /* Different date conditions may be added to control when the banner appears
  * Tip: getMonth() returns 0-11.
  */
-let bannerDate = new Date();
+//let bannerDate = new Date();
 //if((bannerDate.getMonth() <= 7) && (bannerDate.getDate() < 27)){
-if (false) {
+if (true) {
   // Use an interval to give a 5000ms delay before alert appears
   let alertBanner = window.setInterval(function(){
     let prmAlertBar = document.getElementsByClassName('topbar-wrapper');
@@ -21,7 +21,7 @@ if (false) {
       alertBarInnerDiv.setAttribute('style', 'text-align: center;background-color: #dff0d8;padding: 3px 0;font-size: 20px;');
 
       /*alert banner message to customize */
-      alertBarInnerDiv.innerHTML = 'Welcome to UC Library Search!';
+      alertBarInnerDiv.innerHTML = 'S&E Library items are inaccessible September 22, 2021 - March 28, 2022. Please request items through UC Library Search. <a href="https://library.ucsc.edu/news/science-engineering-library-physical-collections-not-accessible-during-renovation" target="_blank">See more information</a>.';
       alertBarDiv.appendChild(alertBarInnerDiv);
       prmAlertBar[0].prepend(alertBarDiv);
     }
