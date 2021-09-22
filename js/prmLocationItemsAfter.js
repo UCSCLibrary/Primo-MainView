@@ -7,23 +7,26 @@ app.component('prmLocationItemsAfter', {
 });
 
 app.controller('LocationItemsAfterController', ['$scope', function($scope){
-    var vm = this.parentCtrl;
-    var location = this.parentCtrl.loc.location;
 
     this.$onInit = ()=> {
       // Watch for the availability statement to update
-      $scope.$watch(s => location.availabilityStatement, ()=> {
-        if (location.availabilityStatement) {
-          // If ',0 holds' is in the statement remove it
-          if (location.availabilityStatement.includes(", 0 holds")) {
-            location.availabilityStatement = location.availabilityStatement.replace(", 0 holds", "");
-          }
+      $scope.$watch(s => this.parentCtrl.loc, ()=> {
+        if (this.parentCtrl.loc) {
+          // Availability loads with a delay from its parent objects, so watch for that now
+          $scope.$watch(t => this.parentCtrl.loc.location.availabilityStatement, ()=> {
+            let statement = this.parentCtrl.loc.location.availabilityStatement;
+            if (statement) {
+              // If ',0 holds' is in the statement remove it
+              this.parentCtrl.loc.location.availabilityStatement = statement.replace(", 0 holds", "");
+            }
+          });
         }
       });
     };
 
     // If its an S&E HT item, when the page loads change the availability statement.
     // This also happens for brief results in hathiTrustAvailability.js
+    var vm = this.parentCtrl;
     angular.element(document).ready(function() {
       if (vm.item) {
         if (vm.item.delivery.bestlocation) {
