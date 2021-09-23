@@ -12,50 +12,44 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     var vm = this.parentCtrl;
     var isDdaItem = null;
     var signInLabel = null;
-    var signInText = null;
-    var alertNode = null;
     var purchaseButton = null;
 
-    // Watch for the details to load, after they do isDdaItem will have a value
+    // Watch for the details to load, 'Discovery print' value in the local field lds33 indicates DDA
     this.$onInit = function () {
         isDdaItem = false;
-        let display = vm.item.pnx.display;
-        for (const detail in display) {
-          // lds07 in the item details means this is a DDA title
-          if (detail == 'lds33') {
-            isDdaItem = true;
-          }
+        if (vm.item.pnx.display.lds33 && vm.item.pnx.display.lds33.includes("Discovery print")) {
+          isDdaItem = true;
         }
     }; 
 
     // Keep checking until we have signInLabel & isDdaItem values
     var checkAlertInterval = window.setInterval(function(){
-      if (signInLabel == null) {
+      if (!signInLabel) {
         signInLabel = document.evaluate("//span[text()='Please sign in to check if there are additional request options.']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
       }
-      if (signInLabel == null) {
+      if (!signInLabel) {
         signInLabel = document.evaluate("//span[text()='Please sign in to check if there are any request options.']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
       }
-      if (signInLabel == null) {
+      if (!signInLabel) {
         signInLabel = document.evaluate("//span[text()='Sign In to request this item']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
       }
-      if (purchaseButton == null) {
+      if (!purchaseButton) {
         purchaseButton = document.evaluate("//span[text()='Request Library Purchase']", document, null, XPathResult.ANY_TYPE, null).iterateNext();
-        if (purchaseButton !== null) {
+        if (purchaseButton) {
           purchaseButton = purchaseButton.parentNode.parentNode.parentNode.parentNode.parentNode;
         }
       }
-      // If we have both a label and an answer to isDDA, update the alert and exit the interval.
-      if (signInLabel !== null && isDdaItem !== null) {
-        alertNode = signInLabel.parentNode.parentNode;
+      // If we have both a label and an answer to isDda, update the alert and exit the interval.
+      if (signInLabel && isDdaItem !== null) {
+        var alertNode = signInLabel.parentNode.parentNode;
         clearInterval(checkAlertInterval);
         updateLoginAlert(isDdaItem, alertNode);
       }
       // If we find a purchase button
-      if (purchaseButton !== null) {
+      if (purchaseButton) {
         // If it's a DDA item, ensure hidden is not in the class list and flag it as processed 
         // to prevent AlmaHowovp controller from re-hiding the service.
-        if (isDdaItem == true) {
+        if (isDdaItem) {
           purchaseButton.setAttribute("class", "processed");
           purchaseButton.classList.remove("hidden");
         }
@@ -65,13 +59,12 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     }, 100)
 
     function updateLoginAlert(isDdaItem, alertNode) {
-      signInText = document.evaluate("//span[text()='Sign in']", alertNode, null, XPathResult.ANY_TYPE, null ).iterateNext();
-      if (isDdaItem == true) {
+      if (isDdaItem) {
         signInLabel.innerHTML = "Sign in to Request Library Purchase.";
       } else {
         // If there is a how to get it, leave the banner as-is (prominent yellow). Otherwise, de-emphasize it.
         let howOvpService = document.evaluate("//h4[text()='How to Get It']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
-        if (howOvpService == null) {
+        if (!howOvpService) {
           signInLabel.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
           signInLabel.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
           signInLabel.innerHTML = "Sign in for more options.";
