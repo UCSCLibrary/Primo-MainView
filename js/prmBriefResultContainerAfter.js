@@ -15,7 +15,7 @@ app.controller('prmBriefResultContainerAfterCtrl',['$location','$scope',function
                 for(var i=0; i < vm.parentCtrl.links.length; i++) {
                     var linkItem=vm.parentCtrl.links[i];
                     var falink = '';
-                    if((linkItem.displayLabel === 'Collection guide') || (linkItem.displayLabel === 'Thumbnail image'))  {
+                    if(linkItem.displayLabel === 'Collection guide')  {
                         vm.findingAid = linkItem;
                         if(linkItem.linkURL){
 							                falink = linkItem.linkURL;
