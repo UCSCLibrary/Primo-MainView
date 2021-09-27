@@ -10,28 +10,31 @@ app.component('almaHowovpAfter', {
 });
 
 app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($scope, $rootScope){
-  var vm = this;
+  var pnxData = this.parentCtrl.item.pnx.addata;
   var illNoteText = null;
   var illServiceSpan = null;
   var purchaseButton = null;
 
-  if ((vm.parentCtrl.item.pnx.addata.format[0] == 'article') || (vm.parentCtrl.item.pnx.addata.format[0] == 'journal')) {
+  if ((pnxData.format[0] == 'article') || (pnxData.format[0] == 'journal')) {
     illNoteText = "Articles are generally delivered electronically within 1-2 days";
+  }
+  if (pnxData.format[0] == 'book') {
+    illNoteText = "Books generally arrive in 3-7 days";
   }
 
   let illIntervalCount = 0;
   var illServiceInterval = window.setInterval(function(){
     illIntervalCount++;
     // Exit if there's no note to add, or its spent 10 seconds trying
-    if ((illNoteText == null) || (illIntervalCount > 100)) {
+    if ((!illNoteText) || (illIntervalCount > 100)) {
       clearInterval(illServiceInterval);
     }
     // Otherwise keep checking for the ILL service
-    if (illServiceSpan == null) {
+    if (!illServiceSpan) {
       illServiceSpan = document.evaluate("//span[text()='Request through Interlibrary Loan']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
     }
     // If we find the service add the note.
-    if (illServiceSpan != null) {
+    if (illServiceSpan) {
       // Add the service note in a new span.
       let illNoteSpan = document.createElement('span');
       illNoteSpan.innerHTML = illNoteText;
@@ -48,14 +51,14 @@ app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($s
       clearInterval(ddaServiceInterval);
     }
     // Otherwise keep looking for the purchase request button
-    if (purchaseButton == null) {
+    if (!purchaseButton) {
       purchaseButton = document.evaluate("//span[text()='Request Library Purchase']", document, null, XPathResult.ANY_TYPE, null).iterateNext();
-      if (purchaseButton !== null) {
+      if (purchaseButton) {
         purchaseButton = purchaseButton.parentNode.parentNode.parentNode.parentNode.parentNode;
       }
     }
     // Once the button is found...
-    if (purchaseButton != null) {
+    if (purchaseButton) {
       // Check if its already processed by prmServiceDetails controller, and if not hide it
       if (!purchaseButton.classList.contains("processed")) {
         purchaseButton.setAttribute("class", "hidden");
