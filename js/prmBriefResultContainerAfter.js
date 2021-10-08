@@ -5,33 +5,37 @@
 app.controller('prmBriefResultContainerAfterCtrl',['$location','$scope',function ($location,$scope) {
     var vm = this;
     vm.cssClass = 'finding-aid-brief';
-    vm.linkText = 'Collection Guide';
     vm.findingAid = {'displayLabel':'','linkURL':'','newLinkURL':''};
     vm.$onInit = () => {
         // get links data from primo parent-ctrl binding data
         $scope.$watch('vm.parentCtrl.links',()=>{
-            // find $$Elinktofa
             if(vm.parentCtrl.links) {
                 for(var i=0; i < vm.parentCtrl.links.length; i++) {
-                    var linkItem=vm.parentCtrl.links[i];
-                    var falink = '';
+                    var linkItem = vm.parentCtrl.links[i];
                     if(linkItem.displayLabel === 'Collection guide')  {
-                        vm.findingAid = linkItem;
-                        if(linkItem.linkURL){
-							                falink = linkItem.linkURL;
-                        }
-                        vm.findingAid.newLinkURL = falink;
-                        // add more padding when it is full display page
-                        var param = $location.search();
-                        if(param.docid) {
-                            vm.cssClass = 'finding-aid-full';
-                        }
+                        vm.linkText = 'Collection Guide';
+                        updateBriefLink(linkItem);
+                        i = vm.parentCtrl.links.length;
+                    }
+                    if(linkItem.displayLabel === 'For user guides or to request extended checkout visit')  {
+                        vm.linkText = 'Equipment Information and Guides';
+                        updateBriefLink(linkItem);
                         i = vm.parentCtrl.links.length;
                     }
                 }
             }
         });
     };
+
+    function updateBriefLink(linkItem) {
+        vm.findingAid = linkItem;
+        vm.findingAid.newLinkURL = linkItem.linkURL ? linkItem.linkURL : '';
+        // add more padding when it is full display page
+        var param = $location.search();
+        if(param.docid) {
+            vm.cssClass = 'finding-aid-full';
+        }
+    }
 }]);
 
 app.component('prmBriefResultContainerAfter',{
