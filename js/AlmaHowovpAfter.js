@@ -10,15 +10,15 @@ app.component('almaHowovpAfter', {
 });
 
 app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($scope, $rootScope){
-  var pnxData = this.parentCtrl.item.pnx.addata;
+  var pnxData = this.parentCtrl.item.pnx.display;
   var illNoteText = null;
   var illServiceSpan = null;
   var purchaseButton = null;
 
-  if ((pnxData.format[0] == 'article') || (pnxData.format[0] == 'journal')) {
+  if ((pnxData.type[0] == 'article') || (pnxData.format[0] == 'journal')) {
     illNoteText = "Articles are generally delivered electronically within 1-2 days";
   }
-  if (pnxData.format[0] == 'book') {
+  if (pnxData.type[0] == 'book') {
     illNoteText = "Books generally arrive in 3-7 days";
   }
 
