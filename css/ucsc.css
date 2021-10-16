@@ -463,3 +463,11 @@ div[data-facet-value="institution-6535"] { order:  7; } /* San Diego */
 div[data-facet-value="institution-6536"] { order:  8; } /* San Francisco */
 div[data-facet-value="institution-3776"] { order:  9; } /* Santa Barbara */
 div[data-facet-value="institution-4876"] { order: 10; } /* Santa Cruz */
+
+/* Loan due dates should be black unless soon overdue */
+prm-loans-overview p.overdue-line-overview {
+    color: #3a3a3a;
+}
+prm-loans-overview p.overdue-line-overview.prm-warn {
+    color: #d62100;
+}
