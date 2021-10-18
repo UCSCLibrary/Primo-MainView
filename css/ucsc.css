@@ -206,6 +206,9 @@ alma-howovp a:hover {
   margin-bottom: 15px;
   padding-left: 0;
 }
+#findItBox md-list-item.align-center {
+  align-items: center;
+}
 #findItBox md-list-item > div {
   float: left;
 }
