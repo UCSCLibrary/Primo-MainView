@@ -474,3 +474,14 @@ prm-loans-overview p.overdue-line-overview {
 prm-loans-overview p.overdue-line-overview.prm-warn {
     color: #d62100;
 }
+
+/* ILL Loan Renewal Button fixes */
+prm-loans .renewable button a {
+  display: block;
+}
+prm-loans .renewable button a:hover,
+prm-loans .renewable button a:active,
+prm-loans .renewable button a:focus {
+  color: #fff;
+  text-decoration: none;
+}
