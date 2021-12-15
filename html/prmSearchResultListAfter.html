@@ -14,14 +14,23 @@
       </div>
 
       <div role="list" class="md-primoExplore-theme">
-        <div ng-if="$ctrl.notWorldCat()">
+        <div>
           <span class="md-subheadline">Try your search again</span>
           <md-list-item role="listitem" class="_md-no-proxy _md">
             <div>
-              <a href="/discovery/search?query={{$ctrl.queryString}}&tab=Worldcat&search_scope=Worldcat&vid=01CDL_SCR_INST:USCS&offset=0" target="_self"><img src="custom/01CDL_SCR_INST-USCS/img/worldcat.png" width="35" height="35" alt="Worldcat Logo" /></a>
+              <a href="/discovery/search?query={{$ctrl.queryString}}&tab={{$ctrl.tab}}&search_scope={{$ctrl.search_scope}}&vid={{$ctrl.vid}}&offset=0&pcAvailability=true" target="_self" class="img"><img src="custom/01CDL_SCR_INST-USCS/img/icon-article.png" width="35" height="35" alt="Article icon" /></a>
             </div>
             <div>
-              <p><a href="/discovery/search?query={{$ctrl.queryString}}&tab=Worldcat&search_scope=Worldcat&vid=01CDL_SCR_INST:USCS&offset=0" target="_self">Worldcat Search Scope</a></p>
+              <p><a href="/discovery/search?query={{$ctrl.queryString}}&tab={{$ctrl.tab}}&search_scope={{$ctrl.search_scope}}&vid={{$ctrl.vid}}&offset=0&pcAvailability=true" target="_self">Articles available by request</a></p>
+              <p>Add articles available by Interlibrary Loan to your results</p>
+            </div>
+          </md-list-item>
+          <md-list-item role="listitem" class="_md-no-proxy _md" ng-if="$ctrl.notWorldCat()">
+            <div>
+              <a href="/discovery/search?query={{$ctrl.queryString}}&tab=Worldcat&search_scope=Worldcat&vid={{$ctrl.vid}}&offset=0" target="_self" class="img"><img src="custom/01CDL_SCR_INST-USCS/img/worldcat.png" width="35" height="35" alt="Worldcat Logo" /></a>
+            </div>
+            <div>
+              <p><a href="/discovery/search?query={{$ctrl.queryString}}&tab=Worldcat&search_scope=Worldcat&vid={{$ctrl.vid}}&offset=0" target="_self">Worldcat Search Scope</a></p>
               <p>Find items available by request from libraries worldwide</p>
             </div>
           </md-list-item>
@@ -30,7 +39,7 @@
         <span class="md-subheadline" style="margin-top:15px;">Tell us what you need</span>
         <md-list-item role="listitem" class="_md-no-proxy _md align-center">
           <div>
-            <a href="https://library.ucsc.edu/request-a-purchase"><img src="custom/01CDL_SCR_INST-USCS/img/icon-purchase.png" width="35" height="35" /></a>
+            <a href="https://library.ucsc.edu/request-a-purchase" class="img"><img src="custom/01CDL_SCR_INST-USCS/img/icon-purchase.png" width="35" height="35" /></a>
           </div>
           <div>
             <p><a href="https://library.ucsc.edu/request-a-purchase">Request a Purchase</a></p>
@@ -38,7 +47,7 @@
         </md-list-item>
         <md-list-item role="listitem" class="_md-no-proxy _md align-center">
           <div>
-            <a href="/discovery/blankIll?vid=01CDL_SCR_INST%3AUSCS"><img src="custom/01CDL_SCR_INST-USCS/img/icon-ill.png" width="35" height="35" /></a>
+            <a href="/discovery/blankIll?vid=01CDL_SCR_INST%3AUSCS" class="img"><img src="custom/01CDL_SCR_INST-USCS/img/icon-ill.png" width="35" height="35" /></a>
           </div>
           <div>
             <p><a href="/discovery/blankIll?vid=01CDL_SCR_INST%3AUSCS">Manual Interlibrary Loan Form</a></p>

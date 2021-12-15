@@ -6,6 +6,12 @@
  */
 app.controller('SearchResultListAfterController', ['$scope', '$rootScope', function($scope, $rootScope){
   var vm = this;
+
+  // Make search parameters available to the template
+  vm.tab = vm.parentCtrl.$stateParams.tab;
+  vm.vid = vm.parentCtrl.$stateParams.vid;
+  vm.search_scope = vm.parentCtrl.$stateParams.search_scope;
+
   // Advanced search queries are objects. Get the query in a string
   if (typeof vm.parentCtrl.$stateParams.query === 'object') {
     vm.queryString = vm.parentCtrl.$stateParams.query.join('&query=');
@@ -22,7 +28,7 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
 
   // To tell the template whether or not it's on Worldcat scope.
   this.notWorldCat = function() {
-    return (vm.parentCtrl.$stateParams.search_scope == "Worldcat") ? false : true;
+    return (vm.search_scope == "Worldcat") ? false : true;
   }
 }]);
 

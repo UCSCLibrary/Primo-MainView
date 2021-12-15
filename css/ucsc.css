@@ -217,6 +217,11 @@ alma-howovp a:hover {
 #findItBox img {
   margin: 0px 8px -10px 0px;
 }
+#findItBox a.img:hover,
+#findItBox a.img:focus,
+#findItBox a.img:active {
+  box-shadow: none;
+}
 @media all and (min-width: 600px) {
   #findItBox md-card-content {
     flex-flow: row nowrap;
