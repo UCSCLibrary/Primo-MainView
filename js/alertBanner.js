@@ -22,7 +22,6 @@ if (true) {
 
       /*alert banner message to customize */
       alertBarInnerDiv.innerHTML = '<p>S&E Library lower level books are inaccessible September 22, 2021 - March 28, 2022. Please request items through UC Library Search. <a href="https://library.ucsc.edu/news/science-engineering-library-physical-collections-not-accessible-during-renovation" target="_blank">See more information</a>.</p>';
-      alertBarInnerDiv.innerHTML += '<p>Proquest eBooks & databases will be unavailable Saturday, January 15th from 7PM - 3AM. <a href="https://library.ucsc.edu/news/some-ebooks-databases-will-be-unavailable-saturday-january-15th-from-7pm-3am">More information</a>.</p>'
       alertBarDiv.appendChild(alertBarInnerDiv);
       prmAlertBar[0].prepend(alertBarDiv);
     }
