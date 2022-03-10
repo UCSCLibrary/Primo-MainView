@@ -24,13 +24,16 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
       });
     };
 
-    // If its an S&E HT item, when the page loads change the availability statement.
+    // If its an S&E HT or Aerial Photos item, when the page loads change the availability statement.
     // This also happens for brief results in hathiTrustAvailability.js
     var vm = this.parentCtrl;
     angular.element(document).ready(function() {
       if (vm.item) {
         if (vm.item.delivery.bestlocation) {
-          if (vm.item.delivery.bestlocation.subLocationCode == 'setas') {
+          // Location codes for S&E ETAS, and two Aerial photos locations
+          const locations = ['setas', 'meddg', 'meddo'];
+          let locationCode = vm.item.delivery.bestlocation.subLocationCode;
+          if (locationCode && locations.includes(locationCode)) {
             // With the full result in modal, Primo returns multiple copies of this ID: change em all.
             var span = document.querySelectorAll("[id='" + vm.item.pnx.control.recordid[0] + "availabilityLine0']");
             if (span) {

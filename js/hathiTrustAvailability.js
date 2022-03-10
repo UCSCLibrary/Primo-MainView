@@ -215,6 +215,7 @@
     window.browzine.primo.searchResult($scope);
 
     // The code below removes the availability line for HT ETAS items in S&E
+    // and for Aerial photos
     // and replaces it with a No Physical Access message.
     // This works for the brief results. Full result page on prmLocationItemsAfter.js
     var vm = this.parentCtrl;
@@ -222,7 +223,10 @@
       // Brief result
       if (vm.result) {
         if (vm.result.delivery.bestlocation) {
-          if (vm.result.delivery.bestlocation.subLocationCode == 'setas') {
+          // Location codes for S&E ETAS, and two Aerial photos locations
+          const locations = ['setas', 'meddg', 'meddo'];
+          let locationCode = vm.result.delivery.bestlocation.subLocationCode;
+          if (locationCode && locations.includes(locationCode)) {
             var span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0');
             if (span) {
               span.textContent = "No physical access";
