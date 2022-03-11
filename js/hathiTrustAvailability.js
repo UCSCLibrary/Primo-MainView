@@ -229,7 +229,8 @@
           if (locationCode && locations.includes(locationCode)) {
             var span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0');
             if (span) {
-              span.textContent = "No physical access";
+              //span.textContent = "No physical access";
+              span.textContent = span.textContent.replace("Available", "No physical access");
             }
           }
         }

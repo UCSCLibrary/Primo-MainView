@@ -38,7 +38,8 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
             var span = document.querySelectorAll("[id='" + vm.item.pnx.control.recordid[0] + "availabilityLine0']");
             if (span) {
               for(var i = 0; i < span.length; i++) {
-                span[i].textContent = "No physical access";
+                //span[i].textContent = "No physical access";
+                span[i].textContent = span[i].textContent.replace("Available", "No physical access");
               }
             }
             // Find and hide the "available" message in the holding info, do it on an interval because this bit
