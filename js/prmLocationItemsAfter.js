@@ -50,7 +50,8 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
                 holdingStatement = document.evaluate("//p[@ng-if='$ctrl.currLoc.location.availabilityStatus']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
               } else {
                 clearInterval(holdingInterval);
-                holdingStatement.innerHTML = "No Physical Access " + vm.loc.location.callNumber;
+                //holdingStatement.innerHTML = "No Physical Access " + vm.loc.location.callNumber;
+                holdingStatement.innerHTML = holdingStatement.innerHTML.replace("Available", "No physical access");
               }
             }, 500);
           }
