@@ -36,7 +36,7 @@ app.controller('prmBriefResultContainerAfterCtrl',['$location','$scope',function
             if (vm.parentCtrl.item && vm.parentCtrl.item.delivery && vm.parentCtrl.item.delivery.bestlocation) {
                 clearInterval(locationsInterval);
                 // Location codes for S&E ETAS, and two Aerial photos locations
-                const locations = ['setas', 'meddg', 'meddo'];
+                const locations = ['setas', 'meddg'];
                 let locationCode = vm.parentCtrl.item.delivery.bestlocation.subLocationCode;
                 if (locationCode && locations.includes(locationCode)) {
                     var linkItem = new Object();

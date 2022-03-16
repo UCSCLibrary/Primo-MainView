@@ -224,7 +224,7 @@
       if (vm.result) {
         if (vm.result.delivery.bestlocation) {
           // Location codes for S&E ETAS, and two Aerial photos locations
-          const locations = ['setas', 'meddg', 'meddo'];
+          const locations = ['setas', 'meddg'];
           let locationCode = vm.result.delivery.bestlocation.subLocationCode;
           if (locationCode && locations.includes(locationCode)) {
             var span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0');

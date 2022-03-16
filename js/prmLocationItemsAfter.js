@@ -31,7 +31,7 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
       if (vm.item) {
         if (vm.item.delivery.bestlocation) {
           // Location codes for S&E ETAS, and two Aerial photos locations
-          const locations = ['setas', 'meddg', 'meddo'];
+          const locations = ['setas', 'meddg'];
           let locationCode = vm.item.delivery.bestlocation.subLocationCode;
           if (locationCode && locations.includes(locationCode)) {
             // With the full result in modal, Primo returns multiple copies of this ID: change em all.
