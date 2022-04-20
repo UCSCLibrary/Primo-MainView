@@ -490,3 +490,19 @@ prm-loans .renewable button a:focus {
   color: #fff;
   text-decoration: none;
 }
+
+/* Fix toggle button for expand my results/include ILL */
+prm-facet .switch-results .md-button {
+  text-align: left;
+}
+prm-facet .switch-results .md-button md-switch {
+  white-space: normal;
+  height: 45px;
+  line-height: 20px;
+}
+prm-facet .switch-results .md-button md-switch .md-container {
+  margin-right: 18px;
+}
+prm-facet .switch-results .md-button md-switch .md-label { 
+  margin-right: 30px;
+}
