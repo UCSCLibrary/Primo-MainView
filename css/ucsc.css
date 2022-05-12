@@ -526,3 +526,6 @@ prm-facet .switch-results .md-button md-switch .md-label {
 prm-advanced-search * > button.collapsed-button * > md-icon {
   display: none;
 }
+prm-search-bar .advanced-search-wrapper md-input-container.bold-text input.ng-hide:not(.ng-hide-animate) {
+  display: block !important;
+}
