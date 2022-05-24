@@ -529,3 +529,19 @@ prm-advanced-search * > button.collapsed-button * > md-icon {
 prm-search-bar .advanced-search-wrapper md-input-container.bold-text input.ng-hide:not(.ng-hide-animate) {
   display: block !important;
 }
+
+/* Fix institution select on loans page for mobile view */
+@media screen and (max-width: 960px) {
+  prm-account .md-toolbar-tools {
+    justify-content: space-between;
+  }
+
+  prm-linked-user-selector md-input-container {
+    font-size: 14px;
+  }
+
+  prm-linked-user-selector md-select-value .md-text {
+    display: inline-block;
+    max-width: 221px;
+  }
+}
