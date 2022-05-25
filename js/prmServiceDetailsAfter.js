@@ -17,8 +17,10 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     // Watch for the details to load, 'Discovery print' value in the local field lds33 indicates DDA
     this.$onInit = function () {
         isDdaItem = false;
-        if (vm.item.pnx.display.lds33 && vm.item.pnx.display.lds33.includes("Discovery print")) {
-          isDdaItem = true;
+        if (vm.item.pnx.display.lds33) {
+          if (vm.item.pnx.display.lds33.includes("Discovery Print") || vm.item.pnx.display.lds33.includes("Discovery print")) {
+            isDdaItem = true;
+          }
         }
     }; 
 
