@@ -540,8 +540,14 @@ prm-search-bar .advanced-search-wrapper md-input-container.bold-text input.ng-hi
     font-size: 14px;
   }
 
-  prm-linked-user-selector md-select-value .md-text {
-    display: inline-block;
-    max-width: 221px;
+  prm-linked-user-selector md-select-value span div.md-text {
+    display: inline-block !important;
+    max-width: 220px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
+}
+@media screen and (max-width: 420px) {
+  prm-linked-user-selector md-select-value span div.md-text { max-width: 165px; }
 }
