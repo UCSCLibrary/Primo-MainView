@@ -14,11 +14,11 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     var signInLabel = null;
     var purchaseButton = null;
 
-    // Watch for the details to load, 'Discovery print' value in the local field lds33 indicates DDA
+    // Watch for the details to load, 'Discovery print' value in the local field lds07 indicates DDA
     this.$onInit = function () {
         isDdaItem = false;
-        if (vm.item.pnx.display.lds33) {
-          if (vm.item.pnx.display.lds33.includes("Discovery Print") || vm.item.pnx.display.lds33.includes("Discovery print")) {
+        if (vm.item.pnx.display.lds07) {
+          if (vm.item.pnx.display.lds07.includes("Discovery Print") || vm.item.pnx.display.lds07.includes("Discovery print")) {
             isDdaItem = true;
           }
         }
