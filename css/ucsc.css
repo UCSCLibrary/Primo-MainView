@@ -551,3 +551,9 @@ prm-search-bar .advanced-search-wrapper md-input-container.bold-text input.ng-hi
 @media screen and (max-width: 420px) {
   prm-linked-user-selector md-select-value span div.md-text { max-width: 165px; }
 }
+
+/* Citations: make active button more noticeable, w same style as focused button */
+prm-citation md-nav-bar.vertical-nav-bar .md-nav-item .md-button.md-active {
+  color: #fff;
+  background-color: rgba(0,0,0,.87);
+}
