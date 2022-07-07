@@ -1,6 +1,8 @@
 /*
  *  Add an information banner to the My Library Card page
  *
+ *  Add a header for the institutions list.
+ *
  *  By default, primo displays all institutions in a consortium, which leads to a lot of clutter.
  *  We have hidden them in our CSS, and will look for an icon indicating an institution "has
  *  activity", and will selectively show those.
@@ -29,6 +31,8 @@ app.controller('prmAccountOverviewAfterController', ['$scope', '$rootScope', fun
 
     function updateInstitutions(institutionsList) {
         if (institutionsList != null) {
+            // Add a header to the institution list and give it an ID.
+            institutionsList.insertAdjacentHTML( 'beforeBegin', '<h2>UC Campus</h2>' );
             institutionsList.setAttribute('id', 'main-institution-list');
             // Each institution is in its own md-list-item
             let items = document.getElementById('main-institution-list').getElementsByTagName('md-list-item');

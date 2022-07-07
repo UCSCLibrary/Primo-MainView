@@ -438,6 +438,33 @@ prm-account-overview .institutions-list prm-icon {
   display: none;
 }
 
+/* Style our custom institution list header */
+prm-account-overview .institutions-list { margin-top: 0.2em; }
+prm-account-overview .main-institution-list { padding-top: 0; }
+prm-account-overview .institutions-list h2 {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.57);
+  padding: 12px 0;
+  border-bottom: 1px solid #d5d5d5;
+  margin-bottom: 0;
+}
+
+/* Visually connect the active institution with the content */
+prm-account-overview md-tabs-content-wrapper { background-color: #fff; }
+prm-account-overview .institutions-list .is-selected { position: relative; }
+prm-account-overview .institutions-list md-list-item.is-selected .institution-name { z-index: 1; }
+prm-account-overview .separate-list-items md-list-item { background-color: #f3f3f3; }
+prm-account-overview .institutions-list .is-selected:after {
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 1000px;
+  z-index: 0;
+}
+
 /* Hide the extra ILL link in the Loans display */
 prm-account #loansCheckboxId span p:nth-child(2) {
   display: none;
