@@ -9,20 +9,19 @@ app.component('prmServiceDetailsAfter', {
 });
 
 app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
+  this.$onInit = function () {
     var vm = this.parentCtrl;
     var isDdaItem = null;
     var signInLabel = null;
     var purchaseButton = null;
 
     // Watch for the details to load, 'Discovery print' value in the local field lds07 indicates DDA
-    this.$onInit = function () {
-        isDdaItem = false;
-        if (vm.item.pnx.display.lds07) {
-          if (vm.item.pnx.display.lds07.includes("Discovery Print") || vm.item.pnx.display.lds07.includes("Discovery print")) {
-            isDdaItem = true;
-          }
-        }
-    }; 
+    isDdaItem = false;
+    if (vm.item.pnx.display.lds07) {
+      if (vm.item.pnx.display.lds07.includes("Discovery Print") || vm.item.pnx.display.lds07.includes("Discovery print")) {
+        isDdaItem = true;
+      }
+    }
 
     // Keep checking until we have signInLabel & isDdaItem values
     var checkAlertInterval = window.setInterval(function(){
@@ -58,7 +57,8 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
         // This also means the user is already logged in and we can exit the interval
         clearInterval(checkAlertInterval);
       }
-    }, 100)
+    }, 100);
+  };
 
     function updateLoginAlert(isDdaItem, alertNode) {
       if (isDdaItem) {
