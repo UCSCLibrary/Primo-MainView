@@ -507,6 +507,11 @@ prm-loans-overview p.overdue-line-overview.prm-warn {
     color: #d62100;
 }
 
+/* Ensure the whole "renew all" button displays */
+prm-loans-overview button[aria-label="Renew all"] {
+  min-width: 120px;
+}
+
 /* ILL Loan Renewal Button fixes */
 prm-loans .renewable button a {
   display: block;
