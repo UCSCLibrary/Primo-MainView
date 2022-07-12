@@ -44,7 +44,7 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
       if (signInLabel && isDdaItem !== null) {
         var alertNode = signInLabel.parentNode.parentNode;
         clearInterval(checkAlertInterval);
-        updateLoginAlert(isDdaItem, alertNode);
+        updateLoginAlert(isDdaItem, alertNode, signInLabel);
       }
       // If we find a purchase button
       if (purchaseButton) {
@@ -60,7 +60,7 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     }, 100);
   };
 
-    function updateLoginAlert(isDdaItem, alertNode) {
+    function updateLoginAlert(isDdaItem, alertNode, signInLabel) {
       if (isDdaItem) {
         signInLabel.innerHTML = "Sign in to Request Library Purchase.";
       } else {
