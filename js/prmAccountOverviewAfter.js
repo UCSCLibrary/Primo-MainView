@@ -31,8 +31,8 @@ app.controller('prmAccountOverviewAfterController', ['$scope', '$rootScope', fun
 
     function updateInstitutions(institutionsList) {
         if (institutionsList != null) {
-            // Add a header to the institution list and give it an ID.
-            institutionsList.insertAdjacentHTML( 'beforeBegin', '<h2>UC Campus</h2>' );
+            // Only show the header when there are visible institutions
+            var showHeader = false;
             institutionsList.setAttribute('id', 'main-institution-list');
             // Each institution is in its own md-list-item
             let items = document.getElementById('main-institution-list').getElementsByTagName('md-list-item');
@@ -40,7 +40,12 @@ app.controller('prmAccountOverviewAfterController', ['$scope', '$rootScope', fun
                 // If it has a prm-icon element, its an institution with activity that should be displayed
                 if (item.querySelector("prm-icon") != null) {
                     item.style.display = 'flex';
+                    showHeader = true;
                 }
+            }
+            if (showHeader) {
+                // Add a header to the institution list and give it an ID.
+                institutionsList.insertAdjacentHTML( 'beforeBegin', '<h2>UC Campus</h2>' );
             }
         }
     }
