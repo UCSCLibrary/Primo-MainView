@@ -16,19 +16,17 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
           $scope.$watch(t => this.parentCtrl.loc.location.availabilityStatement, ()=> {
             let statement = this.parentCtrl.loc.location.availabilityStatement;
             if (statement) {
-              // If ',0 holds' is in the statement remove it
+              // If '0 holds' is in the statement remove it
               this.parentCtrl.loc.location.availabilityStatement = statement.replace(", 0 holds", "");
+              this.parentCtrl.loc.location.availabilityStatement = statement.replace("(0 holds)", "");
             }
           });
         }
       });
-    };
-
-    // If its an S&E HT or Aerial Photos item, when the page loads change the availability statement.
-    // This also happens for brief results in hathiTrustAvailability.js
-    var vm = this.parentCtrl;
-    angular.element(document).ready(function() {
-      if (vm.item) {
+      // If its an S&E HT or Aerial Photos item, when the page loads change the availability statement.
+      // This also happens for brief results in hathiTrustAvailability.js
+      $scope.$watch(s => this.parentCtrl.item, ()=> {
+        var vm = this.parentCtrl;
         if (vm.item.delivery.bestlocation) {
           // Location codes for S&E ETAS, and two Aerial photos locations
           const locations = ['setas', 'meddg'];
@@ -56,7 +54,6 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
             }, 500);
           }
         }
-      }
-    });
-
+      });
+    };
 }]);

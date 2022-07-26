@@ -9,10 +9,9 @@ app.component('prmLoansAfter', {
 });
 
 app.controller('LoansAfterController', ['$scope', '$element', function($scope, $element){
-  var vm = this.parentCtrl
-  var myForm = "https://library.ucsc.edu/interlibrary-loan-renewal-request";
-
   this.$doCheck = () => {
+    var vm = this.parentCtrl
+    var myForm = "https://library.ucsc.edu/interlibrary-loan-renewal-request";
     // Only do processing if Primo has received loan data from Alma and built its own loans element.
     var loans = vm.loansService._loansList.active;
     if (loans && loans.length) {
