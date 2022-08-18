@@ -11,7 +11,6 @@ app.component('prmLoansAfter', {
 app.controller('LoansAfterController', ['$scope', '$element', function($scope, $element){
   this.$doCheck = () => {
     var vm = this.parentCtrl
-    var myForm = "https://library.ucsc.edu/interlibrary-loan-renewal-request";
     // Only do processing if Primo has received loan data from Alma and built its own loans element.
     var loans = vm.loansService._loansList.active;
     if (loans && loans.length) {
@@ -26,6 +25,7 @@ app.controller('LoansAfterController', ['$scope', '$element', function($scope, $
     angular.forEach($loans, function(item, key) {
       var loanActions = null;
       if ((item.mainlocationcode == "RES_SHARE") && (item.renew == "N")) {
+        var myForm = "https://library.ucsc.edu/interlibrary-loan-renewal-request";
         // Add the metadata we want to send.
         var params = '?duedate=' + item.duedate + '&author=' + item.author + '&title=' + item.title + '&barcode=' + item.itembarcode;
 
