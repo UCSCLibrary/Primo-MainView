@@ -1,5 +1,6 @@
 /*  
  *  Hides hold requests if there are none 
+ *  Customizes availability statement for H&T and Aerials
  */
 app.component('prmLocationItemsAfter', {
     bindings: { parentCtrl: '<' },
@@ -17,8 +18,8 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
             let statement = this.parentCtrl.loc.location.availabilityStatement;
             if (statement) {
               // If '0 holds' is in the statement remove it
-              this.parentCtrl.loc.location.availabilityStatement = statement.replace(", 0 holds", "");
-              this.parentCtrl.loc.location.availabilityStatement = statement.replace("(0 holds)", "");
+              statement = statement.replace(", 0 holds", "").replace("(0 holds)", "");
+              this.parentCtrl.loc.location.availabilityStatement = statement;
             }
           });
         }
