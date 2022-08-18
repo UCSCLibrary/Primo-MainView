@@ -33,10 +33,14 @@ app.controller('LoansAfterController', ['$scope', '$element', function($scope, $
         var loanIntervalCount = 0;
         var loansInterval = window.setInterval(function(){
           loanIntervalCount++;
+          // Try for 5 seconds, then exit
+          if (loanIntervalCount > 50) {
+            clearInterval(loansInterval);
+          }
           if ($prmLoans[key]) {
             loanActions = $prmLoans[key].getElementsByClassName('list-item-actions');
           }
-          if ((loanIntervalCount > 4) || (loanActions)) {
+          if (loanActions) {
             if (loanActions.length) {
               loanActions.item(0).innerHTML = `
               <div class="renewable">
