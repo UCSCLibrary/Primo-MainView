@@ -27,7 +27,7 @@ app.controller('LoansAfterController', ['$scope', '$element', function($scope, $
       if ((item.mainlocationcode == "RES_SHARE") && (item.renew == "N")) {
         var myForm = "https://library.ucsc.edu/interlibrary-loan-renewal-request";
         // Add the metadata we want to send.
-        var params = '?duedate=' + item.duedate + '&author=' + item.author + '&title=' + item.title + '&barcode=' + item.itembarcode;
+        var params = '?current_due_date=' + item.duedate + '&author=' + item.author + '&title=' + item.title + '&barcode=' + item.itembarcode;
 
         // There is a delay in Primo loading the actions, so try to get it with an interval and lots of ugly checks
         var loanIntervalCount = 0;
