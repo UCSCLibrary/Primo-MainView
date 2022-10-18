@@ -225,14 +225,30 @@
         // Brief result
         if (vm.result) {
           if (vm.result.delivery.bestlocation) {
-            // Location codes for S&E ETAS, and two Aerial photos locations
-            const locations = ['setas', 'meddg'];
             let locationCode = vm.result.delivery.bestlocation.subLocationCode;
-            if (locationCode && locations.includes(locationCode)) {
-              var span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0');
-              if (span) {
-                //span.textContent = "No physical access";
-                span.textContent = span.textContent.replace("Available", "No physical access");
+            if (locationCode) {
+              switch (locationCode) {
+                // S&E ETAS, and Aerial photos are currently unavailable
+                case 'setas':
+                case 'meddg':
+                  var span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0');
+                  if (span) {
+                    //span.textContent = "No physical access";
+                    span.textContent = span.textContent.replace("Available", "No physical access");
+                  }
+                  break;
+                // Identify the floor based on call number
+                case 'mstax':
+                  let call = vm.result.delivery.bestlocation.callNumber;
+                  let span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0');
+                  if (span && call) {
+                    if (call.substring(0,2) < "HK") {
+                      span.textContent = span.textContent.replace("3rd or 4th", "3rd");
+                    } else {
+                      span.textContent = span.textContent.replace("3rd or 4th", "4th");
+                    }
+                  }
+                  break;
               }
             }
           }
