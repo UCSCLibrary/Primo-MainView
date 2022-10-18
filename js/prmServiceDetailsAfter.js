@@ -60,17 +60,17 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     }, 100);
   };
 
-    function updateLoginAlert(isDdaItem, alertNode, signInLabel) {
-      if (isDdaItem) {
-        signInLabel.innerHTML = "Sign in to Request Library Purchase.";
-      } else {
-        // If there is a how to get it, leave the banner as-is (prominent yellow). Otherwise, de-emphasize it.
-        let howOvpService = document.evaluate("//h4[text()='How to Get It']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
-        if (!howOvpService) {
-          signInLabel.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
-          signInLabel.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
-          signInLabel.innerHTML = "Sign in for more options.";
-        }
+  function updateLoginAlert(isDdaItem, alertNode, signInLabel) {
+    if (isDdaItem) {
+      signInLabel.innerHTML = "Sign in to Request Library Purchase.";
+    } else {
+      // If there is a how to get it, leave the banner as-is (prominent yellow). Otherwise, de-emphasize it.
+      let howOvpService = document.evaluate("//h4[text()='How to Get It']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
+      if (!howOvpService) {
+        signInLabel.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
+        signInLabel.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
+        signInLabel.innerHTML = "Sign in for more options.";
       }
     }
+  }
 }]);

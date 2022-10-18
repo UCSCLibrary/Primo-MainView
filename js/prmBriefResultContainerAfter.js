@@ -1,5 +1,5 @@
 /**
- * Courtesy of https://github.com/cbaksik/HVD2/blob/master/js/prm-brief-result-container-after.js
+ * Courtesy of https://github.com/cbaksik/HVD2
  * Adds a "Finding Aid" button
 **/
 app.controller('prmBriefResultContainerAfterCtrl',['$location','$scope',function ($location,$scope) {
