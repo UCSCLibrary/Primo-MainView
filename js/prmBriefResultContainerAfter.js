@@ -25,29 +25,20 @@ app.controller('prmBriefResultContainerAfterCtrl',['$location','$scope',function
                 }
             }
         });
-    };
-    // Locations lag, use an interval
-    angular.element(document).ready(function() {
-        let locationsCount = 0;
-        var locationsInterval = window.setInterval(function(){
-            if (locationsCount > 20) {
-                clearInterval(locationsInterval);
-            }
-            if (vm.parentCtrl.item && vm.parentCtrl.item.delivery && vm.parentCtrl.item.delivery.bestlocation) {
-                clearInterval(locationsInterval);
-                // Location codes for S&E ETAS, and two Aerial photos locations
-                const locations = ['setas', 'meddg'];
+
+        // When locations load, add an aerial photos guide link
+        $scope.$watch('vm.parentCtrl.item.delivery',()=>{
+            if (vm.parentCtrl.item.delivery && vm.parentCtrl.item.delivery.bestlocation) {
                 let locationCode = vm.parentCtrl.item.delivery.bestlocation.subLocationCode;
-                if (locationCode && locations.includes(locationCode)) {
+                if (locationCode == 'meddg') {
                     var linkItem = new Object();
                     vm.linkText = 'Aerial Photos Guide';
                     linkItem.linkURL = 'https://guides.library.ucsc.edu/maps';
                     updateBriefLink(linkItem);
                 }
             }
-            locationsCount++;
-        }, 500);
-    });
+        });
+    };
 
    function updateBriefLink(linkItem) {
         vm.findingAid = linkItem;
