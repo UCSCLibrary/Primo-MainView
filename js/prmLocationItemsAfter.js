@@ -52,8 +52,10 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
                 if (spans && call) {
                   for(var i = 0; i < spans.length; i++) {
                     var span = spans[i].getElementsByClassName("best-location-sub-location");
-                    var floor = (call.substring(0,2) < "HK") ? "3rd" : "4th";
-                    span[0].textContent = span[0].textContent.replace("3rd or 4th", floor);
+                    if (span.length) {
+                      var floor = (call.substring(0,2) < "HK") ? "3rd" : "4th";
+                      span[0].textContent = span[0].textContent.replace("3rd or 4th", floor);
+                    }
                   }
                 }
                 updateHoldingStatement(floor);
