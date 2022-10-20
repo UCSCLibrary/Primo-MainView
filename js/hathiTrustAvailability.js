@@ -233,20 +233,16 @@
                 case 'meddg':
                   var span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0');
                   if (span) {
-                    //span.textContent = "No physical access";
                     span.textContent = span.textContent.replace("Available", "No physical access");
                   }
                   break;
                 // Identify the floor based on call number
                 case 'mstax':
                   let call = vm.result.delivery.bestlocation.callNumber;
-                  let span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0');
+                  let span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0').getElementsByClassName("best-location-sub-location");
                   if (span && call) {
-                    if (call.substring(0,2) < "HK") {
-                      span.textContent = span.textContent.replace("3rd or 4th", "3rd");
-                    } else {
-                      span.textContent = span.textContent.replace("3rd or 4th", "4th");
-                    }
+                    var floor = (call.substring(0,2) < "HK") ? "3rd" : "4th";
+                    span[0].textContent = span[0].textContent.replace("3rd or 4th", floor);
                   }
                   break;
               }

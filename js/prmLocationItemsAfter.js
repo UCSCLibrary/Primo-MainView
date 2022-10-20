@@ -1,6 +1,7 @@
 /*  
  *  Hides hold requests if there are none 
  *  Customizes availability statement for H&T and Aerials
+ *  Identifies the floor location for McHenry general collection
  */
 app.component('prmLocationItemsAfter', {
     bindings: { parentCtrl: '<' },
@@ -24,37 +25,70 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
           });
         }
       });
-      // If its an S&E HT or Aerial Photos item, when the page loads change the availability statement.
-      // This also happens for brief results in hathiTrustAvailability.js
+      // When location loads, update availability based on sublocation code
+      // This also happens for search results in hathiTrustAvailability.js
       $scope.$watch(s => this.parentCtrl.item, ()=> {
         var vm = this.parentCtrl;
         if (vm.item.delivery.bestlocation) {
-          // Location codes for S&E ETAS, and two Aerial photos locations
-          const locations = ['setas', 'meddg'];
           let locationCode = vm.item.delivery.bestlocation.subLocationCode;
-          if (locationCode && locations.includes(locationCode)) {
+          if (locationCode) {
             // With the full result in modal, Primo returns multiple copies of this ID: change em all.
-            var span = document.querySelectorAll("[id='" + vm.item.pnx.control.recordid[0] + "availabilityLine0']");
-            if (span) {
-              for(var i = 0; i < span.length; i++) {
-                //span[i].textContent = "No physical access";
-                span[i].textContent = span[i].textContent.replace("Available", "No physical access");
-              }
+            switch(locationCode) {
+              // S&E ETAS, and Aerial photos are currently unavailable
+              case 'setas':
+              case 'meddg':
+                var span = document.querySelectorAll("[id='" + vm.item.pnx.control.recordid[0] + "availabilityLine0']");
+                if (span) {
+                  for(var i = 0; i < span.length; i++) {
+                    span[i].textContent = span[i].textContent.replace("Available", "No physical access");
+                  }
+                }
+                updateHoldingStatement('setas');
+                break;
+              // Identify the floor based on call number
+              case 'mstax':
+                let call = vm.item.delivery.bestlocation.callNumber;
+                var spans = document.querySelectorAll("[id='" + vm.item.pnx.control.recordid[0] + "availabilityLine0']");
+                if (spans && call) {
+                  for(var i = 0; i < spans.length; i++) {
+                    var span = spans[i].getElementsByClassName("best-location-sub-location");
+                    var floor = (call.substring(0,2) < "HK") ? "3rd" : "4th";
+                    span[0].textContent = span[0].textContent.replace("3rd or 4th", floor);
+                  }
+                }
+                updateHoldingStatement(floor);
+                break;
             }
-            // Find and hide the "available" message in the holding info, do it on an interval because this bit
-            // loads after document.ready.
-            var holdingStatement = null;
-            var holdingInterval = window.setInterval(function(){
-              if (holdingStatement == null) {
-                holdingStatement = document.evaluate("//p[@ng-if='$ctrl.currLoc.location.availabilityStatus']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
-              } else {
-                clearInterval(holdingInterval);
-                //holdingStatement.innerHTML = "No Physical Access " + vm.loc.location.callNumber;
-                holdingStatement.innerHTML = holdingStatement.innerHTML.replace("Available", "No physical access");
-              }
-            }, 500);
           }
         }
       });
     };
+
+    // Update availability statement in the GetIt tab on an interval because this bit
+    // loads after locations are initialized.
+    function updateHoldingStatement(loc) {
+      var holdingStatement = null;
+      var count = 0;
+      var holdingInterval = window.setInterval(function(){
+        if (count > 50) {
+          clearInterval(holdingInterval);
+        }
+        if (holdingStatement) {
+          clearInterval(holdingInterval);
+          switch(loc) {
+            case 'setas':
+              holdingStatement.innerHTML = holdingStatement.innerHTML.replace("Available", "No physical access");
+              break;
+            case '3rd':
+              holdingStatement.innerHTML = holdingStatement.innerHTML.replace("3rd or 4th", "3rd");
+              break;
+            case '4th':
+              holdingStatement.innerHTML = holdingStatement.innerHTML.replace("3rd or 4th", "4th");
+              break;
+          }
+        } else {
+          holdingStatement = document.evaluate("//p[@ng-if='$ctrl.currLoc.location.availabilityStatus']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
+        }
+      }, 250);
+    }
 }]);
