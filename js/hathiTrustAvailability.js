@@ -239,9 +239,10 @@
                 // Identify the floor based on call number
                 case 'mstax':
                   let call = vm.result.delivery.bestlocation.callNumber;
-                  let span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0').getElementsByClassName("best-location-sub-location");
-                  if (span && call) {
-                    var floor = (call.substring(0,2) < "HK") ? "3rd" : "4th";
+                  let span = document.getElementById(vm.result.pnx.control.recordid[0] + 'availabilityLine0');
+                  span = span ? span.getElementsByClassName("best-location-sub-location") : null;
+                  if (call && span && span.length) {
+                    let floor = (call.substring(0,2) < "HK") ? "3rd" : "4th";
                     span[0].textContent = span[0].textContent.replace("3rd or 4th", floor);
                   }
                   break;
