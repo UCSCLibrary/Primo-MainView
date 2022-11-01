@@ -6,9 +6,9 @@
 /* Different date conditions may be added to control when the banner appears
  * Tip: getMonth() returns 0-11.
  */
-//let bannerDate = new Date();
-//if((bannerDate.getMonth() <= 7) && (bannerDate.getDate() < 27)){
-if (false) {
+let bannerDate = new Date();
+if((bannerDate.getMonth() == 10) && (bannerDate.getDate() < 7)){
+//if (false) {
   // Use an interval to give a 5000ms delay before alert appears
   let alertBanner = window.setInterval(function(){
     let prmAlertBar = document.getElementsByClassName('topbar-wrapper');
@@ -18,10 +18,10 @@ if (false) {
       alertBarDiv.setAttribute('style', 'align-content: center;align-items: center;');
       alertBarDiv.setAttribute('layout-align', 'center center');
       let alertBarInnerDiv = document.createElement('div');
-      alertBarInnerDiv.setAttribute('style', 'text-align: center;background-color: #dff0d8;padding: 3px 0;font-size: 20px;');
+      alertBarInnerDiv.setAttribute('style', 'text-align: center;background-color: #dff0d8;padding: 10px 0 3px;font-size: 20px;');
 
       /*alert banner message to customize */
-      alertBarInnerDiv.innerHTML = '<p>S&E Library lower level books are inaccessible September 22, 2021 - September 21, 2022. Please request items through UC Library Search. <a href="https://library.ucsc.edu/news/science-engineering-library-physical-collections-not-accessible-during-renovation" target="_blank">See more information</a>.</p>';
+      alertBarInnerDiv.innerHTML = '<p>UC Library search will be unavailable on Sunday, November 6th from 1:00 AM to approximately 2:00 AM</p>';
       alertBarDiv.appendChild(alertBarInnerDiv);
       prmAlertBar[0].prepend(alertBarDiv);
     }
