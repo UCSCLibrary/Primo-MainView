@@ -589,3 +589,11 @@ prm-citation md-nav-bar.vertical-nav-bar .md-nav-item .md-button.md-active {
   color: #fff;
   background-color: rgba(0,0,0,.87);
 }
+
+/* Make the loading spinner more noticeable */
+prm-spinner .diamond {
+  background-color: #000 !important;
+  left: 30px !important;
+  width: 1.4em !important;
+  height: 1.4em !important;
+}
