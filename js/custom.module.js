@@ -12,7 +12,7 @@ var app = angular.module('viewCustom', ['angularLoad','googleTagManager','extern
 // Adds the chat button
 (function () {
     var s = document.createElement('script');
-    s.src = 'https://v2.libanswers.com/load_chat.php?hash=d3813658438965a0df80a95fc6312cc4';
+    s.src = 'https://answers.library.ucsc.edu/load_chat.php?hash=d3813658438965a0df80a95fc6312cc4';
     document.body.appendChild(s);
     var d = document.createElement('div');
     d.id = 'libchat_d3813658438965a0df80a95fc6312cc4';

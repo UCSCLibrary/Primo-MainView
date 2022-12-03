@@ -30,7 +30,7 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
 
   // Add Libchat script to the document header.
   var libchat = document.createElement("script");
-  libchat.src = "https://v2.libanswers.com/load_chat.php?hash=d01223b2d5b712cc1cf9015fef8fa534";
+  libchat.src = "https://answers.library.ucsc.edu/load_chat.php?hash=d01223b2d5b712cc1cf9015fef8fa534";
   document.head.appendChild(libchat);
 }]);
 
