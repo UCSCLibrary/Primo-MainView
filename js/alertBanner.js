@@ -7,8 +7,8 @@
  * Tip: getMonth() returns 0-11.
  */
 let bannerDate = new Date();
-if((bannerDate.getMonth() == 10) && (bannerDate.getDate() < 7)){
-//if (false) {
+//if((bannerDate.getMonth() == 0) && (bannerDate.getDate() < 9)){
+if (false) {
   // Use an interval to give a 5000ms delay before alert appears
   let alertBanner = window.setInterval(function(){
     let prmAlertBar = document.getElementsByClassName('topbar-wrapper');
@@ -21,7 +21,7 @@ if((bannerDate.getMonth() == 10) && (bannerDate.getDate() < 7)){
       alertBarInnerDiv.setAttribute('style', 'text-align: center;background-color: #dff0d8;padding: 10px 0 3px;font-size: 20px;');
 
       /*alert banner message to customize */
-      alertBarInnerDiv.innerHTML = '<p>UC Library Search will be unavailable on Sunday, November 6th from 1:00 AM to approximately 2:00 AM</p>';
+      alertBarInnerDiv.innerHTML = '<p>ProQuest sites, including ebooks on Ebook Central and videos from Alexander Street Press will be unavailable from Saturday, January 7th at 7PM until Sunday, January 8th at 5AM PST. <a href="https://support.proquest.com/s/article/ProQuest-Notifications-and-Updates?language=en_US">More information</a></p>';
       alertBarDiv.appendChild(alertBarInnerDiv);
       prmAlertBar[0].prepend(alertBarDiv);
     }

@@ -23,7 +23,7 @@ app.controller('SearchResultListAfterController', ['$scope', '$rootScope', funct
     }
 
     // To tell the template whether or not it's on Worldcat scope.
-    this.notWorldCat = function() {
+    vm.notWorldCat = function() {
       return (vm.search_scope == "Worldcat") ? false : true;
     }
   }

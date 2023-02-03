@@ -597,3 +597,8 @@ prm-spinner .diamond {
   width: 1.4em !important;
   height: 1.4em !important;
 }
+
+/* Hide GES belonging to other institutions */
+prm-alma-other-members prm-request-services {
+  display: none;
+}
