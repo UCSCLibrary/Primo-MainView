@@ -65,6 +65,7 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
         }
         // Update availability in prm-locations when item has multiple holdings
         if (vm.item.delivery.holding && (vm.item.delivery.holding.length > 1)) {
+          let holdings = document.getElementsByTagName("prm-location");
           for (let i = 0; i < vm.item.delivery.holding.length; i++) {
             let location = vm.item.delivery.holding[i].subLocationCode;
             if (location == 'mstax') {
@@ -79,7 +80,8 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
                   span.textContent = span.textContent.replace("3rd or 4th", getFloor(call));
                   clearInterval(locationsInterval);
                 } else {
-                  span = document.evaluate("//span[text()='General Collection, 3rd or 4th Floor']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
+                  // Search within the context of this prm-location
+                  span = document.evaluate(".//span[text()='General Collection, 3rd or 4th Floor']", holdings[i], null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
                   count++;
                 }
               }, 250);
