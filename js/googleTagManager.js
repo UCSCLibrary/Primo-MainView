@@ -15,7 +15,14 @@ angular.module('googleTagManager').run(function ($rootScope, $interval, tagOptio
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', tagOptions.siteId, { 
+        gtag('config', tagOptions.siteId, {
+          'allow_ad_personalization_signals': false,
+          'allow_google_signals': false,
+          'alwaysSendReferrer': true,
+          'anonymizeIp': true
+        });
+
+        gtag('config', tagOptions.legacyId, {
           'allow_ad_personalization_signals': false,
           'allow_google_signals': false,
           'alwaysSendReferrer': true,
@@ -53,7 +60,8 @@ angular.module('googleTagManager').run(function ($rootScope, $interval, tagOptio
 });
 angular.module('googleTagManager').value('tagOptions', {
   enabled: true,
-  siteId: 'UA-2259271-27',
+  siteId: 'G-7S80PSBQ0H',
+  legacyId: 'UA-2259271-27',
   defaultTitle: 'Library Search'
 });
 /* End Google Tag Manager integration */
