@@ -15,14 +15,14 @@ app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($s
     var illNoteText = null;
     var illServiceSpan = null;
     var purchaseButton = null;
-  /*
+
     if ((pnxData.type[0] == 'article') || (pnxData.format[0] == 'journal')) {
-      illNoteText = "Articles are generally delivered electronically within 1-2 days";
+      illNoteText = "Arrives via email in about 2 days.";
     }
     if (pnxData.type[0] == 'book') {
-      illNoteText = "Books generally arrive in 3-7 days";
+      illNoteText = "Arrives at your library in about 1 week.";
     }
-  */
+
     let illIntervalCount = 0;
     var illServiceInterval = window.setInterval(function(){
       illIntervalCount++;
@@ -32,7 +32,7 @@ app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($s
       }
       // Otherwise keep checking for the ILL service
       if (!illServiceSpan) {
-        illServiceSpan = document.evaluate("//span[text()='Request through Interlibrary Loan']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
+        illServiceSpan = document.evaluate("//span[@translate='AlmaResourceSharing']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
       }
       // If we find the service add the note.
       if (illServiceSpan) {
