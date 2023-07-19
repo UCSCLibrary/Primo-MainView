@@ -4,16 +4,14 @@
  */
 
 /* Different date conditions may be added to control when the banner appears
- * Tip: getMonth() returns 0-11.
  */
 let thisDate = new Date();
-let expireDate = new Date("June 18, 2023 01:00:00");
+let expireDate = new Date("July 22, 2023 10:00:00");
 
 if (thisDate < expireDate) {
-//if((bannerDate.getMonth() == 0) && (bannerDate.getDate() < 9)){
 //if (false) {
 
-  // Use an interval to give a 5000ms delay before alert appears
+  // Use an interval to give a 5 second delay before alert appears
   let alertBanner = window.setInterval(function(){
     let prmAlertBar = document.getElementsByClassName('topbar-wrapper');
     if (prmAlertBar[0]) {
@@ -25,7 +23,7 @@ if (thisDate < expireDate) {
       alertBarInnerDiv.setAttribute('style', 'text-align: center;background-color: #dff0d8;padding: 10px 20px 3px;font-size: 20px;');
 
       /*alert banner message to customize */
-      alertBarInnerDiv.innerHTML = '<p>UC Library Search will be unavailable on Sunday, June 18th from midnight to 1:00am. You can continue to access library databases through the <a href="https://guides.library.ucsc.edu/az.php">A-Z list</a> during this time.</p>';
+      alertBarInnerDiv.innerHTML = '<p>IEEE Xplore will undergo scheduled maintenance on Saturday, July 22 from 6:00-10:00 AM PT.</p>';
       alertBarDiv.appendChild(alertBarInnerDiv);
       prmAlertBar[0].prepend(alertBarDiv);
     }
