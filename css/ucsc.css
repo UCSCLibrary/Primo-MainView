@@ -602,3 +602,8 @@ prm-spinner .diamond {
 prm-alma-other-members prm-request-services {
   display: none;
 }
+
+/* Hide Register with other institutions button */
+prm-location-items button[aria-label="register"] {
+  display: none;
+}
