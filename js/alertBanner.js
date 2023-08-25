@@ -6,7 +6,7 @@
 /* Different date conditions may be added to control when the banner appears
  */
 let thisDate = new Date();
-let expireDate = new Date("July 22, 2023 10:00:00");
+let expireDate = new Date("August 28, 2023 12:00:00");
 
 if (thisDate < expireDate) {
 //if (false) {
@@ -23,7 +23,7 @@ if (thisDate < expireDate) {
       alertBarInnerDiv.setAttribute('style', 'text-align: center;background-color: #dff0d8;padding: 10px 20px 3px;font-size: 20px;');
 
       /*alert banner message to customize */
-      alertBarInnerDiv.innerHTML = '<p>IEEE Xplore will undergo scheduled maintenance on Saturday, July 22 from 6:00-10:00 AM PT.</p>';
+      alertBarInnerDiv.innerHTML = '<p>UC Library Search will be under system maintenance this weekend, August 25th-28th. If you receive an error placing a request, please wait a couple minutes and try again.</p>';
       alertBarDiv.appendChild(alertBarInnerDiv);
       prmAlertBar[0].prepend(alertBarDiv);
     }
