@@ -607,3 +607,27 @@ prm-alma-other-members prm-request-services {
 prm-location-items button[aria-label="register"] {
   display: none;
 }
+
+/* Style HowToGetIt links same as ViewIt */
+alma-howovp .layout-column { align-items: flex-start; }
+alma-howovp md-list-item { width: 100%; }
+alma-howovp span { color: #3a3a3a; }
+alma-howovp span[translate="AlmaResourceSharing"],
+alma-howovp span[translate="AlmaPurchaseRequest"] {
+  color: rgb(0, 106, 173);
+  font-size: 16px;
+  line-height: 24px;
+  padding-bottom: 1.6px;
+}
+alma-howovp span[translate="AlmaResourceSharing"]:hover,
+alma-howovp span[translate="AlmaPurchaseRequest"]:hover,
+alma-howovp span[translate="AlmaResourceSharing"]:focus,
+alma-howovp span[translate="AlmaPurchaseRequest"]:focus {
+  box-shadow: inset 0 -2px 0 0 #53738c;
+}
+
+/* Style hover effect on full-page same as modal */
+alma-howovp .neutralized-button:focus.md-button,
+alma-howovp .neutralized-button:hover.md-button {
+  background-color: #e6e6e6;
+}
