@@ -16,10 +16,10 @@ app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($s
     var illServiceSpan = null;
     var purchaseButton = null;
 
-    if ((pnxData.type[0] == 'article') || (pnxData.format[0] == 'journal')) {
+    if ((pnxData.type && pnxData.type[0] == 'article') || (pnxData.format && pnxData.format[0] == 'journal')) {
       illNoteText = "Arrives via email in about 2 days.";
     }
-    if (pnxData.type[0] == 'book') {
+    if (pnxData.type && pnxData.type[0] == 'book') {
       illNoteText = "Arrives at your library in about 1 week.";
     }
 
