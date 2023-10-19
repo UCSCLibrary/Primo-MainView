@@ -73,7 +73,7 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
               let span = null;
               let count = 0;
               let locationsInterval = window.setInterval(function() {
-                if (count > 40) {
+                if (count > 150) {
                   clearInterval(locationsInterval);
                 }
                 if (span && call) {
@@ -84,7 +84,7 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
                   span = document.evaluate(".//span[text()='General Collection, 3rd or 4th Floor']", holdings[i], null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
                   count++;
                 }
-              }, 250);
+              }, 100);
             }
           }
 
@@ -98,7 +98,7 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
       let holdingStatement = null;
       let count = 0;
       let holdingInterval = window.setInterval(function(){
-        if (count > 50) {
+        if (count > 150) {
           clearInterval(holdingInterval);
         }
         if (holdingStatement) {
@@ -118,7 +118,7 @@ app.controller('LocationItemsAfterController', ['$scope', function($scope){
           count++;
           holdingStatement = document.evaluate("//p[@ng-if='$ctrl.currLoc.location.availabilityStatus']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null ).snapshotItem(0);
         }
-      }, 250);
+      }, 100);
     }
 
     // Take a call number for mstax and returns the correct floor number
