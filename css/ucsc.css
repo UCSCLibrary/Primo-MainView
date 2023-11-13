@@ -636,3 +636,8 @@ alma-howovp .neutralized-button:hover.md-button {
 prm-icon[icon-definition="emoticon-cool"] {
   display: none;
 }
+
+/* Wrap the longer text of this button */
+button.md-button[aria-label="Renew all from this campus"] {
+  white-space: normal;
+}
