@@ -631,3 +631,8 @@ alma-howovp .neutralized-button:focus.md-button,
 alma-howovp .neutralized-button:hover.md-button {
   background-color: #e6e6e6;
 }
+
+/* Hide the sunglasses emoji on fines & fees boxes */
+prm-icon[icon-definition="emoticon-cool"] {
+  display: none;
+}
