@@ -652,8 +652,7 @@ ul.md-autocomplete-suggestions li {
   font-size: 1.15em;
   height: auto;
   line-height: 1.2em;
-  display: inline-block;
-  margin: .4em 0;
+  margin: .6em 0;
 }
 
 /* Make the magnifying glass icon stick with the scope name on line wrap */
