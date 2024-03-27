@@ -666,3 +666,8 @@ ul.md-autocomplete-suggestions li span.suggestion-scope:before {
   position: relative;
   top: 2px;
 }
+
+/* Expanded search results notification in yellow background */
+md-card:has(span[translate="nui.results.search.was.expanded"]) {
+  background-color: #ffcc33;
+}
