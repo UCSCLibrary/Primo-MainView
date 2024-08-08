@@ -671,3 +671,6 @@ ul.md-autocomplete-suggestions li span.suggestion-scope:before {
 md-card:has(span[translate="nui.results.search.was.expanded"]) {
   background-color: #ffcc33;
 }
+
+/* Hide the sign in alert on the search results page */
+prm-search prm-alert-bar { display: none; }
