@@ -674,3 +674,6 @@ md-card:has(span[translate="nui.results.search.was.expanded"]) {
 
 /* Hide the sign in alert on the search results page */
 prm-search prm-alert-bar { display: none; }
+
+/* Increase spacing between metadata fields in item details */
+#item-details .layout-row { margin-bottom: 0.8em; }
