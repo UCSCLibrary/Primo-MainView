@@ -677,3 +677,4 @@ prm-search prm-alert-bar { display: none; }
 
 /* Increase spacing between metadata fields in item details */
 #item-details .layout-row { margin-bottom: 0.8em; }
+#item-details .layout-row div:first-child { padding-right: 10px; }
