@@ -290,6 +290,7 @@ prm-opac.non-dda-login-alert .layout-column {
   background-color: #eee;
   border-color: #eee;
 }
+.non-dda-login-alert .journal .bar.alert-bar { background-color: #fff; }
 
 /* Increase size of scope selection dropdown menu to show SC&A */
 md-select-menu { 

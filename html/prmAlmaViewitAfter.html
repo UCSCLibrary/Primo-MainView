@@ -1,0 +1,28 @@
+<div ng-if="$ctrl.showJournalILL">
+  <md-list layout="column" class="separate-list-items md-primoExplore-theme layout-column" role="list">
+    <md-list-item class="md-3-line in-element-dialog-parent animate-opacity-and-scale md-no-proxy _md pointer" aria-label="Request an item from this journal not covered by our subscription" role="listitem">
+      <div class="in-element-dialog-context layout-row flex" layout="row">
+        <div class="md-list-item-text layout-wrap layout-row flex" aria-live="assertive" layout="row">
+
+          <div ng-if="!$ctrl.isLoggedInIDP()">
+            <span>Sign in to request an item from this journal not covered by our subscription</span>
+            <prm-authentication [is-logged-in]="$ctrl.userName().length > 0" [idp-logout]="$ctrl.idpLogout" flex="none" class="flex-none">
+                <button class="button-with-icon zero-margin md-button md-primoExplore-theme md-ink-ripple button-link" type="button" ng-transclude="" ng-click="$ctrl.handleLogin();" aria-label="Sign in">
+                    <prm-icon icon-type="svg" svg-icon-set="primo-ui" icon-definition="sign-in">
+                        <md-icon ng-if="($ctrl.iconDefinition &amp;&amp; !$ctrl.isCustom &amp;&amp; !$ctrl.isEmailMode()) &amp;&amp; !$ctrl.useFallBack" md-svg-icon="primo-ui:sign-in" role="presentation" class="md-primoExplore-theme"><svg id="sign-in_cache46" width="100%" height="100%" viewBox="0 0 24 24" y="192" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M10,17.25V14H3V10H10V6.75L15.25,12L10,17.25M8,2H17A2,2 0 0,1 19,4V20A2,2 0 0,1 17,22H8A2,2 0 0,1 6,20V16H8V20H17V4H8V8H6V4A2,2 0 0,1 8,2Z"></path></svg></md-icon>
+                        <prm-icon-after parent-ctrl="$ctrl"></prm-icon-after>
+                    </prm-icon>
+                    <span translate="eshelf.signin.title">Sign in</span>
+                </button>
+                <prm-authentication-after parent-ctrl="$ctrl"></prm-authentication-after>
+            </prm-authentication>
+          </div>
+
+          <div ng-if="$ctrl.isLoggedInIDP()">
+            <a href="https://ucsc-psb.primo.exlibrisgroup.com/discovery/blankIll?vid=01CDL_SCR_INST%3AUSCS">Request an item from this journal not covered by our subscription</a>
+          </div>
+        </div>
+      </div>
+    </md-list-item>
+  </md-list>
+</div>
