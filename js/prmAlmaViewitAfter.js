@@ -15,5 +15,15 @@ app.controller('prmAlmaViewitAfter', ['$scope', '$rootScope', function($scope, $
     if(vm.parentCtrl.item.pnx.display.type[0] == "journal") {
       vm.showJournalILL = true;
     }
+
+    vm.isLoggedIn = function() {
+      let indicator = document.getElementById('loggedInIndicator');
+      if (indicator){
+        if ((indicator.innerText == "nui.aria.signInSuccess") || (indicator.innerText == "Sign in successful")) {
+          return true;
+        }
+      }
+      return false;
+    }
   }
 }]);

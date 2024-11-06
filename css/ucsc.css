@@ -290,7 +290,17 @@ prm-opac.non-dda-login-alert .layout-column {
   background-color: #eee;
   border-color: #eee;
 }
-.non-dda-login-alert .journal .bar.alert-bar { background-color: #fff; }
+/* Style Journals-only ILL link and sign in */ 
+.journal .bar.alert-bar {
+  background-color: #fff;
+  border-color: #eee;
+}
+prm-alma-viewit-after ._md-secondary-container md-icon {
+  height: 15px;
+  width: 15px;
+  min-height: 15px;
+  min-width: 15px;
+}
 
 /* Increase size of scope selection dropdown menu to show SC&A */
 md-select-menu { 
