@@ -1,0 +1,25 @@
+<div ng-if="$ctrl.showJournalILL && $ctrl.isLoggedIn()" layout="column" layout-fill="" class="layout-fill layout-column journal">
+  <md-list layout="column" class="separate-list-items md-primoExplore-theme layout-column" role="list">
+    <div>
+      <md-list-item class="in-element-dialog-parent animate-opacity-and-scale md-no-proxy _md pointer" aria-label="Request an item from this journal not covered by our subscription, opens in a new window" role="listitem">
+        <div class="in-element-dialog-context layout-row flex" layout="row" flex="">
+          <div class="md-list-item-text layout-wrap layout-row flex" aria-live="assertive" layout="row">
+            <div flex="" flex-xs="100" class="flex-xs-100 flex">
+              <div class="record-status-text">
+                <a class="item-title md-primoExplore-theme" href="https://ucsc.primo.exlibrisgroup.com/discovery/blankIll?vid=01CDL_SCR_INST:USCS&mytest=true&title=some+test" target="_blank">Request an item from this journal not covered by our subscription</a>
+              </div>
+            </div>
+          </div>
+          <div class="_md-secondary-container">
+            <prm-icon layout-margin="" icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new" class="layout-margin">
+              <md-icon md-svg-icon="primo-ui:open-in-new" role="presentation" class="md-primoExplore-theme">
+                <svg id="open-in-new_cache51" width="100%" height="100%" viewBox="0 0 24 24" y="504" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
+              </md-icon>
+              <prm-icon-after parent-ctrl="$ctrl"></prm-icon-after>
+            </prm-icon>
+          </div>
+        </div>
+      </md-list-item>
+    </div>
+  </md-list>
+</div>
