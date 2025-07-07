@@ -689,3 +689,10 @@ prm-search prm-alert-bar { display: none; }
 /* Increase spacing between metadata fields in item details */
 #item-details .layout-row { margin-bottom: 0.8em; }
 #item-details .layout-row div:first-child { padding-right: 10px; }
+
+/* Match Primo quicklinks with libkey quicklinks */
+prm-quick-link .quick-links-icons { opacity: 0.4; }
+prm-quick-link a span,
+prm-quick-link prm-icon[external-link] {
+  color: #006aad;
+}
