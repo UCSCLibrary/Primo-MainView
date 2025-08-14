@@ -691,6 +691,7 @@ prm-search prm-alert-bar { display: none; }
 #item-details .layout-row div:first-child { padding-right: 10px; }
 
 /* Match Primo quicklinks with libkey quicklinks */
+prm-quick-link prm-icon[link-arrow] { display: none !important; }
 prm-quick-link .quick-links-icons { opacity: 0.4; }
 prm-quick-link a span,
 prm-quick-link prm-icon[external-link] {
