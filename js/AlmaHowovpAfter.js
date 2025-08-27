@@ -44,6 +44,7 @@ app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($s
       }
     }, 100);
 
+    /* Commented out while DDA program is on pause. The purchase request button is now always hidden using a Display Logic Rule.
     let ddaIntervalCount = 0;
     var ddaServiceInterval = window.setInterval(function(){
       ddaIntervalCount++;
@@ -67,7 +68,7 @@ app.controller('almaHowovpAfterController', ['$scope', '$rootScope', function($s
         // and exit
         clearInterval(ddaServiceInterval);
       }
-    }, 100);
+    }, 100); */
   }
 
 }]);

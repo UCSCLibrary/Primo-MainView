@@ -16,11 +16,12 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
 
     // Watch for the details to load, 'Discovery print' value in the local field lds07 indicates DDA
     var isDdaItem = false;
+    /* Commented out while DDA program is on pause. The purchase request button is now always hidden using a Display Logic Rule.
     if (vm.item.pnx.display.lds07) {
       if (vm.item.pnx.display.lds07.includes("Discovery Print") || vm.item.pnx.display.lds07.includes("Discovery print")) {
         isDdaItem = true;
       }
-    }
+    } */
 
     // Display a different message on journals
     var showJournalILL = false;
@@ -28,8 +29,15 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
       showJournalILL = true;
     }
 
-    // Keep checking until we have signInLabel & isDdaItem values
+    // Look for the sign-in alert button to load, using an interval
+    let alertIntervalCount = 0;
     var checkAlertInterval = window.setInterval(function(){
+      // Increase the counter and exit if we've waited too long
+      alertIntervalCount++;
+      if (alertIntervalCount > 300) {
+        clearInterval(checkAlertInterval);
+      }
+      // Try to identify the sign-in alert and purchase request button based on label text
       if (!signInLabel) {
         signInLabel = document.evaluate("//span[text()='Please sign in to check if there are additional request options.']", document, null, XPathResult.ANY_TYPE, null ).iterateNext();
       }
@@ -45,8 +53,8 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
           purchaseButton = purchaseButton.parentNode.parentNode.parentNode.parentNode.parentNode;
         }
       }
-      // If we have both a label and an answer to isDda, update the alert and exit the interval.
-      if (signInLabel && isDdaItem !== null) {
+      // If we have a label update the alert and exit the interval.
+      if (signInLabel) {
         var alertNode = signInLabel.parentNode.parentNode;
         clearInterval(checkAlertInterval);
         updateLoginAlert(isDdaItem, showJournalILL, alertNode, signInLabel);
