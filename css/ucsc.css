@@ -697,3 +697,6 @@ prm-quick-link a span,
 prm-quick-link prm-icon[external-link] {
   color: #006aad;
 }
+
+/* Hide the nav jump menu on the full record view */
+prm-full-view .services-index-under #services-index { display: none; }
