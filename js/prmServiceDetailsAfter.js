@@ -63,7 +63,7 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
       if (signInLabel) {
         var alertNode = signInLabel.parentNode.parentNode;
         clearInterval(checkAlertInterval);
-        updateLoginAlert(isDdaItem, showJournalILL, available, alertNode, signInLabel,vm.item.delivery.availability);
+        updateLoginAlert(isDdaItem, showJournalILL, available, alertNode, signInLabel);
       }
       // If we find a purchase button
       if (purchaseButton) {
@@ -79,18 +79,13 @@ app.controller('ServiceDetailsAfterController', ['$scope', function($scope){
     }, 100);
   };
 
-  function updateLoginAlert(isDdaItem, showJournalILL, available, alertNode, signInLabel, test) {
+  function updateLoginAlert(isDdaItem, showJournalILL, available, alertNode, signInLabel) {
     if (isDdaItem) {
       signInLabel.innerHTML = "Sign in to Request Library Purchase.";
     } else {
       let alertWrapper = signInLabel.parentNode.parentNode.parentNode.parentNode;
       // Sign in banner is yellow by default. If items are available, de-emphasize the banner.
       if (available) {
-        // this isn't working. Its showing as available = true when the data object has "no_inventory".
-        // checking it in the console comes out correct, but well, maybe now its working this is confusing
-        // good luck on monday
-        console.log("test is " + test);
-        console.log("object data is " + this.parentCtrl.item.delivery.availability);
         alertWrapper.setAttribute("class", "non-dda-login-alert");
         alertWrapper.parentNode.parentNode.setAttribute("class", "non-dda-login-alert");
         signInLabel.innerHTML = "Sign in for more options.";
